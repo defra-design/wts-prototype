@@ -104,8 +104,8 @@
                 EWC code
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data ['ec-code'] == Yes %}
-                <p class="govuk-body">{{ codes }}test</p>
+                {% if data ['ec-code'] == "Yes" %}
+                <p class="govuk-body">{{ data['ewc-wastes-typeahead'] }}</p>
 
                 {% elseif data ['ec-code'] == "No" %}
                 <p class="govuk-body">Not provided</p>
@@ -205,16 +205,16 @@
               <dd class="govuk-summary-list__value">
                 <p class="govuk-body">
                   {% if data ['waste-amount'] == "actual-kg" %}
-                <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+                <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} 123 kg</p>
 
                 {% elseif data ['waste-amount'] == "estimated-kg" %}
-                <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+                <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} 123 kg</p>
 
                 {% elseif data ['waste-amount'] == "actual-litre" %}
-                <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres</p>
+                <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} 123 litres</p>
 
                 {% elseif data ['waste-amount'] == "estimated-litre" %}
-                <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} litres</p>
+                <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} 123 litres</p>
 
                 {% elseif data ['waste-amount'] == "unknown" %}
                 <p class="govuk-body">Unknown</p>

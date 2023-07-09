@@ -1200,7 +1200,7 @@ router.post('/container-one-type', function(req, res) {
     res.redirect('waste-source');
 })
 
-//--- CONTAINER - MULTIPLE
+//--- CONTAINER - MULTIPLE (FIRST)
 router.post('/container-multiple-type', function(req, res) {
   res.redirect('container-multiple-add-another');
 })
@@ -1208,11 +1208,31 @@ router.post('/container-multiple-type', function(req, res) {
 //--- CONTAINER - MULTIPLE ADD ANOTHER
 router.post('/container-multiple-add-another', function(req, res) {
   if (req.session.data['add-container'] == 'Yes') {
+      res.redirect('container-multiple-type-1');
+  } else if (req.session.data['add-container'] == 'No') {
+          res.redirect('waste-source');
+  }
+  })
+
+  //--- CONTAINER - MULTIPLE (SECOND)
+router.post('/container-multiple-type-1', function(req, res) {
+  if (req.session.data['add-container'] == 'Yes') {
       res.redirect('container-multiple-add-another-1');
   } else if (req.session.data['add-container'] == 'No') {
           res.redirect('waste-source');
   }
   })
+
+  //--- CONTAINER - MULTIPLE ADD ANOTHER
+router.post('/container-multiple-add-another-1', function(req, res) {
+  if (req.session.data['add-container-1'] == 'Yes') {
+      res.redirect('waste-source');
+  } else if (req.session.data['add-container-1'] == 'No') {
+          res.redirect('waste-source');
+  }
+  })
+
+
 
 //--- CONTAINER - MULTIPLE ADD ANOTHER
 router.post('/container-multiple-add-another-1', function(req, res) {

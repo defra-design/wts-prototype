@@ -44,13 +44,13 @@ href: 'javascript:history.go(-1)'
                 EWC code
               </dt>
               <dd class="govuk-summary-list__value">
-                <!-- {% if data ['ec-code'] == Yes %} -->
+                {% if data ['ec-code'] == "Yes" %} 
                 <p class="govuk-body">{{ data['ewc-wastes-typeahead'] }}</p>
-                <p class="govuk-body"><b>010101:</b> wastes from mineral metalliferous excavation</p>
+                <!-- <p class="govuk-body"><b>010101:</b> wastes from mineral metalliferous excavation</p> -->
 
-                <!-- {% elseif data ['ec-code'] == "No" %} -->
-                <!-- <p class="govuk-body">Not provided</p>
-                {% endif %} -->
+                {% elseif data ['ec-code'] == "No" %}
+                <p class="govuk-body">Not provided</p>
+                {% endif %}
 
               </dd>
               <dd class="govuk-summary-list__actions">
@@ -146,16 +146,16 @@ href: 'javascript:history.go(-1)'
               <dd class="govuk-summary-list__value">
                 <p class="govuk-body">
                   {% if data ['waste-amount'] == "actual-kg" %}
-                <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+                <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} 123 kg</p>
 
-                {% elseif data ['waste-amount'] == "estimated-kg" %}
-                <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+                {% elseif data ['waste-amount'] == "estimate-kg" %}
+                <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} 123 kg</p>
 
                 {% elseif data ['waste-amount'] == "actual-litre" %}
-                <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres</p>
+                <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} 123 litres</p>
 
-                {% elseif data ['waste-amount'] == "estimated-litre" %}
-                <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} litres</p>
+                {% elseif data ['waste-amount'] == "estimate-litre" %}
+                <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} 123 litres</p>
 
                 {% elseif data ['waste-amount'] == "unknown" %}
                 <p class="govuk-body">Unknown</p>
