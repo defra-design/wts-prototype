@@ -207,13 +207,13 @@
                   {% if data ['waste-amount'] == "actual-kg" %}
                 <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} 123 kg</p>
 
-                {% elseif data ['waste-amount'] == "estimated-kg" %}
+                {% elseif data ['waste-amount'] == "estimate-kg" %}
                 <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} 123 kg</p>
 
                 {% elseif data ['waste-amount'] == "actual-litre" %}
                 <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} 123 litres</p>
 
-                {% elseif data ['waste-amount'] == "estimated-litre" %}
+                {% elseif data ['waste-amount'] == "estimate-litre" %}
                 <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} 123 litres</p>
 
                 {% elseif data ['waste-amount'] == "unknown" %}
