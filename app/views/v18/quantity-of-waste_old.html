@@ -10,44 +10,46 @@
 
       <h1 class="govuk-heading-l">
         <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
-        How is the waste classified?
+        How will you enter the quantity of waste?
       </h1>
+      <p class="govuk-body">If the quantity might change, enter an estimate.</p>
 
       <form method="post">
         {{ govukRadios({
-          idPrefix: "waste-source",
-          name: "waste-source",
+          idPrefix: "waste-amount",
+          name: "waste-amount",
           fieldset: {
             legend: { }
           },
           items: [
             {
-              value: "Household waste",
-              text: "Household waste",
-              checked: data['waste-source'] == "household"
+              value: "Actual weight (kg)",
+              text: "Actual weight (kg)",
+              checked: data['waste-amount'] == "actual-kg"
             },
             {
-              value: "Commercial waste",
-              text: "Commercial waste",
-              checked: data['waste-source'] == "commercial"
+              value: "Estimated weight (kg)",
+              text: "Estimated weight (kg)",
+              checked: data['waste-amount'] == "estimate-kg"
             },
             {
-              value: "Industrial waste",
-              text: "Industrial waste",
-              checked: data['waste-source'] == "industrial"
+              value: "Actual volume (litres)",
+              text: "Actual volume (litres)",
+              checked: data['waste-amount'] == "actual-litre"
             },
             {
-              value: "Fly-tipped waste",
-              text: "Fly-tipped waste",
-              checked: data['waste-source'] == "flytipped"
+              value: "Estimated volume (litres)",
+              text: "Estimated volume (litres)",
+              checked: data['waste-amount'] == "estimate-litre"
             },
             {
+
               divider: "or"
             },
             {
-              value: "Unknown",
-              text: "I do not know",
-              checked: data['waste-source'] == "unknown"
+              value: "unknown",
+              text: "I don’t know the amount yet",
+              checked: data['waste-amount'] == "unknown"
             }
           ]
         }) }}

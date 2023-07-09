@@ -1,0 +1,358 @@
+{% extends "../layout.html" %}
+
+<!-- <meta http-equiv="refresh" content="5"/> -->
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/step-by-step-nav.js"></script>
+<script type="text/javascript">
+    var $element = $('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
+    stepByStepNavigation.start($element)
+  </script>
+{% endblock %}
+
+<!---------- BREADCRUMBS ---------->
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="index-homepage.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Tell us about some waste
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Start a waste note
+      <span class="win-id govuk-caption-l">ID: AAAA-4712</span>
+    </h1>
+
+<!--
+  These starting paragraphs should reflect what state the note is currently in, and what the next step is.
+  Currently only set up for the first section (about the waste), as that was being tested.
+  Need to set up variables/status' so certain info is shown at certain times.
+  A switch statement would be good, although may need to set up in routes.js
+-->
+
+    {% if (data['section_1_complete'] == 'no') %}
+    <!-- <p class="govuk-body">
+        This is a new waste note.
+      </p> -->
+      <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-7">
+        The first step is to enter the initial information.
+      </p>
+
+    {% else %}
+
+      {% if (data['section_2_complete'] == 'no') %}
+        <!-- <p class="govuk-body">
+          This waste note has been saved from when it was last updated.
+        </p> -->
+        <p class="govuk-body govuk-!-margin-bottom-7">
+          The next step is to confirm that all information has been entered correctly.
+        </p>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <!-- section 1 -->
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        
+        <strong class="govuk-tag app-task-list__tag" id="waste_details_status">
+            Completed
+        </strong>
+
+        <h2 class="govuk-heading-m">
+          About the waste
+        </h2>  
+
+        <!------------------------------- SECTION 1 PLAYBACK - (add accordian if needed) ------------------------------------------->
+  
+        <!---------------------  ABOUT THE WASTE ----------------------------------------------------->
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <!------ EWC code  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                EWC code
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data ['ec-code'] == Yes %}
+                <p class="govuk-body">{{ codes }}test</p>
+
+                {% elseif data ['ec-code'] == "No" %}
+                <p class="govuk-body">Not provided</p>
+                {% endif %}
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="ewc-add-another.html">
+                  Change<span class="govuk-visually-hidden"> EWC codes</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Waste description  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste description
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ data['describe-waste'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="waste-description">
+                  Change<span class="govuk-visually-hidden"> waste description</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Waste form  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste form
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ data['physical_form'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="physical-form.html">
+                  Change<span class="govuk-visually-hidden"> waste form</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Waste container  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste container
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {% if data ['container'] == "container-one" %}
+                  <p class="govuk-body">{{ data['one-container_quantity'] }}</p>
+                  <p class="govuk-body">{{ data['one-container_type'] }}</p>
+
+                {% elseif data ['container'] == "container-multiple" %}
+                  <p class="govuk-body">{{ data['container-quantity'] }}</p>
+                  <p class="govuk-body">{{ data['container-description'] }}</p>
+                  <p class="govuk-body">{{ data['container-quantity'] }}4</p>
+                  <p class="govuk-body">{{ data['container-description'] }}</p>
+
+                {% elseif data ['container'] == "loose" %}
+                  <p class="govuk-body">Loose (not in a container)</p>
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="container">
+                  Change<span class="govuk-visually-hidden"> container</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Waste source  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste source
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ data['waste-source'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="waste-source.html">
+                  Change<span class="govuk-visually-hidden"> waste source</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Waste quantity  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste quantity
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {% if data ['waste-amount'] == "actual-kg" %}
+                <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                {% elseif data ['waste-amount'] == "estimated-kg" %}
+                <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                {% elseif data ['waste-amount'] == "actual-litre" %}
+                <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres</p>
+
+                {% elseif data ['waste-amount'] == "estimated-litre" %}
+                <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} litres</p>
+
+                {% elseif data ['waste-amount'] == "unknown" %}
+                <p class="govuk-body">Unknown</p>
+                {% endif %}
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="quantity">
+                  Change<span class="govuk-visually-hidden"> waste quantity</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+    <!------------------------------- SECTION 1 PLAYBACK END ------------------------------------------->
+
+        
+    <div class="govuk-!-padding-bottom-2"></div>
+
+      <!------------------------------- FOLLOWING STEPS ------------------------------------------->
+
+      <h2 class="govuk-heading-m">
+        Following steps
+      </h2>
+      <hr class="govuk-section-break--l govuk-section-break--visible">
+    
+
+      <!-- section 2 -->
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <h2 class="govuk-heading-m">
+          Carrying safely and duty of care
+        </h2>
+        <p>
+          Enter the carrier details, any special handling requirements, and if the waste contains persistent organic pollutants (POPs) .
+        </p>
+        <a class="govuk-body govuk-link" href="">Enter details for carrying the waste</a>
+        <!-- tag or button -->
+        <!-- {% if (data['section_1_complete'] == 'yes') %}  if the first section is done, show button to start this section 
+          <form method="post">
+            {{ govukButton({
+              text: "Start",
+              isStartButton: true
+            }) }}
+          </form> -->
+
+        <!-- {% else %} section 1 is not done, so show tag 
+          <strong class="govuk-tag govuk-tag--grey">
+            cannot start yet
+          </strong>
+        {% endif %} -->
+        
+      </li> <!-- end of section 2 -->
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <!-- section 3 -->
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <h2 class="govuk-heading-m">
+          How the waste was produced
+        </h2>
+        <p>
+          Enter details for the waste producer and how the waste was produced.        
+        </p>
+        <a class="govuk-body govuk-link" href="">Enter details of the waste production</a>
+        <!-- 
+        <strong class="govuk-tag govuk-tag--grey">
+          cannot start yet
+        </strong>
+      </li>  end of section 3 -->
+      
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <!-- section 4 -->
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <h2 class="govuk-heading-m">
+          Receiver details
+        </h2>
+        <p>
+          Enter details for the waste destination.        
+        </p>
+        <a class="govuk-body govuk-link" href="">Enter details of the waste destination</a>
+        <!-- tag 
+        <strong class="govuk-tag govuk-tag--grey">
+          cannot start yet
+        </strong> <!-- end of section 4 -->
+      </li>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <!-- section 5 -->
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <h2 class="govuk-heading-m">
+          Pay for a waste movement
+        </h2>
+        <p>
+          Enter payment details
+        </p>
+        <a class="govuk-body govuk-link" href="">Enter payment details for the waste movement</a>
+        <!-- tag 
+        <strong class="govuk-tag govuk-tag--grey">
+          cannot start yet
+        </strong>
+      </li> <!-- end of section 5 -->
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <!-- section 6 -->
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <h2 class="govuk-heading-m">
+          Receiver confirmation
+        </h2>
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>check the details of the waste are accurate</li>
+          <li>add the relevant waste treatment code</li>
+          <li>confirm that the waste has arrived at the receiving site</li>
+        </ul>
+        <!---<a class="govuk-body govuk-link" href="">Check and confirm the receipt of waste</a>-->
+        <tag><strong class="govuk-tag govuk-tag--grey">cannot start yet</strong></tag> 
+        
+      </li> <!-- end of section 6 -->
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </ol>
+
+    <div class="govuk-!-padding-bottom-8"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            <a href="home-move-waste-uk.html">
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Return to this note later
+              </button>
+            </a>
+        </div>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+
+{% endblock %}
