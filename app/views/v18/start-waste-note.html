@@ -15,12 +15,16 @@
   </script>
 {% endblock %}
 
+<!---------- BREADCRUMBS ---------->
 
 {% block beforeContent %}
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="./">Home</a>
+      <a class="govuk-breadcrumbs__link" href="index-homepage.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
       Tell us about some waste
@@ -41,7 +45,7 @@
 
 <!--
   These starting paragraphs should reflect what state the note is currently in, and what the next step is.
-  Currently only set up for the first 2 steps, as that was being tested.
+  Currently only set up for the first section (about the waste), as that was being tested.
   Need to set up variables/status' so certain info is shown at certain times.
   A switch statement would be good, although may need to set up in routes.js
 -->
@@ -79,7 +83,7 @@
       <!-- section 1 -->
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
-          Initial information
+          About the waste
         </h2>
         <p>
           Before you start you will have classified the waste.
@@ -89,6 +93,7 @@
           <li class="govuk-list">
 
             <!-- WASTE CODE & DESCRIPTION -->
+
             {% if ((data['waste_details_status'] == 'Completed') or (data['waste_details_status'] == 'Review')) %}
               <a href="ewc-code.html" aria-describedby="waste_details_status">
                 Waste code and description
@@ -99,12 +104,17 @@
               </a>
             {% endif %}
 
-            <strong class="govuk-tag {{ data['waste_details_status_class'] }} app-task-list__tag" id="waste_details_status">
+            <!-- <strong class="govuk-tag {{ data['waste_details_status_class'] }} app-task-list__tag" id="waste_details_status">
               {{ data['waste_details_status'] }}
+            </strong> -->
+
+            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
+              Not started
             </strong>
           </li>
 
           <!-- WASTE CONTAINER -->
+
           <li class="govuk-list">
             {% if ((data['container_status'] == 'Completed') or (data['container_status'] == 'Review')) %}
               <a href="container.html" aria-describedby="container_status"> <!-- needs to go to check answers? -->
@@ -116,22 +126,33 @@
               </a>
             {% endif %}
 
-            <strong class="govuk-tag {{ data['container_status_class'] }} app-task-list__tag" id="container_status">
+           <!--  <strong class="govuk-tag {{ data['container_status_class'] }} app-task-list__tag" id="container_status">
               {{ data['container_status'] }}
+            </strong> -->
+
+            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="container_status">
+              Not started
             </strong>
           </li>
 
           <!-- WHERE WASTE WAS CREATED -->
+
           <li class="govuk-list">
             <a href="waste-source.html" aria-describedby="waste_source_status">
               Where the waste was created
             </a>
-            <strong class="govuk-tag {{ data['waste_source_status_class'] }} app-task-list__tag" id="waste_source_status">
+
+            <!-- <strong class="govuk-tag {{ data['waste_source_status_class'] }} app-task-list__tag" id="waste_source_status">
               {{ data['waste_source_status'] }}
+            </strong> -->
+
+            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_source_status">
+              Not started
             </strong>
           </li>
 
         <!-- WASTE QUANTITY -->
+
           <li class="govuk-list">
             {% if ((data['waste_quantity_status'] == 'Completed') or (data['waste_quantity_status'] == 'Review')) %}
               <a href="quantity-of-waste.html" aria-describedby="waste_quantity_status">
@@ -143,8 +164,12 @@
               </a>
             {% endif %}
 
-            <strong class="govuk-tag {{ data['waste_quantity_status_class'] }} app-task-list__tag" id="waste_quantity_status">
+            <!-- <strong class="govuk-tag {{ data['waste_quantity_status_class'] }} app-task-list__tag" id="waste_quantity_status">
               {{ data['waste_quantity_status'] }}
+            </strong> -->
+
+            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_quantity_status">
+              Not started
             </strong>
           </li>
         </ul>
@@ -175,16 +200,16 @@
       <h2 class="govuk-heading-m">
         Following steps
       </h2>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <hr class="govuk-section-break--l govuk-section-break--visible">
     
 
       <!-- section 2 -->
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
-          Confirm
+          Carrying safely and duty of care
         </h2>
         <p>
-          Confirmation by the person who has started the waste movement that all information has been entered correctly.
+          Enter the carrier details, any special handling requirements, and if the waste contains persistent organic pollutants (POPs) .
         </p>
         <!-- tag or button -->
         <!-- {% if (data['section_1_complete'] == 'yes') %}  if the first section is done, show button to start this section 
@@ -206,10 +231,10 @@
       <!-- section 3 -->
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
-          Pay
+          How the waste was produced
         </h2>
         <p>
-          Enter payment details.
+          Enter details for the waste producer and how the waste was produced.        
         </p>
 
         <!-- 
@@ -223,13 +248,11 @@
       <!-- section 4 -->
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
-          Collect and move the waste
+          Receiver details
         </h2>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>if not previously given, provide the carrier and registration details</li>
-          <li>state how the waste will be moved</li>
-          <li>declare that the waste is as described and collected</li>
-        </ul>
+        <p>
+          Enter details for the waste destination.        
+        </p>
 
         <!-- tag 
         <strong class="govuk-tag govuk-tag--grey">
@@ -241,10 +264,10 @@
       <!-- section 5 -->
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
-          Declaration
+          Pay for a waste movement
         </h2>
         <p>
-          Confirm that the carrier has checked and picked up the waste.
+          Enter payment details
         </p>
 
         <!-- tag 
@@ -257,7 +280,7 @@
       <!-- section 6 -->
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
-          Waste delivery and completion
+          Receiver confirmation
         </h2>
         <ul class="govuk-list govuk-list--bullet">
           <li>check the details of the waste are accurate</li>

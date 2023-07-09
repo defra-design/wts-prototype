@@ -4,61 +4,54 @@
   {{serviceName}}
 {% endblock %}
 
-{% block beforeContent %}
-{{ govukBackLink({
-    text: 'Back',
-    href: 'javascript:history.go(-1)'
-  }) }}
-{% endblock %}
-
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
-        How will you enter the quantity of waste?
-      </h1>
-      <p class="govuk-body">If the quantity might change, enter an estimate.</p>
+        <form class="form" action="" method="post">
 
-      <form method="post">
-        {{ govukRadios({
-          idPrefix: "waste-amount",
-          name: "waste-amount",
-          fieldset: {
-            legend: { }
-          },
-          items: [
-            {
-              value: "actual-tonnes",
-              text: "Actual weight (tonnes)",
-              checked: data['waste-amount'] == "actual-tonnes"
-            },
-            {
-              value: "estimated-tonnes",
-              text: "Estimated weight (tonnes)",
-              checked: data['waste-amount'] == "estimated-tonnes"
-            },
-            {
-              value: "actual-cubic",
-              text: "Actual volume (cubic metres)",
-              checked: data['waste-amount'] == "actual-cubic"
-            },
-            {
-              value: "estimated-cubic",
-              text: "Estimated volume (cubic metres)",
-              checked: data['waste-amount'] == "estimated-cubic"
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "unknown",
-              text: "I don’t know the amount yet",
-              checked: data['waste-amount'] == "unknown"
-            }
-          ]
-        }) }}
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    How will you enter the quantity of waste?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount" name="waste-amount" type="radio" value="actual-kg">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount">
+                    Actual weight (kg)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-2" name="waste-amount" type="radio" value="estimate-kg">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-2">
+                    Estimated weight (kg)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-3" name="waste-amount" type="radio" value="actual-litre">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-3">
+                    Actual volume (litres)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-4" name="waste-amount" type="radio" value="estimate-litre">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-4">
+                    Estimated volume (litres)
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-6" name="waste-amount" type="radio" value="unknown">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-6">
+                    I don’t know the amount yet
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
         <div class="govuk-!-padding-bottom-6"></div>
 

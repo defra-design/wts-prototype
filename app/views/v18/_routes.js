@@ -13,11 +13,9 @@ router.get('*', function(req, res, next){
 });
 
 
-
 router.get('/index', function (req, res) {
  // res.render( './' + req.originalUrl, {} )
 })
-
 
 
 router.get('/setup-producer', function (req, res) {
@@ -626,7 +624,7 @@ router.post('/ewc-code-2', function(req, res) {
     req.session.data['code-count']++;
   }
 
-  req.session.data['code-'+req.session.data['code-count']] = req.session.data['ewc-waste-typeahead'];
+  req.session.data['code-'+req.session.data['code-count']] = req.session.data['ewc-wastes-typeahead'];
   res.redirect('ewc-add-another');
 });
 
@@ -636,13 +634,8 @@ router.post('/ewc-add-another', function(req, res) {
   if (req.session.data['add-ec-code'] == 'Yes') {
       res.redirect('ewc-code-2');
   } else if (req.session.data['add-ec-code'] == 'No') {
-      //if ((req.session.data.gPreviousLocation).includes('check-your-answers')) {
-      //    res.redirect('check-your-answers');
-     // } else {
           res.redirect('waste-description');
-     // }
   }
-  
   })
 
 //-----------------------------------------------------------
@@ -1118,7 +1111,7 @@ router.post('/add-hazard', function(req, res) {
 })
 
 
-// physical-form
+//--- physical-form
 router.get('/physical-form', function (req, res) {
   if (req.session.data['have_physical_form'] == "true" ){
 	  back_link = 'confirm-ewc'
@@ -1146,7 +1139,7 @@ router.post('/physical-form', function(req, res) {
 })
 
 
-// weight
+//--- weight
 router.get('/weight', function (req, res) {
   if (req.session.data['have_weight'] == "true" ){
 	  back_link = 'waste'
@@ -1188,31 +1181,47 @@ router.post('/pops', function(req, res) {
 
 //-----------------------------------------------
 
-// CONTAINER
+//--- CONTAINER
 router.post('/container', function(req, res) {
   if (req.session.data['container'] == 'container-one') {
       res.redirect('container-one-type');
+
   } else if (req.session.data['container'] == 'container-multiple') {
           res.redirect('container-multiple-type');
+
   }  else if (req.session.data['container'] == 'loose') {
     res.redirect('waste-source');
 }
   
 })
 
-// CONTAINER - ONE
+//--- CONTAINER - ONE
 router.post('/container-one-type', function(req, res) {
     res.redirect('waste-source');
 })
 
-// CONTAINER - MULTIPLE
+//--- CONTAINER - MULTIPLE
 router.post('/container-multiple-type', function(req, res) {
+  res.redirect('container-multiple-add-another');
+})
+
+//--- CONTAINER - MULTIPLE ADD ANOTHER
+router.post('/container-multiple-add-another', function(req, res) {
+  if (req.session.data['add-container'] == 'Yes') {
+      res.redirect('container-multiple-add-another-1');
+  } else if (req.session.data['add-container'] == 'No') {
+          res.redirect('waste-source');
+  }
+  })
+
+//--- CONTAINER - MULTIPLE ADD ANOTHER
+router.post('/container-multiple-add-another-1', function(req, res) {
   res.redirect('waste-source');
 })
 
 //-----------------------------------------------
 
-// WASTE SOURCE
+//--- WASTE SOURCE
 router.post('/waste-source', function(req, res) {
   res.redirect('quantity-of-waste');
 })
@@ -1222,18 +1231,55 @@ router.post('/waste-source', function(req, res) {
 
 // WASTE QUANTITY (weight and volume)
 router.post('/quantity-of-waste', function(req, res) {
-  if (req.session.data['waste-amount'] == 'actual-tonnes') {
-      res.redirect('quantity-weight-actual-tonnes');
-  } else if (req.session.data['waste-amount'] == 'estimated-tonnes') {
-      res.redirect('quantity-weight-estimate-tonnes');
-  }  else if (req.session.data['waste-amount'] == 'actual-cubic') {
-      res.redirect('quantity-volume-actual-cubic');
-  }  else if (req.session.data['waste-amount'] == 'estimated-cubic') {
-      res.redirect('quantity-volume-estimated-cubic');
+  if (req.session.data['waste-amount'] == 'actual-kg') {
+      res.redirect('quantity-weight-actual-kg');
+
+  } else if (req.session.data['waste-amount'] == 'estimate-kg') {
+      res.redirect('quantity-weight-estimate-kg');
+
+  }  else if (req.session.data['waste-amount'] == 'actual-litre') {
+      res.redirect('quantity-volume-actual-litre');
+
+  }  else if (req.session.data['waste-amount'] == 'estimate-litre') {
+      res.redirect('quantity-volume-estimate-litre');
+
   } else if (req.session.data['waste-amount'] == 'unknown') {
       res.redirect('check-answers-initial');
 }
   
+})
+
+//--- QUANTITY - ACTUAL KG
+router.post('/quantity-weight-actual-kg', function(req, res) {
+  res.redirect('check-answers-initial');
+})
+
+//--- QUANTITY - ESTIMATE KG
+router.post('/quantity-weight-estimate-kg', function(req, res) {
+  res.redirect('check-answers-initial');
+})
+
+//--- QUANTITY - ACTUAL LITRE
+router.post('/quantity-volume-actual-litre', function(req, res) {
+  res.redirect('check-answers-initial');
+})
+
+//--- QUANTITY - ESTIMATE LITRE
+router.post('/quantity-volume-estimated-litre', function(req, res) {
+  res.redirect('check-answers-initial');
+})
+
+
+//-----------------------------------------------
+
+
+//--- CHECK ANSWERS INITIAL (SECTION 1)
+router.post('/check-answers-initial', function(req, res) {
+  if (req.session.data['section-one-complete'] == 'Yes') {
+      res.redirect('waste-note-section1-complete');
+  } else if (req.session.data['section-one-complete'] == 'No') {
+          res.redirect('start-waste-note');
+  }  
 })
 
 
