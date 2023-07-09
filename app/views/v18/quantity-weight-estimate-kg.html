@@ -24,21 +24,16 @@
 
       <form method="post">
 
-        {{ govukInput({
-          label: {
-            text: "Enter estimated weight, in kilograms"
-          },
-          classes: "govuk-input--width-5",
-          id: "weight",
-          name: "weight",
-          value: data['weight-estimate-kg'],
-          suffix: {
-            text: "kg"
-          },
-          spellcheck: false
-        }) }}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Enter estimated weight, in kilograms
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false" value="{{data['weight-estimate-kg']}}">
+            <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+          </div>
+        </div>
 
-        <a class="govuk-link" href="">Enter an actual weight instead</a>
+        <a class="govuk-link" href="quantity-weight-actual-kg.html">Enter an actual weight instead</a>
 
         <div class="govuk-!-padding-bottom-6"></div>
 
