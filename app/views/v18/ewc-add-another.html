@@ -14,6 +14,20 @@
   <div class="govuk-grid-column-two-thirds">
         <form method="post" action="">
 
+          {% if codes.length == 0 %}
+          <h1 class="govuk-heading-l">
+          You have added 1 EWC code
+          </h1>
+          {% elseif codes.length > 0 %}
+          <h1 class="govuk-heading-l">
+          You have added {{ codes.length }} EWC codes
+          </h1>
+          {% endif %}
+
+        <!--
+
+        Not needed because we can show the array length
+
         {% if data['code-count'] == '0' %}
         <h1 class="govuk-heading-l">
         You have added 1 EWC code
@@ -35,7 +49,7 @@
         You have added 5 EWC codes
         </h1>
 
-        {% endif %}
+        {% endif %} -->
 
 <!---------- SUMMARY LIST ---------->
 
@@ -108,7 +122,7 @@
             {{ govukButton({
             text: "Save and continue"
             }) }}
-            
+
             {{ govukButton({
             text: "Save and return to draft",
             classes: "govuk-button--secondary"

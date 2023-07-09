@@ -519,7 +519,7 @@ router.get('/setup-win', function (req, res) {
   res.redirect( 'start-waste-note' )
 })
 
-// ------- TASK LIST 
+// ------- TASK LIST
 router.post('/start-waste-note', function(req, res) {
 // will need to add checks here to make sure the right page is shown, depending on where in the journey the user is
 
@@ -549,9 +549,9 @@ router.post('/start-waste-note', function(req, res) {
 /* ------- OLD TASK LIST FROM V17
 router.post('/waste-info-note', function(req, res) {
   // will need to add checks here to make sure the right page is shown, depending on where in the journey the user is
-  
+
     if (req.session.data['section_1_complete'] == 'no') {
-  
+
       // check the status of each part and show the relevant page
       if (req.session.data['waste_details_status'] != 'Completed') {
         res.redirect('waste');
@@ -867,7 +867,7 @@ router.post('/change-ewc-code', function(req, res) {
 router.get('/reset-ewc', function (req, res){
   req.session.data['have_waste'] = "false"
   res.redirect('waste')
-}) 
+})
 
 */
 
@@ -1192,7 +1192,7 @@ router.post('/container', function(req, res) {
   }  else if (req.session.data['container'] == 'loose') {
     res.redirect('waste-source');
 }
-  
+
 })
 
 //--- CONTAINER - ONE
@@ -1246,7 +1246,7 @@ router.post('/quantity-of-waste', function(req, res) {
   } else if (req.session.data['waste-amount'] == 'unknown') {
       res.redirect('check-answers-initial');
 }
-  
+
 })
 
 //--- QUANTITY - ACTUAL KG
