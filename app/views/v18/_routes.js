@@ -638,6 +638,34 @@ router.post('/ewc-add-another', function(req, res) {
   }
   })
 
+//-----------------------------
+
+//-------- NEW EWC PATTERN FOR TESTING - link in footer
+
+//-------- EWC CODE v2
+router.post('/ewc-code-v2', function(req, res) {
+      res.redirect('ewc-add-another-v2');
+  
+  })
+
+//-------- EWC ADD ANOTHER v2
+router.post('/ewc-add-another-v2', function(req, res) {
+  if (req.session.data['add-ec-codev2'] == 'Yes') {
+      res.redirect('ewc-add-another-2-v2');
+  } else if (req.session.data['add-ec-codev2'] == 'No') {
+          res.redirect('waste-description');
+  }
+  })
+
+  //-------- EWC ADD ANOTHER v2 - Screen 2 (has 2 codes)
+router.post('/ewc-add-another-2-v2', function(req, res) {
+  if (req.session.data['add-ec-codev2-2'] == 'Yes') {
+      res.redirect('waste-description');
+  } else if (req.session.data['add-ec-codev2-2'] == 'No') {
+          res.redirect('waste-description');
+  }
+  })
+
 //-----------------------------------------------------------
 
 // WASTE DESCRIPTION
