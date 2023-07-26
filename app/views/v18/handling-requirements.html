@@ -1,44 +1,48 @@
 {% extends "../layout.html" %}
 
 {% block pageTitle %}
-  {{serviceName}}
+Describe the special handling requirements
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: back_link
-  }) }}
-{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">
-        <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
-        Are there any special handling requirements? (Optional)
-      </h1>
+    <h1 class="govuk-heading-l">
+      <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
+      What are the special handling requirements?
+    </h1>
 
-      <form method="post">
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+    <form method="post">
+      {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-        {{ govukTextarea({
-          id: "handling-needs",
-          name: "handling_needs",
-          value: data['handling_needs'],
-          hint: {
-            text: "For example, waste may be dusty, smelly or similar, displays a hazardous property (for example, flammable)
-                    or has other particular special treatment or handling properties"
-          }
+      {{ govukCharacterCount({
+      id: "handling-needs",
+      name: "handling_needs",
+      maxlength: 100,
+      value: data['handling_needs'],
+      hint: {
+      text: "Tell us what people need to do to handle the waste safely. For example, the waste may have chemical
+      components or physical features that means it needs to be handled in a specific way."
+      }
+      }) }}
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Save and continue"
         }) }}
 
         {{ govukButton({
-          text: "Continue"
+        text: "Save and return to draft",
+        classes: "govuk-button--secondary"
         }) }}
+      </div>
+    </form>
 
-      </form>
-
-    </div>
   </div>
+</div>
 {% endblock %}

@@ -1330,3 +1330,51 @@ if ($('#ewc-wastes-typeahead-container').length > 0) {
 }
 
 //---------------------------------------------------------------------
+
+//------ POPs LIST autocomplete
+
+const PopsList = [
+  'Endosulfan',
+  'Tetrabromodiphenyl ether',
+  'Pentabromodiphenyl ether',
+  'Hexabromodiphenyl ether',
+  'Heptabromodiphenyl ether',
+  'Bis(pentabromophenyl) ether (decabromodiphenyl ether, decaBDE)',
+  'Perfluorooctane sulfonic acid (PFOS) and PFOS derivatives',
+  'DDT',
+  'Chlordane',
+  'Hexachlorocyclohexanes, including lindane',
+  'Dieldrin',
+  'Endrin',
+  'Heptachlor',
+  'Hexachlorobenzene (HCB)',
+  'Chlordecone',
+  'Aldrin',
+  'Pentachlorobenzene',
+  'Polychlorinated biphenyls (PCBs)',
+  'Mirex',
+  'Toxaphene',
+  'Hexabromobiphenyl',
+  'Hexabromocyclododecane (HBCD)',
+  'Hexachlorobutadiene',
+  'Pentachlorophenol and its salts and esters',
+  'Polychlorinated naphthalenes',
+  'Alkanes C10-C13, chloro (short-chain chlorinated paraffins) (SCCPs)',
+  'Perfluorooctanoic acid (PFOA), its salts and PFOA-related compounds'
+]
+
+if ($('#pops-typeahead-container').length > 0) {
+  element = document.querySelector('#pops-typeahead-container')
+  id = 'pops-typeahead' // To match it to the existing <label>.
+
+  accessibleAutocomplete ({
+    element: element,
+    defaultValue: element.getAttribute('data-default-value'),
+    id: id,
+    name: id,
+    source: PopsList,
+    minLength: 1,
+    showAllValues: true,
+    dropdownArrow: () => ''
+  })
+}
