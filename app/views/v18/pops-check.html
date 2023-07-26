@@ -1,7 +1,7 @@
 {% extends "../layout.html" %}
 
 {% block pageTitle %}
-Do you have a European Waste Catalogue (EWC) code?
+Does the waste contain persistent organic pollutants (POPs)?
 {% endblock %}
 
 {% block content %}
@@ -14,42 +14,44 @@ Do you have a European Waste Catalogue (EWC) code?
 
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Waste codes and description</span>
+            <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
             <h1 class="govuk-fieldset__heading">
-              Do you have a European Waste Catalogue (EWC) code?
+              Does the waste have any persistent organic pollutants (POPs) in it?
             </h1>
           </legend>
 
-          <div id="contact-hint" class="govuk-hint">
-            This can also be called a list of waste (LoW) code. For more help with these codes, <a class="govuk-link"
-              href="https://www.gov.uk/government/publications/waste-classification-technical-guidance">see the waste
-              classification technical guidance</a>.
-          </div>
+          <p class="govuk-body"><a
+              href="https://www.gov.uk/guidance/using-persistent-organic-pollutants-pops">Persistent organic pollutants
+              (POPs)</a> are poisonous chemical substances that are a danger to human health and the environment.</p>
+
+          <p class="govuk-body">Answer yes if the waste contains any <a
+              href="https://www.gov.uk/guidance/identify-and-classify-waste-containing-persistent-organic-pollutants-pops">POPs
+              above the allowed threshold</a>.</p>
 
           <div class="govuk-radios" data-module="govuk-radios">
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ec-code" name="ec-code" type="radio" value="Yes"
+              <input class="govuk-radios__input" id="pop-check" name="pop-check" type="radio" value="yes"
                 data-aria-controls="conditional-contact">
-              <label class="govuk-label govuk-radios__label" for="ec-code">
+              <label class="govuk-label govuk-radios__label" for="pop-check">
                 Yes
               </label>
             </div>
 
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact"
-              name="eccode">
+              name="poplist">
               <div id="contact-hint" class="govuk-hint">
                 Choose from the list or start typing
               </div>
               <div class="govuk-form-group">
-                <div id="ewc-wastes-typeahead-container" data-default-value="{{ data['ewc-wastes-typeahead'] }}"></div>
+                <div id="pops-typeahead-container" data-default-value="{{ data['pops-typeahead'] }}"></div>
               </div>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ec-code" name="ec-code" type="radio" value="No"
+              <input class="govuk-radios__input" id="pop-check" name="pop-check" type="radio" value="no"
                 data-aria-controls="conditional-contact-2">
-              <label class="govuk-label govuk-radios__label" for="ec-code">
+              <label class="govuk-label govuk-radios__label" for="pop-check">
                 No
               </label>
             </div>
@@ -65,7 +67,7 @@ Do you have a European Waste Catalogue (EWC) code?
       <!----- BUTTONS ----->
       <div class="govuk-button-group">
         {{ govukButton({
-        text: "Save and continue"
+        text: "Continue"
         }) }}
 
         {{ govukButton({
@@ -78,5 +80,4 @@ Do you have a European Waste Catalogue (EWC) code?
 
   </div>
 </div>
-
 {% endblock %}

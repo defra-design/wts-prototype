@@ -1118,10 +1118,11 @@ router.post('/hazard-code', function(req, res) {
 
   req.session.data['component_table_html'] = table_html
 
-  res.redirect('add-hazard');
+  res.redirect('handling-check');
 })
 
-router.post('/add-hazard', function(req, res) {
+
+/* router.post('/add-hazard', function(req, res) {
   if (req.session.data['add_hazard'] == ''){
     req.session.data['nothing_chosen'] = 'true'
 	  res.redirect('add-hazard')
@@ -1136,7 +1137,7 @@ router.post('/add-hazard', function(req, res) {
       res.redirect('physical-form')
     }
   }
-})
+}) */
 
 
 //--- physical-form
@@ -1195,19 +1196,96 @@ router.post('/weight', function(req, res) {
   }
 })
 
+//-----------------------------------------------------------------
 
-// handling requirements
+//--- HANDLING REQUIREMENT CHECK
+router.post('/handling-check', function(req, res) {
+  if (req.session.data['handling-require'] == 'yes') {
+      res.redirect('handling-requirements');
+  } else if (req.session.data['handling-require'] == 'no') {
+          res.redirect('pops-check');
+  }
+  })
+
+ //--- HANDLINE REQUIREMENTS
 router.post('/handling-requirements', function(req, res) {
-	res.redirect( 'pops' )
+	res.redirect( 'pops-check' )
 })
 
-// any pops
+/* // any pops
 router.post('/pops', function(req, res) {
   req.session.data['any_pops'] = 'true'
 	res.redirect( 'waste-check-answers' )
-})
+}) */
 
-//-----------------------------------------------
+/* //--- CONTAIN POPS
+router.post('/pops-check', function(req, res) {
+  if (req.session.data['pops'] == 'yes') {
+      res.redirect('handling-requirements');
+  } else if (req.session.data['pops'] == 'no') {
+          res.redirect('pops');
+  }
+  }) */
+
+//--- New Pops pattern based on EWC typeahead
+//------------------------
+//------ POPS code counter
+router.post('/pops-check', function(req, res) {
+
+  if(req.session.data['pop-check']=='yes'){
+    if(typeof req.session.data['pops-count'] == "undefined"){
+      req.session.data['pops-count'] = 0;
+    }
+    else {
+      req.session.data['pops-count']++;
+    }
+
+    req.session.data['pops-'+req.session.data['pops-count']] = req.session.data['pops-typeahead'];
+    res.redirect('pops-add-another');
+  }
+  else if (req.session.data['pop-check']=='no') {
+    res.redirect('check-answers-section2');
+  }
+});
+
+router.get('/pops-add-another', function (req, res) {
+var popsArray = [];
+
+for (var i = 0; i <= req.session.data['pops-count']; i++) {
+popsArray[i] = req.session.data['pops-'+i];
+}
+
+res.render(version+'/pops-add-another', {
+'pops' : popsArray });
+});
+
+router.post('/pops-2', function(req, res) {
+  if(typeof req.session.data['pops-count'] == "undefined"){
+    req.session.data['pops-count'] = 0;
+  }
+  else {
+    req.session.data['pops-count']++;
+  }
+
+  req.session.data['pops-'+req.session.data['pops-count']] = req.session.data['pops-typeahead'];
+  res.redirect('pops-add-another');
+});
+
+
+//-------- POPS ADD ANOTHER
+router.post('/pops-add-another', function(req, res) {
+  if (req.session.data['add-pop'] == 'Yes') {
+      res.redirect('pop-2');
+  } else if (req.session.data['add-pop'] == 'No') {
+          res.redirect('check-answers-section2');
+  }
+  })
+
+//-----------------------------
+
+
+
+//-----------------------------------------------------------------
 
 //--- CONTAINER
 router.post('/container', function(req, res) {
@@ -1218,14 +1296,14 @@ router.post('/container', function(req, res) {
           res.redirect('container-multiple-type');
 
   }  else if (req.session.data['container'] == 'loose') {
-    res.redirect('waste-source');
+    res.redirect('quantity-of-waste');
 }
 
 })
 
 //--- CONTAINER - ONE
 router.post('/container-one-type', function(req, res) {
-    res.redirect('waste-source');
+    res.redirect('quantity-of-waste');
 })
 
 //--- CONTAINER - MULTIPLE (FIRST)
@@ -1238,7 +1316,7 @@ router.post('/container-multiple-add-another', function(req, res) {
   if (req.session.data['add-container'] == 'Yes') {
       res.redirect('container-multiple-type-1');
   } else if (req.session.data['add-container'] == 'No') {
-          res.redirect('waste-source');
+          res.redirect('quantity-of-waste');
   }
   })
 
@@ -1247,7 +1325,7 @@ router.post('/container-multiple-type-1', function(req, res) {
   if (req.session.data['add-container'] == 'Yes') {
       res.redirect('container-multiple-add-another-1');
   } else if (req.session.data['add-container'] == 'No') {
-          res.redirect('waste-source');
+          res.redirect('quantity-of-waste');
   }
   })
 
@@ -1256,7 +1334,7 @@ router.post('/container-multiple-add-another-1', function(req, res) {
   if (req.session.data['add-container-1'] == 'Yes') {
       res.redirect('waste-source');
   } else if (req.session.data['add-container-1'] == 'No') {
-          res.redirect('waste-source');
+          res.redirect('quantity-of-waste');
   }
   })
 
@@ -1264,7 +1342,7 @@ router.post('/container-multiple-add-another-1', function(req, res) {
 
 //--- CONTAINER - MULTIPLE ADD ANOTHER
 router.post('/container-multiple-add-another-1', function(req, res) {
-  res.redirect('waste-source');
+  res.redirect('quantity-of-waste');
 })
 
 //-----------------------------------------------
@@ -1292,40 +1370,49 @@ router.post('/quantity-of-waste', function(req, res) {
       res.redirect('quantity-volume-estimate-litre');
 
   } else if (req.session.data['waste-amount'] == 'unknown') {
-      res.redirect('check-answers-initial');
+      res.redirect('check-answers-section1');
 }
 
 })
 
 //--- QUANTITY - ACTUAL KG
 router.post('/quantity-weight-actual-kg', function(req, res) {
-  res.redirect('check-answers-initial');
+  res.redirect('check-answers-section1');
 })
 
 //--- QUANTITY - ESTIMATE KG
 router.post('/quantity-weight-estimate-kg', function(req, res) {
-  res.redirect('check-answers-initial');
+  res.redirect('check-answers-section1');
 })
 
 //--- QUANTITY - ACTUAL LITRE
 router.post('/quantity-volume-actual-litre', function(req, res) {
-  res.redirect('check-answers-initial');
+  res.redirect('check-answers-section1');
 })
 
 //--- QUANTITY - ESTIMATE LITRE
 router.post('/quantity-volume-estimated-litre', function(req, res) {
-  res.redirect('check-answers-initial');
+  res.redirect('check-answers-section1');
 })
 
 
 //-----------------------------------------------
 
 
-//--- CHECK ANSWERS INITIAL (SECTION 1)
-router.post('/check-answers-initial', function(req, res) {
+//--- CHECK ANSWERS (SECTION 1)
+router.post('/check-answers-section1', function(req, res) {
   if (req.session.data['section-one-complete'] == 'Yes') {
       res.redirect('waste-note-section1-complete');
   } else if (req.session.data['section-one-complete'] == 'No') {
+          res.redirect('start-waste-note');
+  }  
+})
+
+//--- CHECK ANSWERS (SECTION 2)
+router.post('/check-answers-section2', function(req, res) {
+  if (req.session.data['section-two-complete'] == 'Yes') {
+      res.redirect('waste-note-section2-complete');
+  } else if (req.session.data['section-two-complete'] == 'No') {
           res.redirect('start-waste-note');
   }  
 })
