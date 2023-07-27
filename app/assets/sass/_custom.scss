@@ -79,9 +79,9 @@ dd {
 .div-line {
   border-top-width: 2px;
   border-top-style: solid;
-  border-top-color: #d3d3d3;
+  border-top-color: #DEE0E2;
   //padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .aside-container {
@@ -93,7 +93,7 @@ dd {
 }
 
 
-//------ Home - top navigation for account options
+//------ HOME - ACCOUNT OPTIONS ------
 
 .banner-nav {
   @include govuk-clearfix;
@@ -105,7 +105,7 @@ dd {
 
 .banner-nav_item {
   position: relative;
-  padding-right: govuk-spacing(6);
+  padding-right: 5%;
   padding-left: 0;
   float: left;
 }
@@ -121,8 +121,58 @@ dd {
   margin-bottom: govuk-spacing(3);
 }
 
+// .banner-nav_signout {
+//   margin-bottom: govuk-spacing(3);
+// }
+
 .banner-nav_active {
-  margin-right: govuk-spacing(6);
+  padding-top: 10px;
   border-bottom: 3px solid #1D70B8;
+}
+
+.section-title {
+  width: 100%;
+  float: left;
+  border-bottom: solid #DEE0E2 2px;
+  margin-bottom: 5%;
+}
+
+// ------ HOME - TILES ------
+
+.section-tiles-container {
+  width: 100%;
+  float: left;
+  margin-bottom: 5%;
+}
+
+.home-container {
+  width: 30%;
+  height: 280px;
+  float: left;
+  background-color: #F8F8F8;
+  border: solid #DEE0E2 1px;
+  padding: 30px;
+  margin-right: 5%;
+  
+}
+
+.home-container-import {
+  width: 30%;
+  height: 280px;
+  float: left;
+  background-color: #F8F8F8;
+  border: solid #DEE0E2 1px;
+  padding: 30px;
+  
+}
+
+.home-title {
+  margin-bottom: 30px;
+  
+}
+
+.home-description {
+  margin: 0px;
+  
 }
 
