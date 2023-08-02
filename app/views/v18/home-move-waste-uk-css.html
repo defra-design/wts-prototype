@@ -5,9 +5,21 @@
   Move waste in the UK
 {% endblock %}
 
-<!---------- BREADCRUMBS ---------->
+<!---------- PHASE BANNER & BREADCRUMBS ---------->
+<!-- Putting breadcrumbs here seems to override the layout file-->
 
 {% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Prototype
+    </strong>
+    <span class="govuk-phase-banner__text">
+      Version 18 - This is not a live service.
+    </span>
+  </p>
+</div>
+
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">

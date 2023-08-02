@@ -1417,6 +1417,15 @@ router.post('/check-answers-section2', function(req, res) {
   }  
 })
 
+//--- CHECK ANSWERS (SECTION 3)
+router.post('/check-answers-section3', function(req, res) {
+  if (req.session.data['section-three-complete'] == 'Yes') {
+      res.redirect('waste-note-section3-complete');
+  } else if (req.session.data['section-three-complete'] == 'No') {
+          res.redirect('start-waste-note');
+  }  
+})
+
 
 
   
@@ -1494,6 +1503,86 @@ router.post('/add-container', function(req, res) {
   res.redirect( 'weight' );
 }) */
 
+//-----------------------------------------------
+
+////-------- PRODUCER AND COLLECTION ------------
+
+//--- CONFIRM PRODUCER
+router.post('/producer-prepopulate', function(req, res) {
+  if (req.session.data['producer-details-preprop'] == 'Yes') {
+      res.redirect('producer-collect-same');
+  } else if (req.session.data['producer-details-preprop'] == 'No') {
+          res.redirect('producer-contact');
+  }  
+})
+
+//--- COLLECTION SAME AS PRODUCER
+router.post('/producer-collect-same', function(req, res) {
+  if (req.session.data['producer-collect-same'] == 'Yes') {
+      res.redirect('check-answers-section3');
+  } else if (req.session.data['producer-collect-same'] == 'No') {
+          res.redirect('collect-postcode');
+  }  
+})
+
+//--- PRODUCER CONTACT DETAILS ENTER MANUALLY
+router.post('/producer-contact', function(req, res) {
+          res.redirect('producer-sic');
+})
+
+//--- PRODUCER SIC ENTER MANUALLY
+router.post('/producer-sic', function(req, res) {
+  res.redirect('producer-postcode');
+})
+
+//--- PRODUCER POSTCODE LOOKUP
+router.post('/producer-postcode', function(req, res) {
+  res.redirect('producer-address-select');
+})
+
+//--- PRODUCER ADDRESS SELECT
+router.post('/collect-address-select', function(req, res) {
+  res.redirect('collect-address-check');
+})
+
+//--- PRODUCER ADDRESS ENTER MANUALLY
+router.post('/producer-address-select', function(req, res) {
+  res.redirect('producer-address-check');
+})
+
+//--- COLLECTION SAME AS PRODUCER - MANUAL
+router.post('/producer-address-check', function(req, res) {
+  if (req.session.data['producer-collect-same2'] == 'Yes') {
+      res.redirect('check-answers-section3');
+  } else if (req.session.data['producer-collect-same2'] == 'No') {
+          res.redirect('collect-postcode');
+  }  
+})
+
+//--- COLLECTION POSTCODE LOOKUP
+router.post('/collect-postcode', function(req, res) {
+  res.redirect('collect-address-select');
+})
+
+//--- COLLECTION ADDRESS SELECT
+router.post('/collect-address-select', function(req, res) {
+  res.redirect('collect-address-check');
+})
+
+//--- COLLECTION ADDRESS CHECK
+router.post('/collect-address-check', function(req, res) {
+  res.redirect('check-answers-section3');
+})
+
+//--- COLLECTION ADDRESS ENTER MANUALLY
+router.post('/collect-address-manual', function(req, res) {
+  res.redirect('check-answers-section3');
+})
+
+
+
+
+//-----------------------------------------------
 
 
 // How the waste was produced

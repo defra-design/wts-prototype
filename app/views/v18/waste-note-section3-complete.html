@@ -84,8 +84,11 @@
             <!------------------------------- SECTION 1 PLAYBACK - ( accordian ) ------------------------------------------->
 
             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
                 <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+
                     <div class="govuk-accordion__section">
+
                         <div class="govuk-accordion__section-header">
                             <h2 class="govuk-accordion__section-heading">
 
@@ -99,14 +102,15 @@
 
                             </h2>
                         </div>
+
                         <div id="accordion-default-content-1" class="govuk-accordion__section-content"
                             aria-labelledby="accordion-default-heading-1">
 
                             <!-- ACCORDIAN OPEN SECTION-->
 
-                            <!---------------------  ABOUT THE WASTE ----------------------------------------------------->
+                            <!---------------------  ABOUT THE WASTE --------------------->
 
-                            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                            <dl class="govuk-summary-list govuk-!-margin-bottom-5">
 
                                 <!------ EWC code  ------>
 
@@ -229,17 +233,18 @@
 
                             <!------------------------------- SECTION 1 PLAYBACK END ------------------------------------------->
 
-                        </div>
-                        <!-- ACCORDIAN OPEN SECTION END -->
+                        </div><!-- ACCORDIAN OPEN SECTION END -->
 
                         <!------------------------------- SECTION 2 PLAYBACK - ( accordian ) ------------------------------------------->
 
                         <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+
                         <div class="govuk-accordion__section">
+
                             <div class="govuk-accordion__section-header">
                                 <h2 class="govuk-accordion__section-heading">
 
-                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
                                         <div class="govuk-!-padding-top-2"></div>
                                         <strong class="govuk-tag app-task-list__tag" id="waste_details_status">
                                             Completed
@@ -249,12 +254,12 @@
 
                                 </h2>
                             </div>
-                            <div id="accordion-default-content-1" class="govuk-accordion__section-content"
-                                aria-labelledby="accordion-default-heading-1">
+                            <div id="accordion-default-content-2" class="govuk-accordion__section-content"
+                                aria-labelledby="accordion-default-heading-2">
 
-                                <!---------------------  HANDLING REQUIREMENTS ----------------------------------------------------->
+                        <!---------------------  HANDLING REQUIREMENTS ----------------------------------------------------->
 
-                                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                            <dl class="govuk-summary-list govuk-!-margin-bottom-5">
 
                                     <!------ Haz code  ------>
 
@@ -269,21 +274,21 @@
 
 
                                             <!-- {% elseif data ['hazard_codes'] == "HP2: Oxidising" %} 
-                <p class="govuk-body">HP2: Oxidising</p> -->
+                                            <p class="govuk-body">HP2: Oxidising</p> -->
 
                                             <!-- {% elseif data ['hazard_codes'] == "HP3: Flammable" %} 
-                 -->
+                                            -->
 
                                             <!-- {% elseif data ['hazard_codes'] == "HP4: Irritant" %}  -->
                                             <!-- <p class="govuk-body">HP4: Irritant</p> -->
 
                                             <!-- {% elseif data ['hazard_codes'] == "HP5: Harmful" %} 
-                <p class="govuk-body">HP5: Harmful</p> -->
+                                            <p class="govuk-body">HP5: Harmful</p> -->
 
                                             <!--     {% elseif data ['hazard_codes'] == "No" %} 
-                    <p class="govuk-body">None of these hazardous properties apply to the waste</p>
+                                            <p class="govuk-body">None of these hazardous properties apply to the waste</p>
 
-                    {% endif %} -->
+                                            {% endif %} -->
 
                                         </dd>
                                         <dd class="govuk-summary-list__actions">
@@ -373,44 +378,175 @@
                                         </dd>
                                     </div>
 
-                                </dl>
+                            </dl>
 
                             </div>
-                        </div>
+                        <!-- ACCORDIAN OPEN SECTION END -->
 
+                        <!------------------------------- SECTION 3 PLAYBACK - ( accordian ) ------------------------------------------->
+
+                        <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+
+                            <div class="govuk-accordion__section">
+    
+                                <div class="govuk-accordion__section-header">
+                                    <h2 class="govuk-accordion__section-heading">
+    
+                                        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                                            <div class="govuk-!-padding-top-2"></div>
+                                            <strong class="govuk-tag app-task-list__tag" id="waste_details_status">
+                                                Completed
+                                            </strong>
+                                            Producer and collection details
+                                        </span>
+    
+                                    </h2>
+                                </div>
+                                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                                    aria-labelledby="accordion-default-heading-3">
+
+                        <!---------------------  PRODUCER / COLLECTION DETAILS ----------------------------------------------------->
+
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                            <!------ Org name  ------>
+
+                            <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Organisation name
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Waste Producers Ltd</p>
+                                <p class="govuk-body">{{ data['producer_orgname'] }}</p>
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                Change<span class="govuk-visually-hidden">Organisation name</span>
+                                </a>
+                            </dd>
+                            </div>
+
+                            <!------ Producer address  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Producer address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    4 Fortune Close<br>
+                                    Riverside Business Park<br>
+                                    Northampton<br>
+                                    NN3 9HZ<br>
+                                    England<br>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Producer address</span>
+                                </a>
+                                </dd>
+                            </div>
+
+                            <!------ Contact person  ------>
+
+                            <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Contact person
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">John Smith</p>
+                                <p class="govuk-body">{{ data['producer-contact-person'] }}</p>
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                Change<span class="govuk-visually-hidden">Contact person</span>
+                                </a>
+                            </dd>
+                            </div>
+
+                            <!------ Contact email  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Email address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">john.smith@wasteproducers.co.uk</p>
+                                <p class="govuk-body">{{ data['producer-email'] }}</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Contact email</span>
+                                </a>
+                                </dd>
+                            </div>
+
+                            <!------ Contact phone  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Phone number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">07123 456789</p>
+                                <p class="govuk-body">{{ data['producer-phone'] }}</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                                </a>
+                                </dd>
+                            </div>
+
+                            <!------ SIC code  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                SIC code
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">39000<br>
+                                    Remediation activities and other waste management services</p>
+                                <p class="govuk-body">{{ data['producer-sic'] }}</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Producer sic</span>
+                                </a>
+                                </dd>
+                            </div>
+
+                            <!------ Collection address  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Waste collection address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Same as producer address
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Collection address</span>
+                                    </a>
+                                </dd>
+                                </div>
+
+                        </dl>
+
+                        
+                        </div><!-- accordion module end -->
 
                         <div class="govuk-!-padding-bottom-6"></div>
 
-                        <!------------------------------- FOLLOWING STEPS ------------------------------------------->
+                        <!------------------------------- NEXT STEPS ------------------------------------------->
 
+                        
+                        
                         <h2 class="govuk-heading-m">
                             Next steps
                         </h2>
                         <hr class="govuk-section-break--l govuk-section-break--visible">
 
-
-                        <!-- section 3 -->
-
-      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
-        <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
-            Not started
-        </strong>
-        <h2 class="govuk-heading-m">
-          Producer and collection details
-        </h2>
-        
-        <p>
-          Enter details for the waste producer and collection site.
-        </p>
-        <a class="govuk-body govuk-link" href="producer-prepopulate.html">Enter details of the waste production</a>
-        <!-- 
-        <strong class="govuk-tag govuk-tag--grey">
-          cannot start yet
-        </strong>
-      </li>  end of section 3 -->
-
-
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
         <!-- section 4 -->
 
@@ -494,6 +630,7 @@
         <!-- <tag><strong class="govuk-tag govuk-tag--grey">cannot start yet</strong></tag> -->
 
       </li> <!-- end of section 7 -->
+
 
     </ol>
 

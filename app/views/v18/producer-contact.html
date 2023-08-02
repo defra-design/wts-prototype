@@ -1,0 +1,75 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+        <h1 class="govuk-heading-l">What are the producer's contact details?</h1>
+
+        {{ govukInput({
+          label: {
+            text: 'Organisation name'
+          },
+          id: "producer_orgname",
+          name: "producer_orgname",
+          value: data['producer_orgname']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Organisation contact person'
+          },
+          hint: {
+            text: "Full name"
+          },
+          id: "producer-contact-person",
+          name: "producer-contact-person",
+          value: data['producer-contact-person']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Email address'
+          },
+          id: "producer-email",
+          name: "producer-email",
+          value: data['producer-email']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Phone number'
+          },
+          id: "producer-phone",
+          name: "producer-phone",
+          value: data['producer-phone'],
+          classes: "govuk-input--width-20"
+        }) }}
+
+        {{ govukInput({
+            label: {
+              text: "Fax number (optional)"
+            },
+            id: "producer-fax",
+            name: "producer-fax",
+            value: data['producer-fax'],
+            classes: "govuk-input--width-20"
+          }) }}
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
