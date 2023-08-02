@@ -110,14 +110,29 @@ dd {
   float: left;
 }
 
+.banner-nav_account {
+  position: relative;
+  padding-right: 28%;
+  padding-left: 0;
+  float: left;
+}
+
+.banner-nav_signout {
+  position: relative;
+  //padding-right: 5%;
+  padding-left: 0;
+  float: left;
+}
+
+
 .banner-nav_item #account {
-  margin-right: govuk-spacing(6);
+  padding-right: 10%;
   //padding-right: govuk-spacing(6);
   padding-bottom: govuk-spacing(5);
 }
 
 .banner-nav_item #notifications {
-  margin-right: govuk-spacing(6);
+  //margin-right: govuk-spacing(6);
   margin-bottom: govuk-spacing(3);
 }
 
