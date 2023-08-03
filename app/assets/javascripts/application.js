@@ -12,8 +12,8 @@ $(document).ready(function () {
 //---------------------------------------------------------------------
 
 //------ EC wastes Lab autocomplete - includes Haz waste codes
-
-const ecWastesLab = [
+// removed 'Lab' from end of const
+const ecWastes = [ 
   '010101: wastes from mineral metalliferous excavation',
   '010102: wastes from mineral non-metalliferous excavation',
   '010304*: acid-generating tailings from processing of sulphide ore',
@@ -858,16 +858,16 @@ const ecWastesLab = [
   '200399: municipal wastes not otherwise specified'
 ]
 
-if ($('#ewc-wastes-lab-typeahead-container').length > 0) {
-  element = document.querySelector('#ewc-wastes-lab-typeahead-container')
-  id = 'ewc-wastes-lab-typeahead' // To match it to the existing <label>.
+if ($('#ewc-wastes-typeahead-container').length > 0) { // removed 'lab' from between wastes and typeahead
+  element = document.querySelector('#ewc-wastes-typeahead-container') // removed 'lab' from between wastes and typeahead
+  id = 'ewc-wastes-typeahead' // To match it to the existing <label> - removed 'lab'.
 
   accessibleAutocomplete ({
     element: element,
     defaultValue: element.getAttribute('data-default-value'),
     id: id,
     name: id,
-    source: ecWastesLab,
+    source: ecWastes, // removed 'Lab' from between wastes and typeahead
     minLength: 1,
     showAllValues: true,
     dropdownArrow: () => ''
@@ -875,7 +875,7 @@ if ($('#ewc-wastes-lab-typeahead-container').length > 0) {
 }
 
 //------ EWC wastes autocomplete - non-haz codes only (for GLW)
-
+/* 
 const ecWastes = [
   '010101: wastes from mineral metalliferous excavation',
   '010102: wastes from mineral non-metalliferous excavation',
@@ -1322,12 +1322,12 @@ if ($('#ewc-wastes-typeahead-container').length > 0) {
     defaultValue: element.getAttribute('data-default-value'),
     id: id,
     name: id,
-    source: ecWastes,
+    source: ecWastesLab, 
     minLength: 1,
     showAllValues: true,
     dropdownArrow: () => ''
   })
-}
+} */
 
 //---------------------------------------------------------------------
 
