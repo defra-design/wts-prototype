@@ -1,0 +1,121 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+        <h1 class="govuk-heading-l">
+          Confirm carrier details
+        </h1>
+        <p class="govuk-body">These are the details you have in your account profile.</p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <!-- SUMMARY LIST -->
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Waste Carriers Ltd
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                1 Hydra Way<br>
+                Seaview Business Park<br>
+                Manchester<br>
+                M1 1EZ<br>
+                England<br>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                John Smith
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">john.smith@wastecarriers.co.uk</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Contact phone
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">07123 456789</p>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  SIC code
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">39000<br>
+                    Remediation activities and other waste management services</p>
+                </dd>
+            </div>
+          </dl>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <!-- RADIOS -->
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="carrier-details-preprop-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Are these the correct details for the carrier?
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="carrier-details-preprop" name="carrier-details-preprop" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="carrier-details-preprop">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="carrier-details-preprop" name="carrier-details-preprop" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="carrier-details-preprop">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
