@@ -1,0 +1,98 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        How will the waste be transported?
+      </h1>
+
+      <form method="post">
+        {% set roadHtml %}
+        {{ govukInput({
+        id: "transport-reg",
+        name: "transport-reg",
+        type: "vehiclereg",
+        autocomplete: "vehiclereg",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+            text: "Vehicle registration"
+        }
+        }) }}
+        {% endset -%}
+
+        {% set postHtml %}
+        {{ govukDateInput({
+        id: "transport-post",
+        name: "transport-post",
+        type: "post",
+        autocomplete: "post",
+        spellcheck: false,
+        classes: "govuk-!-width-two-thirds",
+        hint: {
+            text: "Expected date of collection - max 3 day advance notice"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "carrier-transport",
+          name: "carrier-transport",
+          fieldset: {
+            legend: { }
+          },
+          items: [
+            {
+              value: "Road",
+              text: "Road",
+              conditional: {
+                html: roadHtml
+              },
+              checked: data['carrier-transport'] == "Road"
+            },
+            {
+              value: "Sea",
+              text: "Sea",
+              checked: data['carrier-transport'] == "Sea"
+            },
+            {
+              value: "Train",
+              text: "Train",
+              checked: data['carrier-transport'] == "Train"
+            },
+            {
+              value: "Post",
+              text: "Post",
+              conditional: {
+                html: postHtml
+              },
+              checked: data['carrier-transport'] == "Post"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
