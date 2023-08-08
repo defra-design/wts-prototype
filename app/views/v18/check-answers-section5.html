@@ -1,7 +1,7 @@
 {% extends "../layout.html" %}
 
 {% block pageTitle %}
-Check your answers - Handling requirements
+Check your answers - receiver details
 {% endblock %}
 
 {% block content %}
@@ -14,10 +14,10 @@ Check your answers - Handling requirements
 
         <form class="form" method="post">
 
-          <span class="win-id govuk-caption-l">Producer and collection details</span>
+          <span class="win-id govuk-caption-l">Receiver details</span>
           <h1 class="govuk-heading-l">Check your answers</h1>
 
-          <!---------------------  PRODUCER / COLLECTION DETAILS ----------------------------------------------------->
+          <!---------------------  RECEIVER DETAILS ----------------------------------------------------->
 
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -28,8 +28,8 @@ Check your answers - Handling requirements
                 Organisation name
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">Waste Producers Ltd</p>
-                <p class="govuk-body">{{ data['producer_orgname'] }}</p>
+                <p class="govuk-body">Waste Receivers Ltd</p>
+                <p class="govuk-body">{{ data['receiver_orgname'] }}</p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="">
@@ -38,22 +38,21 @@ Check your answers - Handling requirements
               </dd>
             </div>
 
-            <!------ Producer address  ------>
+            <!------ receiver address  ------>
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Producer address
+                    Receiver address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    4 Fortune Close<br>
-                    Riverside Business Park<br>
-                    Northampton<br>
-                    NN3 9HZ<br>
+                    3 Tameside Road<br>
+                    Birmingham<br>
+                    B36 6AR<br>
                     England<br>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Producer address</span>
+                    Change<span class="govuk-visually-hidden">receiver address</span>
                   </a>
                 </dd>
               </div>
@@ -65,8 +64,8 @@ Check your answers - Handling requirements
                 Contact person
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">John Smith</p>
-                <p class="govuk-body">{{ data['producer-contact-person'] }}</p>
+                <p class="govuk-body">Maria Fontaine</p>
+                <p class="govuk-body">{{ data['receiver-contact-person'] }}</p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="">
@@ -82,8 +81,8 @@ Check your answers - Handling requirements
                   Email address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">john.smith@wasteproducers.co.uk</p>
-                  <p class="govuk-body">{{ data['producer-email'] }}</p>
+                  <p class="govuk-body">mfontaine@wastereceivers.com</p>
+                  <p class="govuk-body">{{ data['receiver-email'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
@@ -100,7 +99,7 @@ Check your answers - Handling requirements
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p class="govuk-body">07123 456789</p>
-                  <p class="govuk-body">{{ data['producer-phone'] }}</p>
+                  <p class="govuk-body">{{ data['receiver-phone'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
@@ -109,63 +108,79 @@ Check your answers - Handling requirements
                 </dd>
               </div>
 
-            <!------ SIC code  ------>
+            <!------ Environmental permit number  ------>
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  SIC code
+                    Environmental permit number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">39000<br>
-                    Remediation activities and other waste management services</p>
-                  <p class="govuk-body">{{ data['producer-sic'] }}</p>
+                  <p class="govuk-body">XXXXXXXXXXXXX<br>
+                  <p class="govuk-body">{{ data['receiver-permitnum'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Producer sic</span>
+                    Change<span class="govuk-visually-hidden">receiver permit</span>
                   </a>
                 </dd>
               </div>
 
-              <!------ Collection address  ------>
+              <!------ Registered waste exemption number  ------>
 
               <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                      Waste collection address
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                      Same as producer address
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="">
-                      Change<span class="govuk-visually-hidden">Collection address</span>
-                    </a>
-                  </dd>
-                </div>
+                <dt class="govuk-summary-list__key">
+                    Registered waste exemption number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">XXXXXXXXXXXXX<br>
+                  <p class="govuk-body">{{ data['receiver-exemptnum'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">receiver exemption</span>
+                  </a>
+                </dd>
+              </div>
+
+              <!------ Final address  ------>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste final destination
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Same as receiver address
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">final destination</span>
+                  </a>
+                </dd>
+              </div>
 
           </dl>
 
           <!---------- SECTION COMPLETED RADIOS ---------->
 
           <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="section-three-complete-hint">
+            <fieldset class="govuk-fieldset" aria-describedby="section-five-complete-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
                 Have you completed this section?
               </legend>
 
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="section-three-complete" name="section-three-complete" type="radio"
+                  <input class="govuk-radios__input" id="section-five-complete" name="section-five-complete" type="radio"
                     value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="section-three-complete">
+                  <label class="govuk-label govuk-radios__label" for="section-five-complete">
                     Yes, I’ve completed this section
                   </label>
                 </div>
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="section-three-complete" name="section-three-complete" type="radio"
+                  <input class="govuk-radios__input" id="section-five-complete" name="section-five-complete" type="radio"
                     value="No">
-                  <label class="govuk-label govuk-radios__label" for="section-three-complete">
+                  <label class="govuk-label govuk-radios__label" for="section-five-complete">
                     No, I’ll come back later
                   </label>
                 </div>

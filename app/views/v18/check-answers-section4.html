@@ -1,8 +1,9 @@
 {% extends "../layout.html" %}
 
 {% block pageTitle %}
-Check your answers - Handling requirements
+Check your answers - Carrier details
 {% endblock %}
+
 
 {% block content %}
 
@@ -14,10 +15,10 @@ Check your answers - Handling requirements
 
         <form class="form" method="post">
 
-          <span class="win-id govuk-caption-l">Producer and collection details</span>
+          <span class="win-id govuk-caption-l">Carrier details and transport</span>
           <h1 class="govuk-heading-l">Check your answers</h1>
 
-          <!---------------------  PRODUCER / COLLECTION DETAILS ----------------------------------------------------->
+          <!---------------------  CARRIER DETAILS ----------------------------------------------------->
 
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -28,8 +29,8 @@ Check your answers - Handling requirements
                 Organisation name
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">Waste Producers Ltd</p>
-                <p class="govuk-body">{{ data['producer_orgname'] }}</p>
+                <p class="govuk-body">Waste Carriers Ltd</p>
+                <p class="govuk-body">{{ data['carrier_orgname'] }}</p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="">
@@ -38,22 +39,22 @@ Check your answers - Handling requirements
               </dd>
             </div>
 
-            <!------ Producer address  ------>
+            <!------ carrier address  ------>
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Producer address
+                    Carrier address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    4 Fortune Close<br>
-                    Riverside Business Park<br>
-                    Northampton<br>
-                    NN3 9HZ<br>
+                    1 Hydra Way<br>
+                    Seaview Business Park<br>
+                    Manchester<br>
+                    M1 1EZ<br>
                     England<br>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Producer address</span>
+                    Change<span class="govuk-visually-hidden">Carrier address</span>
                   </a>
                 </dd>
               </div>
@@ -65,8 +66,8 @@ Check your answers - Handling requirements
                 Contact person
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">John Smith</p>
-                <p class="govuk-body">{{ data['producer-contact-person'] }}</p>
+                <p class="govuk-body">Ellie Davies</p>
+                <p class="govuk-body">{{ data['carrier-contact-person'] }}</p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="">
@@ -82,8 +83,8 @@ Check your answers - Handling requirements
                   Email address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">john.smith@wasteproducers.co.uk</p>
-                  <p class="govuk-body">{{ data['producer-email'] }}</p>
+                  <p class="govuk-body">e.davies@wastecarriers.co.uk</p>
+                  <p class="govuk-body">{{ data['carrier-email'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
@@ -100,7 +101,7 @@ Check your answers - Handling requirements
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p class="govuk-body">07123 456789</p>
-                  <p class="govuk-body">{{ data['producer-phone'] }}</p>
+                  <p class="govuk-body">{{ data['carrier-phone'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
@@ -109,32 +110,34 @@ Check your answers - Handling requirements
                 </dd>
               </div>
 
-            <!------ SIC code  ------>
+            <!------ Carrier registration number  ------>
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  SIC code
+                Carrier registration number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">39000<br>
-                    Remediation activities and other waste management services</p>
-                  <p class="govuk-body">{{ data['producer-sic'] }}</p>
+                  <p class="govuk-body">CBXX12345<br>
+                  <p class="govuk-body">{{ data['carrier-regnum'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Producer sic</span>
+                    Change<span class="govuk-visually-hidden">carrier registration</span>
                   </a>
                 </dd>
               </div>
 
-              <!------ Collection address  ------>
+              <!------ Carrier transport  ------>
 
               <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                      Waste collection address
+                    Waste transportation
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      Same as producer address
+                    <p class="govuk-body">{{ data['carrier-transport'] }}</p>
+                    <p class="govuk-body">{{ data['transport-reg'] }}</p>
+                    <p class="govuk-body">{{ data['transport-post'] }}</p>
+
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="">
@@ -148,24 +151,24 @@ Check your answers - Handling requirements
           <!---------- SECTION COMPLETED RADIOS ---------->
 
           <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="section-three-complete-hint">
+            <fieldset class="govuk-fieldset" aria-describedby="section-four-complete-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
                 Have you completed this section?
               </legend>
 
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="section-three-complete" name="section-three-complete" type="radio"
+                  <input class="govuk-radios__input" id="section-four-complete" name="section-four-complete" type="radio"
                     value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="section-three-complete">
+                  <label class="govuk-label govuk-radios__label" for="section-four-complete">
                     Yes, I’ve completed this section
                   </label>
                 </div>
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="section-three-complete" name="section-three-complete" type="radio"
+                  <input class="govuk-radios__input" id="section-four-complete" name="section-four-complete" type="radio"
                     value="No">
-                  <label class="govuk-label govuk-radios__label" for="section-three-complete">
+                  <label class="govuk-label govuk-radios__label" for="section-four-complete">
                     No, I’ll come back later
                   </label>
                 </div>

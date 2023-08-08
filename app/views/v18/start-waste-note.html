@@ -91,7 +91,8 @@
 
       <div class="govuk-!-padding-bottom-4"></div>
 
-      <!-- section 1 -->
+      <!------------ SECTION 1 ------------>
+
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <h2 class="govuk-heading-m">
           About the waste
@@ -106,11 +107,11 @@
             <!-- WASTE CODE & DESCRIPTION -->
 
             {% if ((data['waste_details_status'] == 'Completed') or (data['waste_details_status'] == 'Review')) %}
-              <a href="ewc-code.html" aria-describedby="waste_details_status">
+              <a href="ewc-code-v2.html" aria-describedby="waste_details_status">
                 Waste code and description
               </a>
             {% else %}
-              <a href="ewc-code.html" aria-describedby="waste_details_status">
+              <a href="ewc-code-v2.html" aria-describedby="waste_details_status">
                 Waste code and description
               </a>
             {% endif %}
@@ -213,7 +214,7 @@
       </h2>
       <hr class="govuk-section-break--l govuk-section-break--visible">
 
-      <!-- section 2 -->
+      <!------------ SECTION 2 ------------>
 
     <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
 
@@ -229,7 +230,7 @@
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-    <!-- section 3 -->
+    <!------------ SECTION 3 ------------>
 
     <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
 
@@ -249,7 +250,7 @@
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <!-- section 4 -->
+      <!------------ SECTION 4 ------------>
 
     <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
 
@@ -268,7 +269,7 @@
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-    <!-- section 5 -->
+    <!------------ SECTION 5 ------------>
 
     <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
 
@@ -286,7 +287,7 @@
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-    <!-- section 6 -->
+    <!------------ SECTION 6 ------------>
 
     <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
 
@@ -304,7 +305,7 @@
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <!-- section 7 -->
+      <!------------ SECTION 7 ------------>
 
     <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
 
@@ -348,7 +349,6 @@
           EWC code
         </h3>
         <p class="govuk-body">
-          {{ data['ewc'] }} - {{ data['ewc_description'] }}
         </p>
 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">

@@ -12,21 +12,29 @@
 
         <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--l" for="account-number">
+              <label class="govuk-label govuk-label--l" for="producer-sic">
                 Enter the producer’s standard industrial classification (SIC) code
               </label>
             </h1>
-            <div id="account-number-hint" class="govuk-hint">
+            <div id="producer-sic-hint" class="govuk-hint">
                 Enter the <a href="https://resources.companieshouse.gov.uk/sic/">SIC code</a> that best describes what the producer does. If the waste producer does not represent what their organisation does, use the SIC code that best fits the part of the organisation that produced the waste.
             </div>
-            <input class="govuk-input govuk-input--width-10" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+            <input class="govuk-input govuk-input--width-10" id="producer-sic" name="producer-sic" type="text" spellcheck="false" aria-describedby="producer-sic-hint" inputmode="numeric">
           </div>
 
           <div class="govuk-!-padding-bottom-6"></div>
 
-        {{ govukButton({
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+          {{ govukButton({
           text: "Save and continue"
-        }) }}
+          }) }}
+
+          {{ govukButton({
+          text: "Save and return to draft",
+          classes: "govuk-button--secondary"
+          }) }}
+      </div>
 
       </form>
 

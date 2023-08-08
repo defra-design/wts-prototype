@@ -18,6 +18,7 @@ router.get('/index', function (req, res) {
 })
 
 
+
 router.get('/setup-producer', function (req, res) {
   // Setup the data
   if (req.session.data['first_time'] != 'false') {
@@ -527,7 +528,7 @@ router.post('/start-waste-note', function(req, res) {
 
     // check the status of each part and show the relevant page
     if (req.session.data['waste_details_status'] != 'Completed') {
-      res.redirect('ewc-code');
+      res.redirect('ewc-code-v2');
     }
     if (req.session.data['container_status'] != 'Completed') {
       res.redirect('container');
@@ -573,6 +574,15 @@ router.post('/waste-info-note', function(req, res) {
   })
  */
 
+
+// CHOOSE PROTOTYPE ROUTE
+router.post('index', function(req, res) {
+  if (req.session.data['prototype-route'] == 'include-dcid') {
+      res.redirect('index-start-dcid');
+  } else if (req.session.data['prototype-route'] == 'skip-dcid') {
+          res.redirect('index-start');
+  }
+  })
 
 
 // --------------------------------------------------------------------------------------------------------
@@ -1426,6 +1436,24 @@ router.post('/check-answers-section3', function(req, res) {
   }  
 })
 
+//--- CHECK ANSWERS (SECTION 4)
+router.post('/check-answers-section4', function(req, res) {
+  if (req.session.data['section-four-complete'] == 'Yes') {
+      res.redirect('waste-note-section4-complete');
+  } else if (req.session.data['section-four-complete'] == 'No') {
+          res.redirect('start-waste-note');
+  }  
+})
+
+//--- CHECK ANSWERS (SECTION 5)
+router.post('/check-answers-section5', function(req, res) {
+  if (req.session.data['section-five-complete'] == 'Yes') {
+      res.redirect('waste-note-section5-complete');
+  } else if (req.session.data['section-five-complete'] == 'No') {
+          res.redirect('start-waste-note');
+  }  
+})
+
 
 
   
@@ -1580,10 +1608,136 @@ router.post('/collect-address-manual', function(req, res) {
 })
 
 
+//-----------------------------------------------
+
+
+////-------- CARRIER DETAILS ------------
+
+//--- CONFIRM CARRIER
+router.post('/carrier-prepopulate', function(req, res) {
+  if (req.session.data['carrier-details-preprop'] == 'Yes') {
+      res.redirect('carrier-transport-select');
+  } else if (req.session.data['carrier-details-preprop'] == 'No') {
+          res.redirect('carrier-contact');
+  }  
+})
+
+
+//--- CARRIER CONTACT DETAILS ENTER MANUALLY
+router.post('/carrier-contact', function(req, res) {
+          res.redirect('carrier-registration');
+})
+
+//--- CARRIER REGISTRATION ENTER MANUALLY
+router.post('/carrier-registration', function(req, res) {
+  res.redirect('carrier-postcode');
+})
+
+//--- CARRIER POSTCODE LOOKUP
+router.post('/carrier-postcode', function(req, res) {
+  res.redirect('carrier-address-select');
+})
+
+//--- CARRIER ADDRESS ENTER MANUALLY
+router.post('/carrier-address-select', function(req, res) {
+  res.redirect('carrier-address-check');
+})
+
+//--- CARRIER ADDRESS CHECK
+router.post('/carrier-address-check', function(req, res) {
+  res.redirect('carrier-transport-select');
+})
+
+//--- CARRIER ADDRESS ENTER MANUALLY
+router.post('/carrier-address-manual', function(req, res) {
+  res.redirect('carrier-transport-select');
+})
+
+//--- CARRIER TRANSPORT SELECT
+router.post('/carrier-transport-select', function(req, res) {
+  res.redirect('check-answers-section4');
+})
+
+
+////-------- RECEIVER DETAILS ------------
+
+//--- CONFIRM RECEIVER
+router.post('/receiver-prepopulate', function(req, res) {
+  if (req.session.data['receiver-details-preprop'] == 'Yes') {
+      res.redirect('receiver-final-same');
+  } else if (req.session.data['receiver-details-preprop'] == 'No') {
+          res.redirect('receiver-contact');
+  }  
+})
+
+//--- FINAL DESTINATION SAME AS RECEIVER
+router.post('/receiver-final-same', function(req, res) {
+  if (req.session.data['receiver-final-same'] == 'Yes') {
+      res.redirect('check-answers-section5');
+  } else if (req.session.data['receiver-final-same'] == 'No') {
+          res.redirect('receiver-final-postcode');
+  }  
+})
+
+//--- RECEIVER CONTACT DETAILS ENTER MANUALLY
+router.post('/receiver-contact', function(req, res) {
+          res.redirect('receiver-permit');
+})
+
+//--- RECEIVER PERMIT ENTER MANUALLY
+router.post('/receiver-permit', function(req, res) {
+  res.redirect('receiver-postcode');
+})
+
+//--- RECEIVER POSTCODE LOOKUP
+router.post('/receiver-postcode', function(req, res) {
+  res.redirect('receiver-address-select');
+})
+
+//--- RECEIVER ADDRESS SELECT
+router.post('/receiver-address-select', function(req, res) {
+  res.redirect('receiver-final-address-check');
+})
+
+//--- RECEIVER ADDRESS ENTER MANUALLY
+router.post('/receiver-address-select', function(req, res) {
+  res.redirect('receiver-address-check');
+})
+
+//--- FINAL DESTINATION SAME AS RECEIVER - MANUAL
+router.post('/receiver-address-check', function(req, res) {
+  if (req.session.data['receiver-final-same2'] == 'Yes') {
+      res.redirect('check-answers-section5');
+  } else if (req.session.data['receiver-final-same2'] == 'No') {
+          res.redirect('receiver-final-postcode');
+  }  
+})
+
+//--- FINAL DESTINATION POSTCODE LOOKUP
+router.post('/receiver-final-postcode', function(req, res) {
+  res.redirect('receiver-final-address-select');
+})
+
+//--- FINAL DESTINATION ADDRESS SELECT
+router.post('/receiver-final-address-select', function(req, res) {
+  res.redirect('receiver-final-address-check');
+})
+
+//--- FINAL DESTINATION ADDRESS CHECK
+router.post('/receiver-final-address-check', function(req, res) {
+  res.redirect('check-answers-section5');
+})
+
+//--- FINAL DESTINATION ADDRESS ENTER MANUALLY
+router.post('/receiver-final-address-manual', function(req, res) {
+  res.redirect('check-answers-section5');
+})
 
 
 //-----------------------------------------------
 
+
+//-----------------------------------------------
 
 // How the waste was produced
 // Waste produced
