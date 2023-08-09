@@ -4,126 +4,71 @@
   {{serviceName}}
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "waste-info-note"
-  }) }}
-{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
 
-      <!-- if the receiver details have already been completed, show them -->
-      {% if ((data['receiver_details_status'] == 'Completed') or (data['receiver_details_status'] == 'Review')) %}
-        <h1 class="govuk-heading-l">
-          Receiver contact details
-        </h1>
+      <form method="post">
+        <h1 class="govuk-heading-l">What are the waste receiver's contact details?</h1>
 
-        {{ govukSummaryList({
-          classes: "govuk-!-margin-bottom-1",
-          rows: [
-          {
-            key: {
-              text: "Business name"
-            },
-            value: {
-              text: data['receiver_business_name']
-            },
-            actions: {
-              items: [ {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "business name"
-              } ]
-            }
+        {{ govukInput({
+          label: {
+            text: 'Organisation name'
           },
-
-          {
-            key: {
-              text: "Address"
-            },
-            value: {
-              html: data['receiver_full_address_cya']
-            },
-            actions: {
-              items: [ {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "address"
-              } ]
-            }
-          },
-
-          {
-            key: {
-              text: "Contact details"
-            },
-            value: {
-              html: data['receiver_contact_cya']
-            },
-            actions: {
-              items: [ {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "contact details"
-              } ]
-            }
-          },
-
-          {
-            key: {
-              text: "Permit number"
-            },
-            value: {
-              html: data['receiver_permit']
-            },
-            actions: {
-              items: [ {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "contact details"
-              } ]
-            }
-          } ]
+          id: "receiver_orgname",
+          name: "receiver_orgname",
+          value: data['receiver_orgname']
         }) }}
 
-        <form method="post">
-          {{ govukButton({
-            classes: "govuk-!-margin-top-4",
-            text: "Confirm receiver details"
-          }) }}
-        </form>
+        {{ govukInput({
+          label: {
+            text: 'Organisation contact person'
+          },
+          hint: {
+            text: "Full name"
+          },
+          id: "receiver-contact-person",
+          name: "receiver-contact-person",
+          value: data['receiver-contact-person']
+        }) }}
 
+        {{ govukInput({
+          label: {
+            text: 'Email address'
+          },
+          id: "receiver-email",
+          name: "receiver-email",
+          value: data['receiver-email']
+        }) }}
 
-      {% else %} <!-- we don't have the details, ask for them -->
-        <form method="post">
-          <h1 class="govuk-heading-l">Give the business address that will receive the waste</h1>
+        {{ govukInput({
+          label: {
+            text: 'Phone number'
+          },
+          id: "receiver-phone",
+          name: "receiver-phone",
+          value: data['receiver-phone'],
+          classes: "govuk-input--width-20"
+        }) }}
 
-          {{ govukInput ({
+        {{ govukInput({
             label: {
-              text: "Postcode"
+              text: "Fax number (optional)"
             },
-            id: "receiver-postcode",
-            name: "receiver_postcode",
-            value: data['receiver_postcode'],
-            classes: "govuk-input--width-10"
+            id: "receiver-fax",
+            name: "receiver-fax",
+            value: data['receiver-fax'],
+            classes: "govuk-input--width-20"
           }) }}
 
-          <p>
-            <a href="receiver-address-manual">Enter address manually</a>
-          </p>
+          <div class="govuk-!-padding-bottom-6"></div>
 
-          {{ govukButton({
-            text: 'Find address'
-          }) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
 
-          <p class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
-            &#160;
-          </p>
-        </form>
-      {% endif %}
+      </form>
 
     </div>
   </div>
