@@ -1533,6 +1533,7 @@ router.post('/add-container', function(req, res) {
 
 //-----------------------------------------------
 
+
 ////-------- PRODUCER AND COLLECTION ------------
 
 //--- CONFIRM PRODUCER
@@ -1658,6 +1659,8 @@ router.post('/carrier-transport-select', function(req, res) {
   res.redirect('check-answers-section4');
 })
 
+//-----------------------------------------------
+
 
 ////-------- RECEIVER DETAILS ------------
 
@@ -1684,8 +1687,13 @@ router.post('/receiver-contact', function(req, res) {
           res.redirect('receiver-permit');
 })
 
-//--- RECEIVER PERMIT ENTER MANUALLY
+//--- RECEIVER PERMIT
 router.post('/receiver-permit', function(req, res) {
+  res.redirect('receiver-exemption');
+})
+
+//--- RECEIVER EXEMPTION
+router.post('/receiver-exemption', function(req, res) {
   res.redirect('receiver-postcode');
 })
 
@@ -1696,13 +1704,14 @@ router.post('/receiver-postcode', function(req, res) {
 
 //--- RECEIVER ADDRESS SELECT
 router.post('/receiver-address-select', function(req, res) {
-  res.redirect('receiver-final-address-check');
+  res.redirect('receiver-address-check');
 })
 
 //--- RECEIVER ADDRESS ENTER MANUALLY
-router.post('/receiver-address-select', function(req, res) {
+router.post('/receiver-address-manual', function(req, res) {
   res.redirect('receiver-address-check');
 })
+
 
 //--- FINAL DESTINATION SAME AS RECEIVER - MANUAL
 router.post('/receiver-address-check', function(req, res) {
@@ -1728,13 +1737,11 @@ router.post('/receiver-final-address-check', function(req, res) {
   res.redirect('check-answers-section5');
 })
 
-//--- FINAL DESTINATION ADDRESS ENTER MANUALLY
+//--- FINAL DESTINATION ADDRESS - MANUAL
 router.post('/receiver-final-address-manual', function(req, res) {
   res.redirect('check-answers-section5');
 })
 
-
-//-----------------------------------------------
 
 
 //-----------------------------------------------
