@@ -149,7 +149,11 @@ dd {
   width: 100%;
   float: left;
   border-bottom: solid #DEE0E2 2px;
-  margin-bottom: 5%;
+  margin-bottom: 30px;
+}
+
+#homeH1 {
+  margin-bottom: 10px;
 }
 
 // ------ HOME - TILES ------
@@ -157,37 +161,88 @@ dd {
 .section-tiles-container {
   width: 100%;
   float: left;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
 }
 
 .home-container {
-  width: 30%;
-  height: 280px;
+  width: 290px;
+  height: 300px;
   float: left;
   background-color: #F8F8F8;
   border: solid #DEE0E2 1px;
-  padding: 30px;
-  margin-right: 5%;
-  
+  //padding: 30px;
+  margin-right: 4.5%;
+  margin-bottom: 5%;
 }
 
-.home-container-import {
-  width: 30%;
-  height: 280px;
+.home-container-rightcol {
+  width: 290px;
+  height: 300px;
   float: left;
   background-color: #F8F8F8;
   border: solid #DEE0E2 1px;
-  padding: 30px;
-  
+  //padding: 30px;
+  margin-bottom: 5%;  
 }
 
 .home-title {
+  //margin-bottom: 30px;
+  height: 80px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.home-title-csv {
   margin-bottom: 30px;
-  
+  height: 80px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .home-description {
+  width: 100%;
+  height: fit-content;
   margin: 0px;
-  
+  padding: 20px;
 }
+
+.home-description-background {
+  width: 100%;
+  height: 200px;
+  margin: 0px;
+  padding: 20px;
+  border-top: solid #DEE0E2 1px;
+  border-bottom: solid #DEE0E2 1px;
+  background-color: #ffffff;
+}
+
+.home-description-templates {
+  width: 100%;
+  height: 160px;
+  margin: 0px;
+  padding: 20px;
+  border-top: solid #DEE0E2 1px;
+  border-bottom: solid #DEE0E2 1px;
+  background-color: #ffffff;
+}
+
+#descriptionCSV {
+  padding-top: 5px;
+}
+
+.subhome-title {
+  //margin-bottom: 30px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
+
+
+
+
 

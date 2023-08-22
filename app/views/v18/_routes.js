@@ -14,7 +14,7 @@ router.get('*', function(req, res, next){
 
 
 router.get('/index', function (req, res) {
- // res.render( './' + req.originalUrl, {} )
+  res.render( './' + req.originalUrl, {} )
 })
 
 
@@ -517,11 +517,11 @@ router.get('/setup-win', function (req, res) {
     }
   }
 
-  res.redirect( 'start-waste-note' )
+  res.redirect( 'start-waste-record' )
 })
 
 // ------- TASK LIST
-router.post('/start-waste-note', function(req, res) {
+router.post('/start-waste-record', function(req, res) {
 // will need to add checks here to make sure the right page is shown, depending on where in the journey the user is
 
   if (req.session.data['C'] == 'no') {
@@ -576,10 +576,10 @@ router.post('/waste-info-note', function(req, res) {
 
 
 // CHOOSE PROTOTYPE ROUTE
-router.post('index', function(req, res) {
-  if (req.session.data['prototype-route'] == 'include-dcid') {
+router.post('/index', function(req, res) {
+  if (req.session.data['prototype-route'] == 'include') {
       res.redirect('index-start-dcid');
-  } else if (req.session.data['prototype-route'] == 'skip-dcid') {
+  } else if (req.session.data['prototype-route'] == 'skip') {
           res.redirect('index-start');
   }
   })
@@ -1412,45 +1412,45 @@ router.post('/quantity-volume-estimated-litre', function(req, res) {
 //--- CHECK ANSWERS (SECTION 1)
 router.post('/check-answers-section1', function(req, res) {
   if (req.session.data['section-one-complete'] == 'Yes') {
-      res.redirect('waste-note-section1-complete');
+      res.redirect('waste-record-section1-complete');
   } else if (req.session.data['section-one-complete'] == 'No') {
-          res.redirect('start-waste-note');
+          res.redirect('start-waste-record');
   }  
 })
 
 //--- CHECK ANSWERS (SECTION 2)
 router.post('/check-answers-section2', function(req, res) {
   if (req.session.data['section-two-complete'] == 'Yes') {
-      res.redirect('waste-note-section2-complete');
+      res.redirect('waste-record-section2-complete');
   } else if (req.session.data['section-two-complete'] == 'No') {
-          res.redirect('start-waste-note');
+          res.redirect('start-waste-record');
   }  
 })
 
 //--- CHECK ANSWERS (SECTION 3)
 router.post('/check-answers-section3', function(req, res) {
   if (req.session.data['section-three-complete'] == 'Yes') {
-      res.redirect('waste-note-section3-complete');
+      res.redirect('waste-record-section3-complete');
   } else if (req.session.data['section-three-complete'] == 'No') {
-          res.redirect('start-waste-note');
+          res.redirect('start-waste-record');
   }  
 })
 
 //--- CHECK ANSWERS (SECTION 4)
 router.post('/check-answers-section4', function(req, res) {
   if (req.session.data['section-four-complete'] == 'Yes') {
-      res.redirect('waste-note-section4-complete');
+      res.redirect('waste-record-section4-complete');
   } else if (req.session.data['section-four-complete'] == 'No') {
-          res.redirect('start-waste-note');
+          res.redirect('start-waste-record');
   }  
 })
 
 //--- CHECK ANSWERS (SECTION 5)
 router.post('/check-answers-section5', function(req, res) {
   if (req.session.data['section-five-complete'] == 'Yes') {
-      res.redirect('waste-note-section5-complete');
+      res.redirect('waste-record-section5-complete');
   } else if (req.session.data['section-five-complete'] == 'No') {
-          res.redirect('start-waste-note');
+          res.redirect('start-waste-record');
   }  
 })
 
@@ -2094,7 +2094,7 @@ router.post('/transportation', function(req, res) {
     req.session.data['section_1_complete'] = 'yes'
   }
 
-  res.redirect( 'start-waste-note' );
+  res.redirect( 'start-waste-record' );
 })
 
 router.post('/transportation-check-answers', function(req, res) {
@@ -2214,6 +2214,104 @@ router.post('/receiver-confirmation', function(req, res) {
 })
 
 
+//-----------------------------------------------
+
+////-------- RECEIVER CONFIRM ------------
+
+//--- RECEIVER WASTE CONFIRMATION
+router.post('/receiver-confirm', function(req, res) {
+  if (req.session.data['receiver-confirm'] == 'Yes') {
+      res.redirect('receiver-confirm-quantity');
+  } else if (req.session.data['receiver-confirm'] == 'No') {
+          res.redirect('receiver-reject');
+  }
+})  
+
+//--- RECEIVER CONFIRM QUANTITY
+router.post('/receiver-confirm-quantity', function(req, res) {
+    res.redirect('receiver-confirm-date');
+  })
+
+//--- RECEIVER CONFIRM DATE
+router.post('/receiver-confirm-date', function(req, res) {
+  res.redirect('receiver-treatment-select');
+})
+
+//--- RECEIVER TREATMENT SELECT
+router.post('/receiver-treatment-select', function(req, res) {
+  res.redirect('receiver-RDcode-select');
+})
+
+////-------- WASTE TREATMENT RECOVERY & DISPOSAL CODES ------------
+
+//--- ENTER R&D CODE 
+/* router.post('/receiver-RDcode-select', function(req, res) {
+  res.redirect('receiver-RDcode-add-another');
+}) */
+
+    //------ R&D CODE SELECT
+    router.post('/receiver-RDcode-select', function(req, res) {
+
+        if(typeof req.session.data['RDcode-count'] == "undefined"){
+          req.session.data['RDcode-count'] = 0;
+        }
+        else {
+          req.session.data['RDcode-count']++;
+        }
+
+        req.session.data['RDcode-'+req.session.data['RDcode-count']] = req.session.data['recovery-operation-final-typeahead'];
+        res.redirect('receiver-RDcode-add-another');
+      
+    });
+
+    //------ R&D CODE PLAYBACK AND ADD ANOTHER
+
+    router.get('/receiver-RDcode-add-another', function (req, res) {
+      var carrierArray = [];
+
+      for (var i = 0; i <= req.session.data['RDcode-count']; i++) {
+      carrierArray[i] = req.session.data['RDcode-'+i];
+      }
+      
+      res.render(version+'/receiver-RDcode-add-another', {
+      'RDcodes' : carrierArray });
+      });
+      
+      router.post('/receiver-RDcode-2', function(req, res) {
+        if(typeof req.session.data['RDcode-count'] == "undefined"){
+          req.session.data['RDcode-count'] = 0;
+        }
+        else {
+          req.session.data['RDcode-count']++;
+        }
+      
+        req.session.data['RDcode-'+req.session.data['RDcode-count']] = req.session.data['recovery-operation-final-typeahead'];
+        res.redirect('receiver-RDcode-add-another');
+      });
+
+
+     //-------- R&D ADD ANOTHER
+    router.post('/receiver-RDcode-add-another', function(req, res) {
+      if (req.session.data['add-RDcode'] == 'Yes') {
+          res.redirect('receiver-RDcode-2');
+      } else if (req.session.data['add-RDcode'] == 'No') {
+              res.redirect('check-answers-section7');
+      }
+      }); 
+
+
+
+//--- R&D CODE ADD ANOTHER
+/* router.post('/receiver-RDcode-add-another', function(req, res) {
+  res.redirect('check-answers-section7');
+}) */
+
+////-------- RECEIVER CHECK ANSWERS ------------
+
+//--- WASTE CONFIRM CHECK ANSWERS
+router.post('/check-answers-section7', function(req, res) {
+  res.redirect('waste-record-section7-complete');
+})
 
 
 module.exports = router;

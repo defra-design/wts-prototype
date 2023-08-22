@@ -394,7 +394,7 @@
     
                                         <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
                                             <div class="govuk-!-padding-top-2"></div>
-                                            <strong class="govuk-tag app-task-list__tag" id="waste_producer_status">
+                                            <strong class="govuk-tag app-task-list__tag" id="waste_details_status">
                                                 Completed
                                             </strong>
                                             Producer and collection details
@@ -532,160 +532,6 @@
                                 </div>
 
                         </dl>
-                      
-                        </div><!-- accordion module end -->
-
-                        <!------------------------------- SECTION 4 PLAYBACK - ( accordian ) ------------------------------------------->
-
-                        <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
-
-                            <div class="govuk-accordion__section">
-    
-                                <div class="govuk-accordion__section-header">
-                                    <h2 class="govuk-accordion__section-heading">
-    
-                                        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-                                            <div class="govuk-!-padding-top-2"></div>
-                                            <strong class="govuk-tag app-task-list__tag" id="waste_carrier_status">
-                                                Completed
-                                            </strong>
-                                            Carrier details and transport
-                                        </span>
-    
-                                    </h2>
-                                </div>
-                                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
-                                    aria-labelledby="accordion-default-heading-4">
-
-                        <!---------------------  CARRIER DETAILS ----------------------------------------------------->
-
-                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-                            <!------ Org name  ------>
-                
-                            <div class="govuk-summary-list__row">
-                              <dt class="govuk-summary-list__key">
-                                Organisation name
-                              </dt>
-                              <dd class="govuk-summary-list__value">
-                                <p class="govuk-body">Waste Carriers Ltd</p>
-                                <p class="govuk-body">{{ data['carrier_orgname'] }}</p>
-                              </dd>
-                              <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="">
-                                  Change<span class="govuk-visually-hidden">Organisation name</span>
-                                </a>
-                              </dd>
-                            </div>
-                
-                            <!------ carrier address  ------>
-                
-                            <div class="govuk-summary-list__row">
-                                <dt class="govuk-summary-list__key">
-                                    Carrier address
-                                </dt>
-                                <dd class="govuk-summary-list__value">
-                                    1 Hydra Way<br>
-                                    Seaview Business Park<br>
-                                    Manchester<br>
-                                    M1 1EZ<br>
-                                    England<br>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="">
-                                    Change<span class="govuk-visually-hidden">Carrier address</span>
-                                  </a>
-                                </dd>
-                              </div>
-                
-                            <!------ Contact person  ------>
-                
-                            <div class="govuk-summary-list__row">
-                              <dt class="govuk-summary-list__key">
-                                Contact person
-                              </dt>
-                              <dd class="govuk-summary-list__value">
-                                <p class="govuk-body">Ellie Davies</p>
-                                <p class="govuk-body">{{ data['carrier-contact-person'] }}</p>
-                              </dd>
-                              <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="">
-                                  Change<span class="govuk-visually-hidden">Contact person</span>
-                                </a>
-                              </dd>
-                            </div>
-                
-                            <!------ Contact email  ------>
-                
-                            <div class="govuk-summary-list__row">
-                                <dt class="govuk-summary-list__key">
-                                  Email address
-                                </dt>
-                                <dd class="govuk-summary-list__value">
-                                  <p class="govuk-body">e.davies@wastecarriers.co.uk</p>
-                                  <p class="govuk-body">{{ data['carrier-email'] }}</p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="">
-                                    Change<span class="govuk-visually-hidden">Contact email</span>
-                                  </a>
-                                </dd>
-                              </div>
-                
-                            <!------ Contact phone  ------>
-                
-                            <div class="govuk-summary-list__row">
-                                <dt class="govuk-summary-list__key">
-                                  Phone number
-                                </dt>
-                                <dd class="govuk-summary-list__value">
-                                  <p class="govuk-body">07123 456789</p>
-                                  <p class="govuk-body">{{ data['carrier-phone'] }}</p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="">
-                                    Change<span class="govuk-visually-hidden">Contact phone</span>
-                                  </a>
-                                </dd>
-                              </div>
-                
-                            <!------ Carrier registration number  ------>
-                
-                            <div class="govuk-summary-list__row">
-                                <dt class="govuk-summary-list__key">
-                                Carrier registration number
-                                </dt>
-                                <dd class="govuk-summary-list__value">
-                                  <p class="govuk-body">CBXX12345<br>
-                                  <p class="govuk-body">{{ data['carrier-regnum'] }}</p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="">
-                                    Change<span class="govuk-visually-hidden">carrier registration</span>
-                                  </a>
-                                </dd>
-                              </div>
-                
-                              <!------ Carrier transport  ------>
-                
-                              <div class="govuk-summary-list__row">
-                                  <dt class="govuk-summary-list__key">
-                                    Waste transportation
-                                  </dt>
-                                  <dd class="govuk-summary-list__value">
-                                    <p class="govuk-body">{{ data['carrier-transport'] }}</p>
-                                    <p class="govuk-body">{{ data['transport-reg'] }}</p>
-                                    <p class="govuk-body">{{ data['transport-post'] }}</p>
-                
-                                  </dd>
-                                  <dd class="govuk-summary-list__actions">
-                                    <a class="govuk-link" href="">
-                                      Change<span class="govuk-visually-hidden">Collection address</span>
-                                    </a>
-                                  </dd>
-                                </div>
-                
-                        </dl>
 
                         
                         </div><!-- accordion module end -->
@@ -702,7 +548,28 @@
                         <hr class="govuk-section-break--l govuk-section-break--visible">
 
 
-      <!-- section 5 -->
+        <!------------ SECTION 4 ------------>
+
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
+            Not started
+        </strong>
+        <h2 class="govuk-heading-m">
+          Carrier details and transport
+        </h2>
+        <p>
+          Enter details for the waste carrier and transport.
+        </p>
+        <a class="govuk-body govuk-link" href="carrier-prepopulate.html">Enter details for moving the waste</a>
+        <!-- tag 
+        <strong class="govuk-tag govuk-tag--grey">
+          cannot start yet
+        </strong> <!-- end of section 4 -->
+      </li>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <!------------ SECTION 5 ------------>
 
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
@@ -714,7 +581,7 @@
         <p>
           Enter details for where the waste will go.
         </p>
-        <a class="govuk-body govuk-link" href="receiver-prepopulate.html">Enter details of the waste destination</a>
+        <a class="govuk-body govuk-link" href="">Enter details of the waste destination</a>
         <!-- tag 
         <strong class="govuk-tag govuk-tag--grey">
           cannot start yet
@@ -723,9 +590,9 @@
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <!-- section 6 -->
+      <!------------ SECTION 6 ------------> <!-- Removed for the time being until we know more (August 2023)-->
 
-      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+      <!-- <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
             Not started
         </strong>
@@ -740,11 +607,11 @@
         <strong class="govuk-tag govuk-tag--grey">
           cannot start yet
         </strong>
-      </li> <!-- end of section 6 -->
+      </li> <!-- end of section 6 
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 
-        <!-- section 7 -->
+      <!------------ SECTION 7 ------------>
 
       <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
         <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
