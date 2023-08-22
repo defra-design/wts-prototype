@@ -554,7 +554,7 @@
     
                                     </h2>
                                 </div>
-                                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                                <div id="accordion-default-content-4" class="govuk-accordion__section-content"
                                     aria-labelledby="accordion-default-heading-4">
 
                         <!---------------------  CARRIER DETAILS ----------------------------------------------------->
@@ -708,7 +708,7 @@
     
                                     </h2>
                                 </div>
-                                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                                <div id="accordion-default-content-5" class="govuk-accordion__section-content"
                                     aria-labelledby="accordion-default-heading-5">
 
                         <!---------------------  RECEIVER DETAILS ----------------------------------------------------->
@@ -856,59 +856,137 @@
                         
                         </div><!-- accordion module end -->
 
-                        <div class="govuk-!-padding-bottom-8"></div>
+                        <!------------------------------- SECTION 7 PLAYBACK - ( accordian ) ------------------------------------------->
 
-                        <!------------------------------- NEXT STEPS ------------------------------------------->
+                        <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+
+                            <div class="govuk-accordion__section">
+    
+                                <div class="govuk-accordion__section-header">
+                                    <h2 class="govuk-accordion__section-heading">
+    
+                                        <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+                                            <div class="govuk-!-padding-top-2"></div>
+                                            <strong class="govuk-tag app-task-list__tag" id="waste_receiver_status">
+                                                Completed
+                                            </strong>
+                                            Receiver confirmation
+                                        </span>
+    
+                                    </h2>
+                                </div>
+                                <div id="accordion-default-content-7" class="govuk-accordion__section-content"
+                                    aria-labelledby="accordion-default-heading-7">
+
+                        <!---------------------  RECEIVER CONFIRM ----------------------------------------------------->
+
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                            <!------ Waste confirm check  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Waste details confirmed
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  {% if data ['receiver-confirm'] == "yes" %} 
+                                  <p class="govuk-body">Yes</p>
+                  
+                                  {% elseif data ['receiver-confirm'] == "no" %}
+                                  <p class="govuk-body">No</p>
+                                  {% endif %}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="receiver-confirm.html">
+                                    Change<span class="govuk-visually-hidden">waste correct check</span>
+                                  </a>
+                                </dd>
+                              </div>
+                
+                            <!------ Waste quantity received  ------>
+                
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Waste quantity received
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">115 tonnes</p>
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="receiver-confirm-quantity.html">
+                                  Change<span class="govuk-visually-hidden">quantity received</span>
+                                </a>
+                              </dd>
+                            </div>
+                
+                
+                            <!------ Date waste received  ------>
+                
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Date waste received
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">16 August 2023</p>
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="receiver-confirm-date.html">
+                                  Change<span class="govuk-visually-hidden">waste received date</span>
+                                </a>
+                              </dd>
+                            </div>
+                
+                            <!------ Waste treatment  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Waste treatment
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">{{ data['receiver_treatment'] }}</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="receiver-treatment-select.html">
+                                    Change<span class="govuk-visually-hidden">waste treatment</span>
+                                  </a>
+                                </dd>
+                              </div>
+                
+                              <!------ Recovery code  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Recovery code
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  <p class="govuk-body">R01.04.01</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="receiver-RDcode-add-another.html">
+                                    Change<span class="govuk-visually-hidden">recovery code</span>
+                                  </a>
+                                </dd>
+                            </div>
+                
+                              <!------ Disposal code  ------>
+                
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Disposal code
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  <p class="govuk-body">D10.01.07</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="receiver-RDcode-add-another.html">
+                                    Change<span class="govuk-visually-hidden">disposal code</span>
+                                  </a>
+                                </dd>
+                            </div>
+                
+                        </dl> 
                         
-                        <h2 class="govuk-heading-m">
-                            Next steps
-                        </h2>
-                        <hr class="govuk-section-break--l govuk-section-break--visible">
-
-
-      
-
-      <!-- section 6 -->
-
-      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
-        <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
-            Not started
-        </strong>
-        <h2 class="govuk-heading-m">
-          Pay for a waste movement
-        </h2>
-        <p>
-          Enter payment details
-        </p>
-        <a class="govuk-body govuk-link" href="">Enter payment details for this waste movement</a>
-        <!-- tag 
-        <strong class="govuk-tag govuk-tag--grey">
-          cannot start yet
-        </strong>
-      </li> <!-- end of section 6 -->
-
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-        <!-- section 7 -->
-
-      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
-        <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
-            Cannot start yet
-        </strong>
-        <h2 class="govuk-heading-m">
-          Receiver confirmation
-        </h2>
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>check the details of the waste are accurate</li>
-          <li>add the relevant waste treatment code</li>
-          <li>confirm that the waste has arrived at the receiving site</li>
-        </ul>
-        <!---<a class="govuk-body govuk-link" href="">Check and confirm the receipt of waste</a>-->
-        <!-- <tag><strong class="govuk-tag govuk-tag--grey">cannot start yet</strong></tag> -->
-
-      </li> <!-- end of section 7 -->
-
+                        </div><!-- accordion module end -->
 
     </ol>
 
@@ -917,8 +995,8 @@
         <!----- BUTTONS ----->
         <div class="govuk-button-group">
             <a href="home-move-waste-uk.html">
-                <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                    Return to this note later
+                <button class="govuk-button" data-module="govuk-button">
+                    Submit completed waste record
                 </button>
             </a>
         </div>

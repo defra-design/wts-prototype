@@ -1,7 +1,7 @@
 {% extends "../layout.html" %}
 
 {% block pageTitle %}
-  {{serviceName}}
+  Choose a user journey
 {% endblock %}
 
 
@@ -10,8 +10,6 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form method="post">
-
-
 
           <!-- RADIOS -->
           <div class="govuk-form-group">
@@ -23,13 +21,13 @@
 
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="prototype-route" name="prototype-route" type="radio" value="include-dcid">
+                  <input class="govuk-radios__input" id="prototype-route" name="prototype-route" type="radio" value="include">
                   <label class="govuk-label govuk-radios__label" for="prototype-route">
                     Include Defra account sign up
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="prototype-route" name="prototype-route" type="radio" value="skip-dcid">
+                  <input class="govuk-radios__input" id="prototype-route" name="prototype-route" type="radio" value="skip">
                   <label class="govuk-label govuk-radios__label" for="prototype-route">
                     Skip Defra account sign up
                   </label>

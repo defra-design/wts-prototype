@@ -1,0 +1,100 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    {% if data ['waste-amount'] == "actual-kg" %}
+        <h1 class="govuk-heading-l">
+            Does the waste quantity match the actual amount you received?
+        </h1>
+
+        {% elseif data ['waste-amount'] == "estimate-kg" %}
+        <h1 class="govuk-heading-l">
+            Does the estimated waste quantity match the actual amount you received?
+          </h1>
+
+        {% elseif data ['waste-amount'] == "actual-litre" %}
+        <h1 class="govuk-heading-l">
+            Does the waste quantity match the actual amount you received?
+          </h1>
+
+        {% elseif data ['waste-amount'] == "estimate-litre" %}
+        <h1 class="govuk-heading-l">
+            Does the estimated waste quantity match the actual amount you received?
+        </h1>
+
+    {% endif %}
+    <!-- Hard coded H1 until the logic is working -->
+    <h1 class="govuk-heading-l">
+      Does the waste quantity match the actual amount you received?
+    </h1>
+    <!---->
+
+
+      <div class="govuk-inset-text">
+        The estimated waste quantity is <b>112 tonnes</b>
+      </div>
+
+      <form method="post">
+        {% set confirmWeight %}
+        {{ govukInput({
+        id: "confirm-tonnes",
+        name: "confirm-tonnes",
+        type: "confirmtonnes",
+        autocomplete: "confirmtonnes",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+            text: "Enter the actual waste quantity received (tonnes)"
+        }
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          idPrefix: "confirm-quantity",
+          name: "confirm-quantity",
+          fieldset: {
+            legend: { }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: data['confirm-quantity'] == "Yes"
+            },
+            {
+              value: "No",
+              text: "No",
+              conditional: {
+                html: confirmWeight
+              },
+              checked: data['confirm-quantity'] == "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
