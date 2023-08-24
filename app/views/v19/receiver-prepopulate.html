@@ -1,0 +1,127 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+        <h1 class="govuk-heading-l">
+          Confirm receiver details
+        </h1>
+        <p class="govuk-body">These are the details you have in your account profile.</p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <!-- SUMMARY LIST -->
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Waste Receivers Ltd
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                3 Tameside Road<br>
+                Birmingham<br>
+                B36 6AR<br>
+                England<br>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Maria Fontaine
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">mfontaine@wastereceivers.com</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Contact phone
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">07123 456789</p>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Environmental permit number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">XXXXXXXXXXXXX</p>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Registration waste exemption number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">XXXXXXXXXXXXX</p>
+                </dd>
+            </div>
+          </dl>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <!-- RADIOS -->
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="receiver-details-preprop-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Are these the correct details for the receiver?
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-details-preprop" name="receiver-details-preprop" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="receiver-details-preprop">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-details-preprop" name="receiver-details-preprop" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="receiver-details-preprop">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

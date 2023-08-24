@@ -1,0 +1,57 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Enter a disposal or recovery code
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+        <form method="post">
+      
+        <span class="win-id govuk-caption-l">{{ data['receiver_treatment'] }}</span>
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l">
+                Enter a disposal or recovery code
+            </label>
+          </h1>
+
+          <p class="govuk-body">Enter the disposal codes (D codes) and recovery codes (R codes) most relevant to your waste management activity.</p>
+          <p class="govuk-body">You’re likely to have more than one code. You’ll be able to add more later.</p>
+
+          <div id="contact-hint" class="govuk-hint">Choose from the list or start typing</div>
+            <div id="recovery-operation-final-typeahead-container" data-default-value="{{ data['recovery-operation-final-typeahead'] }}"></div>
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Help with Disposal and Recovery codes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+                Lorem ipsum dolor sit amet ipsum sit amet dolor sit amet.
+            </div>
+          </details>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

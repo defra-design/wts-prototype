@@ -1,0 +1,84 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+        <span class="win-id govuk-caption-l">Waste Receiver Ltd</span>
+        <h1 class="govuk-heading-l">
+          Check the waste receiver's address
+        </h1>
+
+
+        <!-- ADDRESS PLAYBACK -->
+        <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Waste receiver address
+            </dt>
+            <dd class="govuk-summary-list__value">
+                5 Forest Way<br>
+                Birmingham <br>
+                B35 8ST <br>
+                England<br>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+
+          <!-- RADIOS -->
+          <div class="govuk-form-group">
+            
+            <fieldset class="govuk-fieldset" aria-describedby="receiver-final-same-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Is this the final destination for the waste?
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-final-same2" name="receiver-final-same2" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="receiver-final-same2">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-final-same2" name="receiver-final-same2" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="receiver-final-same2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

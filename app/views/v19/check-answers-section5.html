@@ -1,0 +1,210 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Check your answers - receiver details
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main"> -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post">
+
+          <span class="win-id govuk-caption-l">Receiver details</span>
+          <h1 class="govuk-heading-l">Check your answers</h1>
+
+          <!---------------------  RECEIVER DETAILS ----------------------------------------------------->
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <!------ Org name  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Waste Receivers Ltd</p>
+                <p class="govuk-body">{{ data['receiver_orgname'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden">Organisation name</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ receiver address  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Receiver address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    3 Tameside Road<br>
+                    Birmingham<br>
+                    B36 6AR<br>
+                    England<br>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">receiver address</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Contact person  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Maria Fontaine</p>
+                <p class="govuk-body">{{ data['receiver-contact-person'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden">Contact person</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Contact email  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">mfontaine@wastereceivers.com</p>
+                  <p class="govuk-body">{{ data['receiver-email'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Contact email</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Contact phone  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">07123 456789</p>
+                  <p class="govuk-body">{{ data['receiver-phone'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Environmental permit number  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Environmental permit number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">XXXXXXXXXXXXX<br>
+                  <p class="govuk-body">{{ data['receiver-permitnum'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">receiver permit</span>
+                  </a>
+                </dd>
+              </div>
+
+              <!------ Registered waste exemption number  ------>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Registered waste exemption number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">XXXXXXXXXXXXX<br>
+                  <p class="govuk-body">{{ data['receiver-exemptnum'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">receiver exemption</span>
+                  </a>
+                </dd>
+              </div>
+
+              <!------ Final address  ------>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste final destination
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Same as receiver address
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">final destination</span>
+                  </a>
+                </dd>
+              </div>
+
+          </dl>
+
+          <!---------- SECTION COMPLETED RADIOS ---------->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="section-five-complete-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Have you completed this section?
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-five-complete" name="section-five-complete" type="radio"
+                    value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="section-five-complete">
+                    Yes, I’ve completed this section
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-five-complete" name="section-five-complete" type="radio"
+                    value="No">
+                  <label class="govuk-label govuk-radios__label" for="section-five-complete">
+                    No, I’ll come back later
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+
+          <!----- BUTTONS ----->
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Confirm and continue"
+            }) }}
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  <!-- </main>
+</div> -->
+
+{% endblock %}

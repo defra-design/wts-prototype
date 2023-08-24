@@ -1,0 +1,83 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Does the waste contain persistent organic pollutants (POPs)?
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
+            <h1 class="govuk-fieldset__heading">
+              Does the waste have any persistent organic pollutants (POPs) in it?
+            </h1>
+          </legend>
+
+          <p class="govuk-body"><a
+              href="https://www.gov.uk/guidance/using-persistent-organic-pollutants-pops">Persistent organic pollutants
+              (POPs)</a> are poisonous chemical substances that are a danger to human health and the environment.</p>
+
+          <p class="govuk-body">Answer yes if the waste contains any <a
+              href="https://www.gov.uk/guidance/identify-and-classify-waste-containing-persistent-organic-pollutants-pops">POPs
+              above the allowed threshold</a>.</p>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pop-check" name="pop-check" type="radio" value="yes"
+                data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-radios__label" for="pop-check">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact"
+              name="poplist">
+              <div id="contact-hint" class="govuk-hint">
+                Choose from the list or start typing
+              </div>
+              <div class="govuk-form-group">
+                <div id="pops-typeahead-container" data-default-value="{{ data['pops-typeahead'] }}"></div>
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pop-check" name="pop-check" type="radio" value="no"
+                data-aria-controls="conditional-contact-2">
+              <label class="govuk-label govuk-radios__label" for="pop-check">
+                No
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+        {{ govukButton({
+        text: "Save and return to draft",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

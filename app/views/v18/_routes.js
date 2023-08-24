@@ -520,6 +520,13 @@ router.get('/setup-win', function (req, res) {
   res.redirect( 'start-waste-record' )
 })
 
+// ------- WASTE ROLE SELECT
+router.post('/waste-role', function(req, res) {
+  res.redirect('start-waste-record');
+})
+
+
+
 // ------- TASK LIST
 router.post('/start-waste-record', function(req, res) {
 // will need to add checks here to make sure the right page is shown, depending on where in the journey the user is

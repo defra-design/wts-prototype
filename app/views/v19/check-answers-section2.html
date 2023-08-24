@@ -1,0 +1,189 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Check your answers - Handling requirements
+{% endblock %}
+
+
+{% block content %}
+
+<!-- <div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main"> -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post">
+
+          <span class="win-id govuk-caption-l">Handling requirements</span>
+          <h1 class="govuk-heading-l">Check your answers</h1>
+
+          <!---------------------  HANDLING REQUIREMENTS ----------------------------------------------------->
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <!------ Haz code  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Hazardous codes
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">HP1: Explosive</p>
+                <p class="govuk-body">HP3: Flammable</p>
+                <!-- {% if data ['hazard_codes'] == "HP1: Explosive" %}  -->
+                
+
+                <!-- {% elseif data ['hazard_codes'] == "HP2: Oxidising" %} 
+                <p class="govuk-body">HP2: Oxidising</p> -->
+
+                <!-- {% elseif data ['hazard_codes'] == "HP3: Flammable" %} 
+                 -->
+
+                <!-- {% elseif data ['hazard_codes'] == "HP4: Irritant" %}  -->
+                <!-- <p class="govuk-body">HP4: Irritant</p> -->
+
+                <!-- {% elseif data ['hazard_codes'] == "HP5: Harmful" %} 
+                <p class="govuk-body">HP5: Harmful</p> -->
+
+                <!--     {% elseif data ['hazard_codes'] == "No" %} 
+                    <p class="govuk-body">None of these hazardous properties apply to the waste</p>
+
+                    {% endif %} -->
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="hazard-code.html">
+                  Change<span class="govuk-visually-hidden"> Hazardous codes</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Handling requirements check  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Any handling requirements
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {% if data ['handling-require'] == "yes" %} 
+                  <p class="govuk-body">Yes</p>
+  
+                  {% elseif data ['handling-require'] == "no" %}
+                  <p class="govuk-body">No</p>
+                  {% endif %}
+  
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="handling-check.html">
+                    Change<span class="govuk-visually-hidden"> handling check</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Handling requirement details  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Handling requirement details
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ data['handling_needs'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="waste-description">
+                  Change<span class="govuk-visually-hidden"> handling details</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ POPs check  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste contains POPs
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {% if data ['pop-check'] == "yes" %} 
+                  <p class="govuk-body">Yes</p>
+  
+                  {% elseif data ['pop-check'] == "no" %}
+                  <p class="govuk-body">No</p>
+                  {% endif %}
+  
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="handling-check.html">
+                    Change<span class="govuk-visually-hidden"> handling check</span>
+                  </a>
+                </dd>
+              </div>
+
+              <!------ POPs details  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  POPs details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">{{ data['pops-typeahead'] }}</p>
+                  <p class="govuk-body">Perfluorooctane sulfonic acid (PFOS) and PFOS derivatives</p>
+                  <p class="govuk-body">Bis(pentabromophenyl) ether (decabromodiphenyl ether, decaBDE)</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="ewc-add-another.html">
+                    Change<span class="govuk-visually-hidden">pops list</span>
+                  </a>
+                </dd>
+              </div>
+
+          </dl>
+
+          <!---------- SECTION COMPLETED RADIOS ---------->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="section-two-complete-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Have you completed this section?
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-two-complete" name="section-two-complete" type="radio"
+                    value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="section-two-complete">
+                    Yes, I’ve completed this section
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-two-complete" name="section-two-complete" type="radio"
+                    value="No">
+                  <label class="govuk-label govuk-radios__label" for="section-two-complete">
+                    No, I’ll come back later
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+
+          <!----- BUTTONS ----->
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Confirm and continue"
+            }) }}
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  <!-- </main>
+</div> -->
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Waste hazardous properties
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form method="post">
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukCheckboxes({
+      idPrefix: "hazard_codes",
+      name: "hazard_codes",
+      fieldset: {
+      legend: {
+      text: "Do any of these hazardous properties apply to the waste?",
+      sPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      hint: {
+      text: "Select all codes that apply"
+      },
+      items: [
+      {
+      value: "HP1: Explosive",
+      text: "HP1: Explosive",
+      checked: checked("hazard_codes", "HP1: Explosive")
+      },
+      {
+      value: "HP2: Oxidising",
+      text: "HP2: Oxidising",
+      checked: checked("hazard_codes", "HP2: Oxidising")
+      },
+      {
+      value: "HP3: Flammable",
+      text: "HP3: Flammable",
+      checked: checked("hazard_codes", "HP3: Flammable")
+      },
+      {
+      value: "HP4: Irritant",
+      text: "HP4: Irritant",
+      checked: checked("hazard_codes", "HP4: Irritant"),
+      conditional: {
+      html: hp4concentration
+      }
+      },
+      {
+      value: "HP5: Harmful",
+      text: "HP5: Harmful",
+      checked: checked("hazard_codes", "HP5: Harmful"),
+      conditional: {
+      html: hp5concentration
+      }
+      },
+      {
+      value: "HP6: Toxic",
+      text: "HP6: Toxic",
+      checked: checked("hazard_codes", "HP6: Toxic"),
+      conditional: {
+      html: hp6concentration
+      }
+      },
+      {
+      value: "HP7: Carcinogenic",
+      text: "HP7: Carcinogenic",
+      checked: checked("hazard_codes", "HP7: Carcinogenic"),
+      conditional: {
+      html: hp7concentration
+      }
+      },
+      {
+      value: "HP8: Corrosive",
+      text: "HP8: Corrosive",
+      checked: checked("hazard_codes", "HP8: Corrosive"),
+      conditional: {
+      html: hp8concentration
+      }
+      },
+      {
+      value: "HP9: Infectious",
+      text: "HP9: Infectious",
+      checked: checked("hazard_codes", "HP9: Infectious")
+      } ,
+      {
+      value: "HP10: Toxic for reproduction",
+      text: "HP10: Toxic for reproduction",
+      checked: checked("hazard_codes", "HP10: Toxic for reproduction"),
+      conditional: {
+      html: hp10concentration
+      }
+      },
+      {
+      value: "HP11: Mutagenic",
+      text: "HP11: Mutagenic",
+      checked: checked("hazard_codes", "HP11: Mutagenic"),
+      conditional: {
+      html: hp11concentration
+      }
+      },
+      {
+      value: "HP12: Release of an acute toxic gas",
+      text: "HP12: Release of an acute toxic gas",
+      checked: checked("hazard_codes", "HP12: Release of an acute toxic gas")
+      },
+      {
+      value: "HP13: Sensitizing",
+      text: "HP13: Sensitizing",
+      checked: checked("hazard_codes", "HP13: Sensitizing"),
+      conditional: {
+      html: hp13concentration
+      }
+      },
+      {
+      value: "HP14: Ecotoxic",
+      text: "HP14: Ecotoxic",
+      checked: checked("hazard_codes", "HP14: Ecotoxic"),
+      conditional: {
+      html: hp14concentration
+      }
+      },
+      {
+      value: "HP15",
+      text: "HP15: Waste capable of exerting a hazardous property listed above not directly displayed by the original
+      waste",
+      checked: checked("hazard_codes", "HP15")
+      },
+      {
+      divider: "or"
+      },
+      {
+      value: "No",
+      text: "No, none of these hazardous properties apply to the waste",
+      checked: checked("hazard_codes", "none"),
+      conditional: {
+      html: hazNone
+      }
+      }
+      ]
+      }) }}
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Save and continue"
+        }) }}
+
+        {{ govukButton({
+        text: "Save and return to draft",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
