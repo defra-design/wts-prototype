@@ -1,0 +1,48 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Describe the special handling requirements
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">
+      <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
+      What are the special handling requirements?
+    </h1>
+
+    <form method="post">
+      {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+      {{ govukCharacterCount({
+      id: "handling-needs",
+      name: "handling_needs",
+      maxlength: 100,
+      value: data['handling_needs'],
+      hint: {
+      text: "Tell us what people need to do to handle the waste safely. For example, the waste may have chemical
+      components or physical features that means it needs to be handled in a specific way."
+      }
+      }) }}
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Save and continue"
+        }) }}
+
+        {{ govukButton({
+        text: "Save and return to draft",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

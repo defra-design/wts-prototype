@@ -1,0 +1,195 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Check your answers - Handling requirements
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main"> -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post">
+
+          <span class="win-id govuk-caption-l">Producer and collection details</span>
+          <h1 class="govuk-heading-l">Check your answers</h1>
+
+          <!---------------------  PRODUCER / COLLECTION DETAILS ----------------------------------------------------->
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <!------ Org name  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Waste Producers Ltd</p>
+                <p class="govuk-body">{{ data['producer_orgname'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden">Organisation name</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Producer address  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Producer address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    4 Fortune Close<br>
+                    Riverside Business Park<br>
+                    Northampton<br>
+                    NN3 9HZ<br>
+                    England<br>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Producer address</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Contact person  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">John Smith</p>
+                <p class="govuk-body">{{ data['producer-contact-person'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden">Contact person</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Contact email  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">john.smith@wasteproducers.co.uk</p>
+                  <p class="govuk-body">{{ data['producer-email'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Contact email</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Contact phone  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">07123 456789</p>
+                  <p class="govuk-body">{{ data['producer-phone'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ SIC code  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  SIC code
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">39000<br>
+                    Remediation activities and other waste management services</p>
+                  <p class="govuk-body">{{ data['producer-sic'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Producer sic</span>
+                  </a>
+                </dd>
+              </div>
+
+              <!------ Collection address  ------>
+
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste collection address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      Same as producer address
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="">
+                      Change<span class="govuk-visually-hidden">Collection address</span>
+                    </a>
+                  </dd>
+                </div>
+
+          </dl>
+
+          <!---------- SECTION COMPLETED RADIOS ---------->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="section-three-complete-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Have you completed this section?
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-three-complete" name="section-three-complete" type="radio"
+                    value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="section-three-complete">
+                    Yes, I’ve completed this section
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-three-complete" name="section-three-complete" type="radio"
+                    value="No">
+                  <label class="govuk-label govuk-radios__label" for="section-three-complete">
+                    No, I’ll come back later
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+
+          <!----- BUTTONS ----->
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Confirm and continue"
+            }) }}
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  <!-- </main>
+</div> -->
+
+{% endblock %}

@@ -1,0 +1,67 @@
+
+{% extends "../layout_account.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <!----- SIGNED IN ACCOUNT HOLDER DETAILS ----->
+    <span class="govuk-caption-xl">Waste organisation name</span>
+    <h1 class="govuk-heading-xl">
+      John Smith
+    </h1>
+
+    <!----- SCREEN TITLE ----->
+    <div>
+      <h2 class="govuk-heading-l" id="homeH1">
+        Move, export or import waste
+      </h2>
+
+      <div class="div-line"></div>
+    </div>
+
+
+    <div class="section-tiles-container">
+
+    <!----- MOVE WASTE UK ----->
+      <div class="home-container">
+          <div class="home-title">
+              <a class="govuk-link--no-underline govuk-body-l govuk-!-font-weight-bold" href="home-move-waste-uk">Move waste in the UK</a>
+          </div>
+          <div class="home-description">
+              <p class="govuk-body">Create a digital waste record to move and track hazardous and non-hazardous waste for processing and recovery around the UK.</p>
+          </div>
+      </div>
+
+      <!----- EXPORT WASTE ----->
+      <div class="home-container">
+        <div class="home-title">
+          <a class="govuk-link--no-underline govuk-body-l govuk-!-font-weight-bold" href="home-export-waste.html">Export waste from the UK</a>
+        </div>
+        <div class="home-description">
+          <p class="govuk-body">Create an Annex VII and inform environmental agency officers if you plan to export green list waste.</p>
+        </div>
+      </div>
+
+      <!----- IMPORT WASTE ----->
+      <div class="home-container-rightcol">
+        <div class="home-title">
+          <a class="govuk-link--no-underline govuk-body-l govuk-!-font-weight-bold" href="">Import waste to the UK</a>
+        </div>
+        <div class="home-description">
+          <p class="govuk-body">Inform environmental agency officers if you’ve received imported green list waste.</p>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

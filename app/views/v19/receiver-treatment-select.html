@@ -1,0 +1,72 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        What will you do with the waste?
+      </h1>
+
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "receiver-treatment",
+          name: "receiver_treatment",
+          fieldset: {
+            legend: { }
+          },
+          items: [
+            {
+              value: "Send the waste to landfill",
+              text: "Send the waste to landfill",
+              checked: data['receiver_treatment'] == "Landfill"
+            },
+            {
+              value: "Incinerate or combust the waste",
+              text: "Incinerate or combust the waste",
+              checked: data['receiver_treatment'] == "Incinerate"
+            },
+            {
+              value: "Transfer or treat the waste to enable its disposal",
+              text: "Transfer or treat the waste to enable its disposal",
+              checked: data['receiver_treatment'] == "TransferDisposal"
+            },
+            {
+              value: "Transfer or treat the waste to enable its recovery",
+              text: "Transfer or treat the waste to enable its recovery",
+              checked: data['receiver_treatment'] == "TransferRecovery"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Treat it or dispose of it in more than one way",
+              text: "Treat it or dispose of it in more than one way",
+              checked: data['receiver_treatment'] == "MoreThanOne"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

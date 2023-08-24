@@ -1,0 +1,59 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+    Does the waste have special handling requirements
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form method="post">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="handling-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Does the waste have any special handling requirements?
+                </h1>
+              </legend>
+              <div id="handling-hint" class="govuk-hint">
+                For example, dusty waste and flammable waste will have special handling requirements.
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="handling-require" name="handling-require" type="radio" value="yes" data-aria-controls="conditional-handling">
+                  <label class="govuk-label govuk-radios__label" for="handling-require">
+                    Yes
+                  </label>
+                </div>
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="handling-require" name="handling-require" type="radio" value="no" data-aria-controls="conditional-handling-2">
+                  <label class="govuk-label govuk-radios__label" for="handling-require">
+                    No
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+        {{ govukButton({
+        text: "Save and return to draft",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
