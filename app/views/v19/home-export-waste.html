@@ -5,9 +5,20 @@
   Export waste from the UK
 {% endblock %}
 
-<!---------- BREADCRUMBS ---------->
+<!---------- PHASE BANNER & BREADCRUMBS ---------->
 
 {% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Prototype
+    </strong>
+    <span class="govuk-phase-banner__text">
+      Version 19 - This is not a live service.
+    </span>
+  </p>
+</div>
+
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
@@ -23,89 +34,114 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
     <div class="govuk-!-padding-bottom-2"></div>
 
-    <div>
-      <h1 class="govuk-heading-l">
+     <!----- SCREEN TITLE ----->
+    <div class="section-title">
+      <h1 class="govuk-heading-l" id="homeH1">
         Export waste from the UK
       </h1>
-      <div class="div-line"></div>
     </div>
 
-    <h2 class="govuk-heading-m">
-      Tell us about an export
-    </h2>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link" href="">Start a single waste export</a>
-      </li>
-      <li>
-        <a class="govuk-link" href="#">Use an existing template to submit a waste export</a>
-      </li>
-      <li>
-        <a class="govuk-link" href="#">Submit multiple exports using a CSV file</a>
-      </li>
-      <li>
-        <a class="govuk-link" href="#">Continue a draft export</a>
-      </li>
-    </ul>  
+    <!-- EXPORTS CONTAINER-->
+    <div class="section-tiles-container">
 
-    <div class="govuk-!-padding-bottom-6"></div>
+      <!----- NEW EXPORT ----->
+        <div class="home-container">
+          <div class="subhome-title">
+            <h2 class="govuk-heading-m">New green list waste exports</h2>
+          </div>
 
-    <h2 class="govuk-heading-m">
-        Update or cancel an export
-    </h2>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link" href="#">Update an export with estimated details to actual details</a>
-      </li>
-      <li>
-        <a class="govuk-link" href="#">Cancel a waste export</a>
-      </li>
-    </ul>  
+          <div class="home-description-background">
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a class="govuk-link" href="">Start a single waste export</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Use an existing template to submit a waste export</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Submit multiple exports using a CSV file</a>
+              </li>
+            </ul> 
+          </div>
+        </div> 
 
-    <div class="govuk-!-padding-bottom-6"></div>
+      <!----- UPDATE OR CANCEL EXPORT ----->
+        <div class="home-container">
+          <div class="subhome-title">
+            <h2 class="govuk-heading-m">Update or cancel an export</h2>
+          </div>
 
-    <h2 class="govuk-heading-m">
-        View all waste submissions
-    </h2>
-      <a class="govuk-link govuk-body" href="#">View and check all of your submitted waste.</a>
+          <div class="home-description-background">
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a class="govuk-link" href="#">Continue a draft export</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Update an export with estimated details to actual details</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Cancel a waste export</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
+      <!----- VIEW ALL EXPORTS ----->
+      <div class="home-container-rightcol">
+        <div class="subhome-title">
+          <h2 class="govuk-heading-m">View all submitted waste exports</h2>
+        </div>
 
-    <div class="govuk-!-margin-bottom-8"></div>
-    <div class="govuk-!-padding-bottom-8"></div>
+        <div class="home-description-background">
+          <a class="govuk-link govuk-body" href="#">View and check all of your submitted exports.</a>
+        </div>
+      </div>
 
+  </div><!-- EXPORTS CONTAINER END -->
 
-    <div>
-       <h1 class="govuk-heading-l">
-        Templates and guidance
-      </h1>
-      <div class="div-line"></div>
-    </div>
+  <!-- TEMPLATES CONTAINER-->
+  <div class="section-tiles-container">
 
-    <h2 class="govuk-heading-m">
-      Templates
-    </h2>
-      <p class="govuk-body">Create a template if most of the details stay the same</p>
-      <ul class="govuk-list">
-        <li>
-          <a class="govuk-link" href="#">Create a template</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="#">Manage templates</a>
-        </li>
-      </ul>  
+    <!----- TEMPLATES AND GUIDEANCE ----->
 
-      <div class="govuk-!-padding-bottom-6"></div>
+      <div class="section-title">
+        <h1 class="govuk-heading-l">Templates and guidance</h1>
+      </div>
 
-      <h2 class="govuk-heading-m">
-        How to submit multiple exports using a CSV
-      </h2>
-        <p class="govuk-body">Find out how you can <a class="govuk-link" href="#">submit multiple waste exports at the same time using a CSV file</a>. </p>
+      <div class="home-container">
+        <div class="subhome-title">
+          <h2 class="govuk-heading-m">Templates</h2>
+          <p class="govuk-body">Create a template if most of the details stay the same.</p>
+        </div>
 
-  </div>
+        <div class="home-description-templates">
+          <ul class="govuk-list govuk-list--spaced">
+            <li>
+              <a class="govuk-link" href="#">Create a template</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Manage templates</a>
+            </li>
+          </ul> 
+        </div>
+      </div>
+
+    <!----- CSV ----->
+      <div class="home-container">
+        <div class="home-title-csv">
+          <h2 class="govuk-heading-m">How to submit multiple movements using a CSV</h2>
+        </div>
+
+        <div class="home-description">
+          <p class="govuk-body" id="descriptionCSV">Find out how you can <a class="govuk-link" href="#">submit multiple waste exports at the same time using a CSV file</a>. </p> 
+        </div>
+      </div>
+
+  </div><!-- TEMPLATES CONTAINER END -->
 </div>
 
 {% endblock %}
