@@ -77,12 +77,10 @@
                         <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
 
                         {% elseif data ['waste-amount'] == "actual-litre" %}
-                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
-                        </p>
+                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres</p>
 
                         {% elseif data ['waste-amount'] == "estimate-litre" %}
-                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
-                            litres</p>
+                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} litres</p>
 
                         {% elseif data ['waste-amount'] == "unknown" %}
                         <p class="govuk-body">Unknown</p>
