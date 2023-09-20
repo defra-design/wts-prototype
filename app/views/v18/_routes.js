@@ -1,9 +1,9 @@
-//const express = require('express')
-//const router = express.Router()
+//const govukPrototypeKit = require('govuk-prototype-kit')
+//const router = govukPrototypeKit.requests.setupRouter()
 
 const { red } = require('ansi-colors');
-const express = require('express')
-const router = express.Router()
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
 var version = "v18";
 
 
@@ -520,11 +520,6 @@ router.get('/setup-win', function (req, res) {
   res.redirect( 'start-waste-record' )
 })
 
-// ------- WASTE ROLE SELECT
-router.post('/waste-role', function(req, res) {
-  res.redirect('start-waste-record');
-})
-
 
 
 // ------- TASK LIST
@@ -590,6 +585,17 @@ router.post('/index', function(req, res) {
           res.redirect('index-start');
   }
   })
+
+
+  // ------- UNIQUE REFERENCE NUMBER
+router.post('/unique-reference', function(req, res) {
+  res.redirect('waste-role');
+});
+
+// ------- WASTE ROLE SELECT
+router.post('/waste-role', function(req, res) {
+  res.redirect('start-waste-record');
+});
 
 
 // --------------------------------------------------------------------------------------------------------

@@ -1,0 +1,181 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Check your answers - Carrier details
+{% endblock %}
+
+
+{% block content %}
+
+<!-- <div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main"> -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post">
+
+          <span class="win-id govuk-caption-l">Carrier details and transport</span>
+          <h1 class="govuk-heading-l">Check your answers</h1>
+
+          <!---------------------  CARRIER DETAILS ----------------------------------------------------->
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <!------ Org name  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Waste Carriers Ltd</p>
+                <p class="govuk-body">{{ data['carrier_orgname'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden">Organisation name</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ carrier address  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Carrier address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    1 Hydra Way<br>
+                    Seaview Business Park<br>
+                    Manchester<br>
+                    M1 1EZ<br>
+                    England<br>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Carrier address</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Contact person  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contact person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Ellie Davies</p>
+                <p class="govuk-body">{{ data['carrier-contact-person'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden">Contact person</span>
+                </a>
+              </dd>
+            </div>
+
+            <!------ Contact email  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">e.davies@wastecarriers.co.uk</p>
+                  <p class="govuk-body">{{ data['carrier-email'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Contact email</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Contact phone  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">07123 456789</p>
+                  <p class="govuk-body">{{ data['carrier-phone'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                  </a>
+                </dd>
+              </div>
+
+            <!------ Carrier registration number  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Carrier registration number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">CBXX12345<br>
+                  <p class="govuk-body">{{ data['carrier-regnum'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden">carrier registration</span>
+                  </a>
+                </dd>
+              </div>
+
+              
+
+          </dl>
+
+          <!---------- SECTION COMPLETED RADIOS ---------->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="section-four-complete-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Have you completed this section?
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-four-complete" name="section-four-complete" type="radio"
+                    value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="section-four-complete">
+                    Yes, I’ve completed this section
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="section-four-complete" name="section-four-complete" type="radio"
+                    value="No">
+                  <label class="govuk-label govuk-radios__label" for="section-four-complete">
+                    No, I’ll come back later
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+
+          <!----- BUTTONS ----->
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Confirm and continue"
+            }) }}
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  <!-- </main>
+</div> -->
+
+{% endblock %}

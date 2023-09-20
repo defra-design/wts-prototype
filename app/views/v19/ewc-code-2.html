@@ -1,39 +1,37 @@
-{% extends "../layout.html" %}
+{% extends "../layout-experimental.html" %}
 
 {% block pageTitle %}
-Enter an EWC code
+What is the European Waste Catalogue (EWC) code?
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-            <form class="form" method="post">
-
-              <div class="govuk-form-group">
+        <form class="form" method="post">
 
                 <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                      <h1 class="govuk-fieldset__heading">
-                        Enter an EWC code
-                      </h1>
-                    </legend>
-                    <div id="contact-hint" class="govuk-hint">
-                      Choose from the list or start typing
+                    <h1 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--l" for="ewc-code-2">
+                        What is the European Waste Catalogue (EWC) code?
+                      </label>
+                    </h1>
+                    
+                    <div id="ewc-hint" class="govuk-hint">
+                        This can also be called a list of waste (LoW) code. For more help with these codes, read the waste classification technical guidance.
                     </div>
-                    <div id="ewc-wastes-typeahead-container" data-default-value="">
-                    </div>
+                    <label class="govuk-label" for="event-name">
+                        Enter code
+                      </label>
+                      <input class="govuk-input govuk-input--width-10" id="ewc-code-2" name="ewc-code-2" type="text" value="{{data['ewc-code-2']}}">
+                  </div>
 
-                  </fieldset>
-                </div>
-
-            </div>
+            <div class="govuk-!-padding-bottom-6"></div>
 
             <!----- BUTTONS ----->
             <div class="govuk-button-group">
                 {{ govukButton({
-                  text: "Save and continue"
+                  text: "Continue"
                 }) }}
               
                 {{ govukButton({
@@ -42,9 +40,9 @@ Enter an EWC code
                 }) }}
             </div>
 
-          </form>
+        </form>
 
-        </div>
-      </div>
+    </div>
+</div>
 
-    {% endblock %}
+{% endblock %}

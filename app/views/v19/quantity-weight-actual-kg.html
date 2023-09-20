@@ -6,31 +6,29 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
-        What is the actual weight of waste?
-      </h1>
-      <p class="govuk-body">Do not include the weight of the container or vehicle. If the weight might change, <a class="govuk-link" href="quantity-weight-estimate-kg.html">enter an estimated weight instead</a>.</p>
+        <form class="form" method="post">
 
-      <div class="govuk-!-padding-bottom-3"></div>
+          <div class="govuk-form-group">
+            <span class="win-id govuk-caption-l">EWC code: {{ data['ewc-code'] }}</span>
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="ewc-code">
+                  What is the actual weight of waste?
+                </label>
+              </h1>
+              
+              <p class="govuk-body">Do not include the weight of the container or vehicle. If the weight might change, <a class="govuk-link" href="quantity-weight-estimate-kg.html">enter an estimated weight instead</a>.</p>
+              
+              <div class="govuk-!-padding-bottom-3"></div>
 
-      <form method="post">
-
-        {{ govukInput({
-          label: {
-            text: "Enter weight, in kilograms"
-          },
-          classes: "govuk-input--width-5",
-          id: "weight",
-          name: "weight",
-          value: data['weight-actual-kg'],
-          suffix: {
-            text: "kg"
-          },
-          spellcheck: false
-        }) }}
+              <label class="govuk-label" for="event-name">
+                Enter weight, in kilograms
+              </label>
+              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight-actual-kg" name="weight-actual-kg" type="text" spellcheck="false" value="{{data['weight-actual-kg']}}">
+                <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+              </div>
+            </div>
 
         <div class="govuk-!-padding-bottom-6"></div>
 

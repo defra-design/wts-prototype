@@ -1,0 +1,133 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Waste hazardous properties
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form method="post">
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukCheckboxes({
+      idPrefix: "haz_codes-2",
+      name: "haz_codes-2",
+      fieldset: {
+      legend: {
+      text: "Do any of these hazardous properties apply to the waste?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      hint: {
+      text: "Select all codes that apply"
+      },
+      items: [
+      {
+      value: "HP1: Explosive",
+      text: "HP1: Explosive",
+      checked: checked("haz_codes-2", "HP1: Explosive")
+      },
+      {
+      value: "HP2: Oxidising",
+      text: "HP2: Oxidising",
+      checked: checked("haz_codes-2", "HP2: Oxidising")
+      },
+      {
+      value: "HP3: Flammable",
+      text: "HP3: Flammable",
+      checked: checked("haz_codes-2", "HP3: Flammable")
+      },
+      {
+      value: "HP4: Irritant",
+      text: "HP4: Irritant",
+      checked: checked("haz_codes-2", "HP4: Irritant")
+      },
+      {
+      value: "HP5: Harmful",
+      text: "HP5: Harmful",
+      checked: checked("haz_codes-2", "HP5: Harmful")
+      },
+      {
+      value: "HP6: Toxic",
+      text: "HP6: Toxic",
+      checked: checked("haz_codes-2", "HP6: Toxic")
+      },
+      {
+      value: "HP7: Carcinogenic",
+      text: "HP7: Carcinogenic",
+      checked: checked("haz_codes-2", "HP7: Carcinogenic")
+      },
+      {
+      value: "HP8: Corrosive",
+      text: "HP8: Corrosive",
+      checked: checked("haz_codes-2", "HP8: Corrosive")
+      },
+      {
+      value: "HP9: Infectious",
+      text: "HP9: Infectious",
+      checked: checked("haz_codes-2", "HP9: Infectious")
+      },
+      {
+      value: "HP10: Toxic for reproduction",
+      text: "HP10: Toxic for reproduction",
+      checked: checked("haz_codes-2", "HP10: Toxic for reproduction")
+      },
+      {
+      value: "HP11: Mutagenic",
+      text: "HP11: Mutagenic",
+      checked: checked("haz_codes", "HP11: Mutagenic")
+      },
+      {
+      value: "HP12: Release of an acute toxic gas",
+      text: "HP12: Release of an acute toxic gas",
+      checked: checked("haz_codes", "HP12: Release of an acute toxic gas")
+      },
+      {
+      value: "HP13: Sensitizing",
+      text: "HP13: Sensitizing",
+      checked: checked("haz_codes", "HP13: Sensitizing")
+      },
+      {
+      value: "HP14: Ecotoxic",
+      text: "HP14: Ecotoxic",
+      checked: checked("haz_codes", "HP14: Ecotoxic")
+      },
+      {
+      value: "HP15",
+      text: "HP15: Waste capable of exerting a hazardous property listed above not directly displayed by the original
+      waste",
+      checked: checked("haz_codes", "HP15")
+      },
+      {
+      divider: "or"
+      },
+      {
+      value: "No",
+      text: "No, none of these hazardous properties apply to the waste",
+      checked: checked("haz_codes", "none")
+      }
+      ]
+      }) }}
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Save and continue"
+        }) }}
+
+        {{ govukButton({
+        text: "Save and return to draft",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

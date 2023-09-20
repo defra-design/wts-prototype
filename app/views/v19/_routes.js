@@ -1,9 +1,10 @@
-//const express = require('express')
-//const router = express.Router()
+//const govukPrototypeKit = require('govuk-prototype-kit')
+//const router = govukPrototypeKit.requests.setupRouter()
+const govukPrototypeKit = require('govuk-prototype-kit')
+
 
 const { red } = require('ansi-colors');
-const express = require('express')
-const router = express.Router()
+const router = govukPrototypeKit.requests.setupRouter()
 var version = "v19";
 
 
@@ -520,11 +521,17 @@ router.get('/setup-win', function (req, res) {
   res.redirect( 'start-waste-record' )
 })
 
-// ------- WASTE ROLE SELECT
-router.post('/waste-role', function(req, res) {
-  res.redirect('start-waste-record');
-})
 
+ // ------- UNIQUE REFERENCE NUMBER
+  router.post('/unique-reference', function(req, res) {
+    res.redirect('waste-role');
+  });
+  
+// ------- WASTE ROLE SELECT
+  router.post('/waste-role', function(req, res) {
+    res.redirect('start-waste-record');
+  });
+  
 
 
 // ------- TASK LIST
@@ -535,7 +542,7 @@ router.post('/start-waste-record', function(req, res) {
 
     // check the status of each part and show the relevant page
     if (req.session.data['waste_details_status'] != 'Completed') {
-      res.redirect('ewc-code-v2');
+      res.redirect('ewc-code');
     }
     if (req.session.data['container_status'] != 'Completed') {
       res.redirect('container');
@@ -598,52 +605,11 @@ router.post('/index', function(req, res) {
 // Waste details
 
 // This page starts by asking for the EWC code
-// Once we have a valid EWC code, the page becomes a 'Check answers' playing back what the user has provided
- router.get('/waste', function (req, res) {
-  res.render( './' + req.originalUrl, {} )
-})
 
-//------ EWC code counter
-router.post('/ewc-code', function(req, res) {
-
-  if(req.session.data['ec-code']=='Yes'){
-    if(typeof req.session.data['code-count'] == "undefined"){
-      req.session.data['code-count'] = 0;
-    }
-    else {
-      req.session.data['code-count']++;
-    }
-
-    req.session.data['code-'+req.session.data['code-count']] = req.session.data['ewc-wastes-typeahead'];
-    res.redirect('ewc-add-another');
-  }
-  else if (req.session.data['ec-code']=='No') {
-    res.redirect('waste-description');
-  }
-});
-
-router.get('/ewc-add-another', function (req, res) {
-var carrierArray = [];
-
-for (var i = 0; i <= req.session.data['code-count']; i++) {
-carrierArray[i] = req.session.data['code-'+i];
-}
-
-res.render(version+'/ewc-add-another', {
-'codes' : carrierArray });
-});
-
-router.post('/ewc-code-2', function(req, res) {
-  if(typeof req.session.data['code-count'] == "undefined"){
-    req.session.data['code-count'] = 0;
-  }
-  else {
-    req.session.data['code-count']++;
-  }
-
-  req.session.data['code-'+req.session.data['code-count']] = req.session.data['ewc-wastes-typeahead'];
-  res.redirect('ewc-add-another');
-});
+//------ EWC code 
+//router.post('/ewc-code', function(req, res) {
+//    res.redirect('waste-description');
+//});
 
 
 //-------- EWC ADD ANOTHER
@@ -657,29 +623,50 @@ router.post('/ewc-add-another', function(req, res) {
 
 //-----------------------------
 
-//-------- NEW EWC PATTERN FOR TESTING - link in footer
+//-------- NEW MULTIPLE EWC PATTERN FOR TESTING
 
-//-------- EWC CODE v2
-router.post('/ewc-code-v2', function(req, res) {
-      res.redirect('ewc-add-another-v2');
+//-------- EWC CODE 
+router.post('/ewc-code', function(req, res) {
+      res.redirect('waste-description');
   
   })
 
-//-------- EWC ADD ANOTHER v2
-router.post('/ewc-add-another-v2', function(req, res) {
-  if (req.session.data['add-ec-codev2'] == 'Yes') {
-      res.redirect('ewc-add-another-2-v2');
-  } else if (req.session.data['add-ec-codev2'] == 'No') {
-          res.redirect('waste-description');
+//-------- EWC CODE 2
+router.post('/ewc-code-2', function(req, res) {
+  res.redirect('waste-description-2');
+
+})
+
+//-------- EWC CODE 3
+router.post('/ewc-code-3', function(req, res) {
+  res.redirect('waste-description-3');
+
+})
+
+//-------- EWC ADD ANOTHER (CARD)
+router.post('/ewc-add-another-card-1', function(req, res) {
+  if (req.session.data['add-ewc-item'] == 'Yes') {
+      res.redirect('ewc-code-2');
+  } else if (req.session.data['add-ewc-item'] == 'No') {
+          res.redirect('container-description');
   }
   })
 
-  //-------- EWC ADD ANOTHER v2 - Screen 2 (has 2 codes)
-router.post('/ewc-add-another-2-v2', function(req, res) {
-  if (req.session.data['add-ec-codev2-2'] == 'Yes') {
-      res.redirect('waste-description');
-  } else if (req.session.data['add-ec-codev2-2'] == 'No') {
-          res.redirect('waste-description');
+//-------- EWC ADD ANOTHER (CARD) - (2 cards)
+router.post('/ewc-add-another-card-2', function(req, res) {
+  if (req.session.data['add-ewc-item-2'] == 'Yes') {
+      res.redirect('ewc-code-3');
+  } else if (req.session.data['add-ewc-item-2'] == 'No') {
+          res.redirect('container-description');
+  }
+  })
+
+  //-------- EWC ADD ANOTHER (CARD) - (3 cards)
+router.post('/ewc-add-another-card-3', function(req, res) {
+  if (req.session.data['add-ewc-item-3'] == 'Yes') {
+      res.redirect('container-description');
+  } else if (req.session.data['add-ewc-item-3'] == 'No') {
+          res.redirect('container-description');
   }
   })
 
@@ -688,530 +675,59 @@ router.post('/ewc-add-another-2-v2', function(req, res) {
 // WASTE DESCRIPTION
 router.post('/waste-description', function(req, res) {
   req.session.data['usual-description-of-the-waste-status'] = "Completed";
-
- // if ((req.session.data.gPreviousLocation).includes('check-your-answers')) {
-      //res.redirect('check-your-answers');
-  //} else {
       res.redirect('physical-form');
-  //}
 })
 
-// This page starts by asking for the EWC code
-// Once we have a valid EWC code, the page becomes a 'Check answers' playing back what the user has provided
-/* router.get('/waste', function (req, res) {
-  res.render( './' + req.originalUrl, {} )
+// WASTE DESCRIPTION 2
+router.post('/waste-description-2', function(req, res) {
+  req.session.data['usual-description-of-the-waste-status'] = "Completed";
+      res.redirect('physical-form-2');
 })
 
-router.post('/waste', function(req, res) {
-  // no EWC code entered
-  if (req.session.data['ewc'] == '') {
-    req.session.data['ewc_provided'] = "false"
-    res.redirect('waste');
-
-  } else { // code entered
-    if (req.session.data['have_waste'] == "true" ){
-
-      // if we have all aspects of the waste, then set status as complete
-      if (((req.session.data['have_hazard'] == 'true') || (req.session.data['any_pops'] == 'true')) && (req.session.data['have_physical_form'] == 'true') &&
-          (req.session.data['have_weight'] == 'true') && (req.session.data['container_asked_for'] == 'true')) {
-        req.session.data['waste_details_status'] = "Completed"
-        req.session.data['waste_details_status_class'] = ""
-      } else { // else set status as in progress
-        req.session.data['waste_details_status'] = "In progress"
-        req.session.data['waste_details_status_class'] = "govuk-tag--blue"
-      }
-
-      req.session.data['have_waste'] = "true"
-      res.redirect( 'physical-form' )
-
-    } else {
-      req.session.data['ewc_provided'] = "true"
-
-      // go get the EWC details from the code given. First assign the code to a variable...
-      var wcn = req.session.data['ewc']
-
-      // if an EWC code was entered...
-      if (wcn != '' ){
-        // Remove the asterisk
-        wcn = wcn.replace('*','')
-        // Remove any spaces - this is using a regex to catch all whitespace
-        wcn = wcn.replace(/\s/g,'')
-
-        // get the EWC list from the JSON
-        var ewc_list = require('./ewc-codes-new.json')
-        ewc_list = JSON.parse(JSON.stringify( ewc_list ))
-
-        // initiate variables
-        var ewc_description = "Not found"
-        var is_hazardous_waste = "false"
-
-        for (let i = 0; i < ewc_list.length; i++ ){
-          this_wcn = ewc_list[i].ewc_code.trim()
-          this_wcn = this_wcn.replaceAll(" ", "")
-
-          if (this_wcn.replace('*','') == wcn ){
-            ewc_description = ewc_list[i].ewc_description;
-
-      // we will need more validation that just checking for an asterisk to check if it's hazardous waste or not !!!!
-            if (this_wcn.charAt(this_wcn.length-1) == "*" ){
-              req.session.data['is_hazardous_waste'] = "true"
-            } else {
-              req.session.data['is_hazardous_waste'] = "false"
-            }
-
-            break;
-          }// end the for loop
-        }
-
-        // If we found the EWC code and description, tidy the description to remove the code from the start and add a capital letter.
-        if (ewc_description != "Not found" ){
-          ewc_description = ewc_description.charAt(0).toUpperCase() + ewc_description.slice(1)
-          req.session.data['ewc_description'] = ewc_description;
-        } else { // not a valid EWC code, need to think about error handling
-          req.session.data['ewc_provided'] = "false"
-          res.redirect('waste');
-        }
-
-      // If there was no EWC code entered
-      } else {
-        req.session.data['ewc_provided'] = "false"
-        res.redirect('waste');
-      }
-
-      res.redirect( 'confirm-ewc' );
-    }
-  }
+// WASTE DESCRIPTION 3
+router.post('/waste-description-3', function(req, res) {
+  req.session.data['usual-description-of-the-waste-status'] = "Completed";
+      res.redirect('physical-form-3');
 })
 
-router.post('/waste-check-answers', function(req, res) {
-  if (req.session.data['have_waste'] == "true" ){
-    // if we have all aspects of the waste, then set status as complete
-    if (((req.session.data['have_hazard'] == 'true') || (req.session.data['any_pops'] == 'true')) && (req.session.data['have_physical_form'] == 'true') &&
-            (req.session.data['have_weight'] == 'true') && (req.session.data['container_asked_for'] == 'true')) {
-      req.session.data['waste_details_status'] = "Completed"
-      req.session.data['waste_details_status_class'] = ""
-    } else { // else set status as in progress
-      req.session.data['waste_details_status'] = "In progress"
-      req.session.data['waste_details_status_class'] = "govuk-tag--blue"
-    }
-  }
+//-----------------------------------------------------------
 
-  res.redirect( 'waste-info-note' )
-})
-
-
-
-// Confirm EWC code
-router.get('/confirm-ewc', function (req, res) {
-  var wcn = req.session.data['ewc']
-  var ewc_provided
-
-  // if an EWC code was entered...
-  if (wcn != '' ){
-    // Apply Postel's law: "be conservative in what you do, be liberal in what you accept from others"
-
-    // Remove the asterisk
-    wcn = wcn.replace('*','')
-
-    // Remove any spaces - this is using a regex to catch all whitespace
-    wcn = wcn.replace(/\s/g,'')
-
-    // This may not be the most elegant or efficient way of getting the JSON data, but it works for now
-    var ewc_list = require('./ewc-codes-new.json')
-    ewc_list = JSON.parse(JSON.stringify( ewc_list ))
-
-    var ewc_description = "Not found"
-    var is_hazardous_waste = "false"
-
-    for (let i = 0; i < ewc_list.length; i++ ){
-      this_wcn = ewc_list[i].ewc_code.trim()
-      this_wcn = this_wcn.replaceAll(" ", "")
-
-      if (this_wcn.replace('*','') == wcn ){
-        ewc_description = ewc_list[i].ewc_description;
-
-// we will need more validation that just checking for an asterisk to check if it's hazardous waste or not !!!!
-  //      if (this_wcn.charAt(this_wcn.length-1) == "*" ){
-   //       req.session.data['is_hazardous_waste'] = "true"
-    //    } else {
-      //    req.session.data['is_hazardous_waste'] = "false"
-        //}
-
-        break;
-      }// end the for loop
-    }
-
-    // If we found the EWC code and description, tidy the description to remove the code from the start and add a capital letter.
-    if (ewc_description != "Not found" ){
-      // capitalise first letter in description
-      ewc_description = ewc_description.charAt(0).toUpperCase() + ewc_description.slice(1)
-      req.session.data['ewc_description'] = ewc_description;
-
-      res.render( './' + req.originalUrl, {
-        ewc_description: ewc_description
-      })
-
-    } else {
-      // not a valid EWC code, need to think about error handling
-      req.session.data['ewc_provided'] = "false"
-      res.redirect('waste');
-    }
-
-  // If there was no EWC code entered
-  } else {
-	  req.session.data['ewc_provided'] = "false"
-	  res.redirect('waste');
-  }
-})
-
-router.post('/confirm-ewc', function(req, res) {
-  if (req.session.data['waste_additional_info'] == ''){
-    req.session.data['description_provided'] = 'false'
-	  res.redirect('confirm-ewc')
-  } else {
-    req.session.data['description_provided'] = 'true'
-    req.session.data['waste_details_status'] = "In progress"
-    req.session.data['waste_details_status_class'] = "govuk-tag--blue"
-    req.session.data['have_waste'] = "true"
-
-  //  if( req.session.data['is_hazardous_waste'] == "true" ){
-      // This is hazardous waste so let's ask for the hazard information
-      res.redirect('physical-form')
- //   } else {
-      // This is non-hazardous waste, so for now we'll return the user to the task list
-   //   res.redirect( 'waste-info-note' );
-   // }
-  }
-})
-
-// change additional details
-router.get('/change-additional-details', function (req, res) {
-  res.render( './' + req.originalUrl, {} )
-})
-
-router.post('/change-additional-details', function(req, res) {
-  if( req.session.data['waste_additional_info'] == '' ){
-	  req.session.data['waste_additional_info_cya'] = 'Not provided'
-  } else {
-    req.session.data['waste_additional_info_cya'] = req.session.data['waste_additional_info']
-  }
-
-  res.redirect( 'waste' );
-})
-
-// change EWC code
-router.get('/change-ewc-code', function (req, res) {
-  res.render( './' + req.originalUrl, {} )
-})
-
-router.post('/change-ewc-code', function(req, res) {
-  res.redirect( 'confirm-ewc' );
-})
-
-// reset EWC code - quick hack for now
-router.get('/reset-ewc', function (req, res){
-  req.session.data['have_waste'] = "false"
-  res.redirect('waste')
-})
-
-*/
-
-
-
-// hazard information
-router.get('/component', function (req, res) {
-  // Set up the back link depending on whether we've come from the previous page or the 'Check answers'
-  if  (req.session.data['have_hazard'] == "true" ){
-	  back_link = 'waste'
-  } else {
-	  back_link = 'confirm-ewc'
-  }
-
-  res.render( './' + req.originalUrl, {
-	  back_link: back_link
-  } )
-})
-
-router.post('/component', function(req, res) {
-	req.session.data['have_hazard'] = "true"
-
-	// Add 'present' for the concentration for those components that don't need a %
-	if (req.session.data['concentration1'] == "") {
-	  req.session.data['concentration1'] = 'Present'
-	}
-	if (req.session.data['concentration2'] == "") {
-	  req.session.data['concentration2'] = 'Present'
-	}
-	if (req.session.data['concentration3'] == "") {
-	  req.session.data['concentration3'] = 'Present'
-	}
-
-  var table_html = ''
-  table_html = '<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row">'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class">Component</th>'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class">Concentration</th>'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class">Hazard code</th>'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class"></th>'
-  table_html = table_html + '</tr></thead>'
-  table_html = table_html + '<tbody class="govuk-table__body">'
-
-  // if we've got component1, add a row to the table for it
-  if (req.session.data['component1'] != "") {
-    table_html = table_html + '<tr class="govuk-table__row" id="thisRow">'
-    table_html = table_html + '<th scope="row" class="govuk-table__header">' + req.session.data['component1'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['concentration1'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['hazard_codes1'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell"><a href="">Change</a></th>'
-    table_html = table_html + '</tr>'
-  }
-
-  // if we've got component2, add a row to the table for it
-  if (req.session.data['component2'] != "") {
-    table_html = table_html + '<tr class="govuk-table__row" id="thisRow">'
-    table_html = table_html + '<th scope="row" class="govuk-table__header">' + req.session.data['component2'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['concentration2'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['hazard_codes2'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell"><a href="">Change</a></th>'
-    table_html = table_html + '</tr>'
-  }
-
-  // if we've got component3, add a row to the table for it
-  if (req.session.data['component3'] != "") {
-    table_html = table_html + '<tr class="govuk-table__row" id="thisRow">'
-    table_html = table_html + '<th scope="row" class="govuk-table__header">' + req.session.data['component3'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['concentration3'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['hazard_codes3'] + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell"><a href="">Change</a></th>'
-    table_html = table_html + '</tr>'
-  }
-  table_html = table_html + '</tbody></table>'
-
-  req.session.data['component_table_html'] = table_html
-
-  res.redirect('waste-check-answers');
-})
-
-
-router.get('/hazard-component', function (req, res) {
-  // Set up the back link depending on whether we've come from the previous page or the 'Check answers'
-  if  (req.session.data['have_hazard'] == "true" ){
-	  back_link = 'waste'
-  } else {
-	  back_link = 'confirm-ewc'
-  }
-
-  res.render( './' + req.originalUrl, {
-	  back_link: back_link
-  } )
-})
-
-router.post('/hazard-component', function(req, res) {
-	req.session.data['have_hazard'] = "true"
-
-  res.redirect('hazard-code');
-})
-
-router.post('/hazard-code', function(req, res) {
-	// get the hazard codes the user has entered and put them in an unordered list
-	var hazard_codes_cya = 'Not provided'
-	var concentration_cya = 'Not provided'
-
-	if (req.session.data['hazard_codes'] != undefined ){
-		// We have at least one hazard code, so let's loop through the array and add them to an unordered list
-		// We'll make the cya (Check your answers) variables available for the 'Check answers' version of the waste details page
-		hazard_codes_cya = ''
-		concentration_cya = ''
-
-		for (let i = 0; i < req.session.data['hazard_codes'].length; i++ ){
-		  hazard_codes_cya = hazard_codes_cya + req.session.data['hazard_codes'][i] + '<br>'
-
-		  if (req.session.data['hazard_codes'][i].includes("HP1:")) {
-		    concentration_cya = concentration_cya + 'Present<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP2")) {
-		    concentration_cya = concentration_cya + 'Present<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP3")) {
-		    concentration_cya = concentration_cya + 'Present<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP4")) {
-		    concentration_cya = concentration_cya + req.session.data['hp4_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP5")) {
-		    concentration_cya = concentration_cya + req.session.data['hp5_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP6")) {
-		    concentration_cya = concentration_cya + req.session.data['hp6_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP7")) {
-		    concentration_cya = concentration_cya + req.session.data['hp7_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP8")) {
-		    concentration_cya = concentration_cya + req.session.data['hp8_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP9")) {
-		    concentration_cya = concentration_cya + 'Present<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP10")) {
-		    concentration_cya = concentration_cya + req.session.data['hp10_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP11")) {
-		    concentration_cya = concentration_cya + req.session.data['hp11_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP12")) {
-		    concentration_cya = concentration_cya + 'Present<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP13")) {
-		    concentration_cya = concentration_cya + req.session.data['hp13_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP14")) {
-		    concentration_cya = concentration_cya + req.session.data['hp14_concentration'] +'%' + '<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("HP15")) {
-		    concentration_cya = concentration_cya + 'Present<br>'
-		  }
-		  if (req.session.data['hazard_codes'][i].includes("POP")) {
-		    concentration_cya = concentration_cya + req.session.data['pop_concentration'] +'%' + '<br>'
-		  }
-		}
-
-		hazard_codes_cya = hazard_codes_cya.slice(0, -4)
-		concentration_cya = concentration_cya.slice(0, -4)
-	}
-
-	req.session.data['hazard_codes_cya'] = hazard_codes_cya
-	req.session.data['concentration_cya'] = concentration_cya
-
-  if (req.session.data['first_component'] != 'false') {
-  // create a list for the component to go in, if we don't already have one.
-    req.session.data['component_list'] = []
-    req.session.data['first_component'] = 'false'
-  }
-
-  // add the new component and details to the list
-  req.session.data['component_list'].push({component: req.session.data['component'], concentration: req.session.data['concentration_cya'], hazard: req.session.data['hazard_codes_cya']})
-
-  // reset the variables for next time through
-  req.session.data['component'] = ''
-  req.session.data['concentration_cya'] = ''
-  req.session.data['hazard_codes_cya'] = ''
-  req.session.data['hazard_codes'] = ''
-  req.session.data['hp1_concentration'] = ''
-  req.session.data['hp2_concentration'] = ''
-  req.session.data['hp3_concentration'] = ''
-  req.session.data['hp4_concentration'] = ''
-  req.session.data['hp5_concentration'] = ''
-  req.session.data['hp6_concentration'] = ''
-  req.session.data['hp7_concentration'] = ''
-  req.session.data['hp8_concentration'] = ''
-  req.session.data['hp9_concentration'] = ''
-  req.session.data['hp10_concentration'] = ''
-  req.session.data['hp11_concentration'] = ''
-  req.session.data['hp12_concentration'] = ''
-  req.session.data['hp13_concentration'] = ''
-  req.session.data['hp14_concentration'] = ''
-  req.session.data['hp15_concentration'] = ''
-  req.session.data['pop_concentration'] = ''
-
-// build some table html to show all the components
-  var table_html = ''
-  table_html = '<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row">'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class">Component</th>'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class">Concentration</th>'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class">Hazard code</th>'
-  table_html = table_html + '<th scope="col" class="govuk-table__header app-custom-class"></th>'
-  table_html = table_html + '</tr></thead>'
-  table_html = table_html + '<tbody class="govuk-table__body">'
-  // add a row for each item in the list
-  for (let i = 0; i < req.session.data['component_list'].length; i++ ){
-    table_html = table_html + '<tr class="govuk-table__row" id="thisRow">'
-    table_html = table_html + '<th scope="row" class="govuk-table__header">' + req.session.data['component_list'][i].component + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['component_list'][i].concentration + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell">' + req.session.data['component_list'][i].hazard + '</th>'
-    table_html = table_html + '<td class="govuk-table__cell"><a href="">Change</a></th>'
-    table_html = table_html + '</tr>'
-  }
-  table_html = table_html + '</tbody></table>'
-
-  req.session.data['component_table_html'] = table_html
-
-  res.redirect('handling-check');
-})
-
-
-/* router.post('/add-hazard', function(req, res) {
-  if (req.session.data['add_hazard'] == ''){
-    req.session.data['nothing_chosen'] = 'true'
-	  res.redirect('add-hazard')
-  } else {
-    req.session.data['nothing_chosen'] = 'false'
-    // direct to add another, or move to physical form
-    if (req.session.data['add_hazard'] == "yes") {
-      req.session.data['add_hazard'] = ''
-      res.redirect('hazard-component');
-    } else {
-      req.session.data['add_hazard'] = ''
-      res.redirect('physical-form')
-    }
-  }
-}) */
-
-
-//--- physical-form
-router.get('/physical-form', function (req, res) {
-  if (req.session.data['have_physical_form'] == "true" ){
-	  back_link = 'confirm-ewc'
-  } else {
-	  back_link = 'hazard'
-  }
-
-  res.render( './' + req.originalUrl, {
-	  back_link: back_link
-  } )
-})
-
+// PHYSICAL FORM
 router.post('/physical-form', function(req, res) {
-  req.session.data['physical_form_cya'] = "Not provided" // could be tidier!
-
-  if (req.session.data['physical_form'] != "" ){
-	  req.session.data['physical_form_cya'] = req.session.data['physical_form']
-	  req.session.data['have_physical_form'] = "true";
-  }
-  if (req.session.data['have_weight'] == "true "){
-	  res.redirect( 'waste' )
-  } else {
-	  res.redirect('container')
-  }
+  res.redirect('quantity-of-waste')
 })
 
-
-//--- weight
-router.get('/weight', function (req, res) {
-  if (req.session.data['have_weight'] == "true" ){
-	  back_link = 'waste'
-  } else {
-	  back_link = 'physical-form'
-  }
-
-  res.render( './' + req.originalUrl, {
-	  back_link: back_link
-  } )
+// PHYSICAL FORM 2
+router.post('/physical-form-2', function(req, res) {
+  res.redirect('quantity-of-waste-2')
 })
 
-router.post('/weight', function(req, res) {
-  req.session.data['weight_cya'] = "Not provided" // could be tidier!
-
-  if (req.session.data['weight'] != "" ){
-	  req.session.data['weight_cya'] = req.session.data['weight'] + ' kg'
-	  req.session.data['have_weight'] = "true";
-  }
-  if (req.session.data['container_asked_for'] == "true "){
-	  res.redirect( 'waste' )
-  } else {
-//	  res.redirect( 'component' )
-	  res.redirect( 'handling-requirements' )
-  }
+// PHYSICAL FORM 3
+router.post('/physical-form-3', function(req, res) {
+  res.redirect('quantity-of-waste-3')
 })
+
+//-----------------------------------------------------------
+
+// HAZARD CODE
+router.post('/hazard-code', function(req, res) {
+	res.redirect('pops-check');
+})
+
+// HAZARD CODE 2
+router.post('/hazard-code-2', function(req, res) {
+	res.redirect('pops-check-2');
+})
+
+// HAZARD CODE 3
+router.post('/hazard-code-3', function(req, res) {
+	res.redirect('pops-check-3');
+})
+
+ 
+
+
+
 
 //-----------------------------------------------------------------
 
@@ -1220,13 +736,13 @@ router.post('/handling-check', function(req, res) {
   if (req.session.data['handling-require'] == 'yes') {
       res.redirect('handling-requirements');
   } else if (req.session.data['handling-require'] == 'no') {
-          res.redirect('pops-check');
+          res.redirect('check-answers-aboutwaste');
   }
   })
 
  //--- HANDLINE REQUIREMENTS
 router.post('/handling-requirements', function(req, res) {
-	res.redirect( 'pops-check' )
+	res.redirect( 'check-answers-aboutwaste' )
 })
 
 /* // any pops
@@ -1246,7 +762,8 @@ router.post('/pops-check', function(req, res) {
 
 //--- New Pops pattern based on EWC typeahead
 //------------------------
-//------ POPS code counter
+
+//------ POPS code counter 1
 router.post('/pops-check', function(req, res) {
 
   if(req.session.data['pop-check']=='yes'){
@@ -1258,25 +775,25 @@ router.post('/pops-check', function(req, res) {
     }
 
     req.session.data['pops-'+req.session.data['pops-count']] = req.session.data['pops-typeahead'];
-    res.redirect('pops-add-another');
+    res.redirect('pops-playback');
   }
   else if (req.session.data['pop-check']=='no') {
-    res.redirect('check-answers-section2');
+    res.redirect('ewc-add-another-card-1');
   }
 });
 
-router.get('/pops-add-another', function (req, res) {
+router.get('/pops-playback', function (req, res) {
 var popsArray = [];
 
 for (var i = 0; i <= req.session.data['pops-count']; i++) {
 popsArray[i] = req.session.data['pops-'+i];
 }
 
-res.render(version+'/pops-add-another', {
+res.render(version+'/pops-playback', {
 'pops' : popsArray });
 });
 
-router.post('/pops-2', function(req, res) {
+router.post('/pops-add-another', function(req, res) {
   if(typeof req.session.data['pops-count'] == "undefined"){
     req.session.data['pops-count'] = 0;
   }
@@ -1285,82 +802,135 @@ router.post('/pops-2', function(req, res) {
   }
 
   req.session.data['pops-'+req.session.data['pops-count']] = req.session.data['pops-typeahead'];
-  res.redirect('pops-add-another');
+  res.redirect('pops-playback');
 });
 
 
 //-------- POPS ADD ANOTHER
-router.post('/pops-add-another', function(req, res) {
+router.post('/pops-playback', function(req, res) {
   if (req.session.data['add-pop'] == 'Yes') {
-      res.redirect('pop-2');
+      res.redirect('pops-add-another');
   } else if (req.session.data['add-pop'] == 'No') {
-          res.redirect('check-answers-section2');
+          res.redirect('ewc-add-another-card-1');
   }
   })
 
-//-----------------------------
+//----------------------------
+
+//------ POPS code counter 2
+router.post('/pops-check-2', function(req, res) {
+
+  if(req.session.data['pop-check-2']=='yes'){
+    if(typeof req.session.data['pops-count-2'] == "undefined"){
+      req.session.data['pops-count-2'] = 0;
+    }
+    else {
+      req.session.data['pops-count-2']++;
+    }
+
+    req.session.data['pops-'+req.session.data['pops-count-2']] = req.session.data['pops-typeahead-2'];
+    res.redirect('pops-playback-2');
+  }
+  else if (req.session.data['pop-check-2']=='no') {
+    res.redirect('ewc-add-another-card-2');
+  }
+});
+
+router.get('/pops-playback-2', function (req, res) {
+var popsArray = [];
+
+for (var i = 0; i <= req.session.data['pops-count-2']; i++) {
+popsArray[i] = req.session.data['pops-'+i];
+}
+
+res.render(version+'/pops-playback-2', {
+'pops-2' : popsArray });
+});
+
+router.post('/pops-add-another-2', function(req, res) {
+  if(typeof req.session.data['pops-count-2'] == "undefined"){
+    req.session.data['pops-count-2'] = 0;
+  }
+  else {
+    req.session.data['pops-count-2']++;
+  }
+
+  req.session.data['pops-'+req.session.data['pops-count-2']] = req.session.data['pops-typeahead-2'];
+  res.redirect('pops-playback-2');
+});
 
 
+//-------- POPS ADD ANOTHER 3
+router.post('/pops-playback-3', function(req, res) {
+  if (req.session.data['add-pop-3'] == 'Yes') {
+      res.redirect('pops-add-another-3');
+  } else if (req.session.data['add-pop-3'] == 'No') {
+          res.redirect('ewc-add-another-card-3');
+  }
+  })
+
+
+//----------------------------
+
+//------ POPS code counter 3
+router.post('/pops-check-3', function(req, res) {
+
+  if(req.session.data['pop-check-3']=='yes'){
+    if(typeof req.session.data['pops-count-3'] == "undefined"){
+      req.session.data['pops-count-3'] = 0;
+    }
+    else {
+      req.session.data['pops-count-3']++;
+    }
+
+    req.session.data['pops-'+req.session.data['pops-count-3']] = req.session.data['pops-typeahead-3'];
+    res.redirect('pops-playback-3');
+  }
+  else if (req.session.data['pop-check-3']=='no') {
+    res.redirect('ewc-add-another-card-3');
+  }
+});
+
+router.get('/pops-playback-3', function (req, res) {
+var popsArray = [];
+
+for (var i = 0; i <= req.session.data['pops-count-3']; i++) {
+popsArray[i] = req.session.data['pops-'+i];
+}
+
+res.render(version+'/pops-playback-3', {
+'pops-3' : popsArray });
+});
+
+router.post('/pops-add-another-3', function(req, res) {
+  if(typeof req.session.data['pops-count-3'] == "undefined"){
+    req.session.data['pops-count-3'] = 0;
+  }
+  else {
+    req.session.data['pops-count-3']++;
+  }
+
+  req.session.data['pops-'+req.session.data['pops-count-3']] = req.session.data['pops-typeahead-3'];
+  res.redirect('pops-playback-3');
+});
+
+
+//-------- POPS ADD ANOTHER 3
+router.post('/pops-playback-3', function(req, res) {
+  if (req.session.data['add-pop-3'] == 'Yes') {
+      res.redirect('pops-add-another-3');
+  } else if (req.session.data['add-pop-3'] == 'No') {
+          res.redirect('ewc-add-another-card-3');
+  }
+  })
 
 //-----------------------------------------------------------------
 
 //--- CONTAINER
-router.post('/container', function(req, res) {
-  if (req.session.data['container'] == 'container-one') {
-      res.redirect('container-one-type');
-
-  } else if (req.session.data['container'] == 'container-multiple') {
-          res.redirect('container-multiple-type');
-
-  }  else if (req.session.data['container'] == 'loose') {
-    res.redirect('quantity-of-waste');
-}
-
+router.post('/container-description', function(req, res) {
+    res.redirect('handling-check');
 })
 
-//--- CONTAINER - ONE
-router.post('/container-one-type', function(req, res) {
-    res.redirect('quantity-of-waste');
-})
-
-//--- CONTAINER - MULTIPLE (FIRST)
-router.post('/container-multiple-type', function(req, res) {
-  res.redirect('container-multiple-add-another');
-})
-
-//--- CONTAINER - MULTIPLE ADD ANOTHER
-router.post('/container-multiple-add-another', function(req, res) {
-  if (req.session.data['add-container'] == 'Yes') {
-      res.redirect('container-multiple-type-1');
-  } else if (req.session.data['add-container'] == 'No') {
-          res.redirect('quantity-of-waste');
-  }
-  })
-
-  //--- CONTAINER - MULTIPLE (SECOND)
-router.post('/container-multiple-type-1', function(req, res) {
-  if (req.session.data['add-container'] == 'Yes') {
-      res.redirect('container-multiple-add-another-1');
-  } else if (req.session.data['add-container'] == 'No') {
-          res.redirect('quantity-of-waste');
-  }
-  })
-
-  //--- CONTAINER - MULTIPLE ADD ANOTHER
-router.post('/container-multiple-add-another-1', function(req, res) {
-  if (req.session.data['add-container-1'] == 'Yes') {
-      res.redirect('waste-source');
-  } else if (req.session.data['add-container-1'] == 'No') {
-          res.redirect('quantity-of-waste');
-  }
-  })
-
-
-
-//--- CONTAINER - MULTIPLE ADD ANOTHER
-router.post('/container-multiple-add-another-1', function(req, res) {
-  res.redirect('quantity-of-waste');
-})
 
 //-----------------------------------------------
 
@@ -1387,76 +957,160 @@ router.post('/quantity-of-waste', function(req, res) {
       res.redirect('quantity-volume-estimate-litre');
 
   } else if (req.session.data['waste-amount'] == 'unknown') {
-      res.redirect('check-answers-section1');
+      res.redirect('hazard-code');
 }
 
 })
 
 //--- QUANTITY - ACTUAL KG
 router.post('/quantity-weight-actual-kg', function(req, res) {
-  res.redirect('check-answers-section1');
+  res.redirect('hazard-code');
 })
 
 //--- QUANTITY - ESTIMATE KG
 router.post('/quantity-weight-estimate-kg', function(req, res) {
-  res.redirect('check-answers-section1');
+  res.redirect('hazard-code');
 })
 
 //--- QUANTITY - ACTUAL LITRE
 router.post('/quantity-volume-actual-litre', function(req, res) {
-  res.redirect('check-answers-section1');
+  res.redirect('hazard-code');
 })
 
 //--- QUANTITY - ESTIMATE LITRE
 router.post('/quantity-volume-estimated-litre', function(req, res) {
-  res.redirect('check-answers-section1');
+  res.redirect('hazard-code');
+})
+
+//---------------
+
+// WASTE QUANTITY (weight and volume) 2
+router.post('/quantity-of-waste-2', function(req, res) {
+  if (req.session.data['waste-amount-2'] == 'actual-kg') {
+      res.redirect('quantity-weight-actual-kg-2');
+
+  } else if (req.session.data['waste-amount-2'] == 'estimate-kg') {
+      res.redirect('quantity-weight-estimate-kg-2');
+
+  }  else if (req.session.data['waste-amount-2'] == 'actual-litre') {
+      res.redirect('quantity-volume-actual-litre-2');
+
+  }  else if (req.session.data['waste-amount-2'] == 'estimate-litre') {
+      res.redirect('quantity-volume-estimate-litre-2');
+
+  } else if (req.session.data['waste-amount-2'] == 'unknown') {
+      res.redirect('hazard-code-2');
+}
+
+})
+
+//--- QUANTITY - ACTUAL KG
+router.post('/quantity-weight-actual-kg-2', function(req, res) {
+  res.redirect('hazard-code-2');
+})
+
+//--- QUANTITY - ESTIMATE KG
+router.post('/quantity-weight-estimate-kg-2', function(req, res) {
+  res.redirect('hazard-code-2');
+})
+
+//--- QUANTITY - ACTUAL LITRE
+router.post('/quantity-volume-actual-litre-2', function(req, res) {
+  res.redirect('hazard-code-2');
+})
+
+//--- QUANTITY - ESTIMATE LITRE
+router.post('/quantity-volume-estimated-litre-2', function(req, res) {
+  res.redirect('hazard-code-2');
+})
+
+//----------------
+
+// WASTE QUANTITY (weight and volume) 3
+router.post('/quantity-of-waste-3', function(req, res) {
+  if (req.session.data['waste-amount-3'] == 'actual-kg') {
+      res.redirect('quantity-weight-actual-kg-3');
+
+  } else if (req.session.data['waste-amount-3'] == 'estimate-kg') {
+      res.redirect('quantity-weight-estimate-kg-3');
+
+  }  else if (req.session.data['waste-amount-3'] == 'actual-litre') {
+      res.redirect('quantity-volume-actual-litre-3');
+
+  }  else if (req.session.data['waste-amount-3'] == 'estimate-litre') {
+      res.redirect('quantity-volume-estimate-litre-3');
+
+  } else if (req.session.data['waste-amount-3'] == 'unknown') {
+      res.redirect('hazard-code-3');
+}
+
+})
+
+//--- QUANTITY - ACTUAL KG
+router.post('/quantity-weight-actual-kg-3', function(req, res) {
+  res.redirect('hazard-code-3');
+})
+
+//--- QUANTITY - ESTIMATE KG
+router.post('/quantity-weight-estimate-kg-3', function(req, res) {
+  res.redirect('hazard-code-3');
+})
+
+//--- QUANTITY - ACTUAL LITRE
+router.post('/quantity-volume-actual-litre-3', function(req, res) {
+  res.redirect('hazard-code-3');
+})
+
+//--- QUANTITY - ESTIMATE LITRE
+router.post('/quantity-volume-estimated-litre-3', function(req, res) {
+  res.redirect('hazard-code-3');
 })
 
 
 //-----------------------------------------------
 
 
-//--- CHECK ANSWERS (SECTION 1)
-router.post('/check-answers-section1', function(req, res) {
-  if (req.session.data['section-one-complete'] == 'Yes') {
-      res.redirect('waste-record-section1-complete');
-  } else if (req.session.data['section-one-complete'] == 'No') {
+//--- CHECK ANSWERS (ABOUT WASTE)
+router.post('/check-answers-aboutwaste', function(req, res) {
+  if (req.session.data['section-aboutwaste-complete'] == 'Yes') {
+      res.redirect('waste-record-aboutwaste-complete');
+  } else if (req.session.data['section-aboutwaste-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
 })
 
-//--- CHECK ANSWERS (SECTION 2)
-router.post('/check-answers-section2', function(req, res) {
-  if (req.session.data['section-two-complete'] == 'Yes') {
-      res.redirect('waste-record-section2-complete');
-  } else if (req.session.data['section-two-complete'] == 'No') {
+/* //--- CHECK ANSWERS (SECTION 2)
+router.post('/check-answers-producer', function(req, res) {
+  if (req.session.data['section-producer-complete'] == 'Yes') {
+      res.redirect('waste-record-producer-complete');
+  } else if (req.session.data['section-producer-complete'] == 'No') {
+          res.redirect('start-waste-record');
+  }  
+}) */
+
+//--- CHECK ANSWERS (PRODUCER DETAILS)
+router.post('/check-answers-producer', function(req, res) {
+  if (req.session.data['section-producer-complete'] == 'Yes') {
+      res.redirect('waste-record-producer-complete');
+  } else if (req.session.data['section-producer-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
 })
 
-//--- CHECK ANSWERS (SECTION 3)
-router.post('/check-answers-section3', function(req, res) {
-  if (req.session.data['section-three-complete'] == 'Yes') {
-      res.redirect('waste-record-section3-complete');
-  } else if (req.session.data['section-three-complete'] == 'No') {
+//--- CHECK ANSWERS (CARRIER DETAILS)
+router.post('/check-answers-carrier', function(req, res) {
+  if (req.session.data['section-carrier-complete'] == 'Yes') {
+      res.redirect('waste-record-carrier-complete');
+  } else if (req.session.data['section-carrier-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
 })
 
-//--- CHECK ANSWERS (SECTION 4)
-router.post('/check-answers-section4', function(req, res) {
-  if (req.session.data['section-four-complete'] == 'Yes') {
-      res.redirect('waste-record-section4-complete');
-  } else if (req.session.data['section-four-complete'] == 'No') {
-          res.redirect('start-waste-record');
-  }  
-})
-
-//--- CHECK ANSWERS (SECTION 5)
-router.post('/check-answers-section5', function(req, res) {
-  if (req.session.data['section-five-complete'] == 'Yes') {
-      res.redirect('waste-record-section5-complete');
-  } else if (req.session.data['section-five-complete'] == 'No') {
+//--- CHECK ANSWERS (RECIEVER DETAILS)
+router.post('/check-answers-reciever', function(req, res) {
+  if (req.session.data['section-reciever-complete'] == 'Yes') {
+      res.redirect('waste-record-reciever-complete');
+  } else if (req.session.data['section-reciever-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
 })
@@ -1555,7 +1209,7 @@ router.post('/producer-prepopulate', function(req, res) {
 //--- COLLECTION SAME AS PRODUCER
 router.post('/producer-collect-same', function(req, res) {
   if (req.session.data['producer-collect-same'] == 'Yes') {
-      res.redirect('check-answers-section3');
+      res.redirect('producer-transport-select');
   } else if (req.session.data['producer-collect-same'] == 'No') {
           res.redirect('collect-postcode');
   }  
@@ -1607,14 +1261,18 @@ router.post('/collect-address-select', function(req, res) {
 
 //--- COLLECTION ADDRESS CHECK
 router.post('/collect-address-check', function(req, res) {
-  res.redirect('check-answers-section3');
+  res.redirect('producer-transport-select');
 })
 
 //--- COLLECTION ADDRESS ENTER MANUALLY
 router.post('/collect-address-manual', function(req, res) {
-  res.redirect('check-answers-section3');
+  res.redirect('producer-transport-select');
 })
 
+//--- PRODUCER TRANSPORT SELECT
+router.post('/producer-transport-select', function(req, res) {
+  res.redirect('check-answers-producer');
+})
 
 //-----------------------------------------------
 
@@ -1661,10 +1319,7 @@ router.post('/carrier-address-manual', function(req, res) {
   res.redirect('carrier-transport-select');
 })
 
-//--- CARRIER TRANSPORT SELECT
-router.post('/carrier-transport-select', function(req, res) {
-  res.redirect('check-answers-section4');
-})
+
 
 //-----------------------------------------------
 
@@ -1683,7 +1338,7 @@ router.post('/receiver-prepopulate', function(req, res) {
 //--- FINAL DESTINATION SAME AS RECEIVER
 router.post('/receiver-final-same', function(req, res) {
   if (req.session.data['receiver-final-same'] == 'Yes') {
-      res.redirect('check-answers-section5');
+      res.redirect('check-answers-reciever');
   } else if (req.session.data['receiver-final-same'] == 'No') {
           res.redirect('receiver-final-postcode');
   }  
@@ -1723,7 +1378,7 @@ router.post('/receiver-address-manual', function(req, res) {
 //--- FINAL DESTINATION SAME AS RECEIVER - MANUAL
 router.post('/receiver-address-check', function(req, res) {
   if (req.session.data['receiver-final-same2'] == 'Yes') {
-      res.redirect('check-answers-section5');
+      res.redirect('check-answers-reciever');
   } else if (req.session.data['receiver-final-same2'] == 'No') {
           res.redirect('receiver-final-postcode');
   }  
@@ -1741,12 +1396,12 @@ router.post('/receiver-final-address-select', function(req, res) {
 
 //--- FINAL DESTINATION ADDRESS CHECK
 router.post('/receiver-final-address-check', function(req, res) {
-  res.redirect('check-answers-section5');
+  res.redirect('check-answers-reciever');
 })
 
 //--- FINAL DESTINATION ADDRESS - MANUAL
 router.post('/receiver-final-address-manual', function(req, res) {
-  res.redirect('check-answers-section5');
+  res.redirect('check-answers-reciever');
 })
 
 

@@ -1,0 +1,75 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="" method="post">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="win-id govuk-caption-l">EWC code: {{ data['ewc-code-3'] }}</span>
+                <h1 class="govuk-fieldset__heading">
+                    How will you enter the quantity of waste?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-3" name="waste-amount-3" type="radio" value="actual-kg">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-3">
+                    Actual weight (kg)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-3" name="waste-amount-3" type="radio" value="estimate-kg">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-3">
+                    Estimated weight (kg)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-3" name="waste-amount-3" type="radio" value="actual-litre">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-3">
+                    Actual volume (litres)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-3" name="waste-amount-3" type="radio" value="estimate-litre">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-3">
+                    Estimated volume (litres)
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="waste-amount-3" name="waste-amount-3" type="radio" value="unknown">
+                  <label class="govuk-label govuk-radios__label" for="waste-amount-3">
+                    I don’t know the amount yet
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
