@@ -936,7 +936,7 @@ router.post('/container-description', function(req, res) {
 
 //--- WASTE SOURCE
 router.post('/waste-source', function(req, res) {
-  res.redirect('quantity-of-waste');
+  res.redirect('producer-transport-select');
 })
 
 
@@ -1020,7 +1020,7 @@ router.post('/quantity-volume-actual-litre-2', function(req, res) {
 })
 
 //--- QUANTITY - ESTIMATE LITRE
-router.post('/quantity-volume-estimated-litre-2', function(req, res) {
+router.post('/quantity-volume-estimate-litre-2', function(req, res) {
   res.redirect('hazard-code-2');
 })
 
@@ -1062,7 +1062,7 @@ router.post('/quantity-volume-actual-litre-3', function(req, res) {
 })
 
 //--- QUANTITY - ESTIMATE LITRE
-router.post('/quantity-volume-estimated-litre-3', function(req, res) {
+router.post('/quantity-volume-estimate-litre-3', function(req, res) {
   res.redirect('hazard-code-3');
 })
 
@@ -1261,12 +1261,12 @@ router.post('/collect-address-select', function(req, res) {
 
 //--- COLLECTION ADDRESS CHECK
 router.post('/collect-address-check', function(req, res) {
-  res.redirect('producer-transport-select');
+  res.redirect('waste-source');
 })
 
 //--- COLLECTION ADDRESS ENTER MANUALLY
 router.post('/collect-address-manual', function(req, res) {
-  res.redirect('producer-transport-select');
+  res.redirect('collect-address-check');
 })
 
 //--- PRODUCER TRANSPORT SELECT
@@ -1282,7 +1282,7 @@ router.post('/producer-transport-select', function(req, res) {
 //--- CONFIRM CARRIER
 router.post('/carrier-prepopulate', function(req, res) {
   if (req.session.data['carrier-details-preprop'] == 'Yes') {
-      res.redirect('carrier-transport-select');
+      res.redirect('check-answers-carrier');
   } else if (req.session.data['carrier-details-preprop'] == 'No') {
           res.redirect('carrier-contact');
   }  
@@ -1311,12 +1311,12 @@ router.post('/carrier-address-select', function(req, res) {
 
 //--- CARRIER ADDRESS CHECK
 router.post('/carrier-address-check', function(req, res) {
-  res.redirect('carrier-transport-select');
+  res.redirect('check-answers-carrier');
 })
 
 //--- CARRIER ADDRESS ENTER MANUALLY
 router.post('/carrier-address-manual', function(req, res) {
-  res.redirect('carrier-transport-select');
+  res.redirect('check-answers-carrier');
 })
 
 
@@ -1549,7 +1549,7 @@ router.post('/producer-address-manual', function(req, res) {
   }
 
   // go to the page to continue adding details
-  res.redirect( 'producer-details' );
+  res.redirect( 'producer-address-check' );
 })
 
 router.post('/producer-details', function(req, res) {

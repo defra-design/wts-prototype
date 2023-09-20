@@ -74,6 +74,37 @@ Check your answers - initial information
                       </a>
                     </dd>
                   </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste quantity
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">
+                        {% if data ['waste-amount'] == "actual-kg" %}
+                        <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                        {% elseif data ['waste-amount'] == "estimate-kg" %}
+                        <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                        {% elseif data ['waste-amount'] == "actual-litre" %}
+                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
+                        </p>
+
+                        {% elseif data ['waste-amount'] == "estimate-litre" %}
+                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
+                            litres</p>
+
+                        {% elseif data ['waste-amount'] == "unknown" %}
+                        <p class="govuk-body">Unknown</p>
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="quantity">
+                            Change<span class="govuk-visually-hidden"> waste quantity</span>
+                        </a>
+                    </dd>
+                </div>
   
                   <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
@@ -151,6 +182,35 @@ Check your answers - initial information
                       </a>
                     </dd>
                   </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste quantity
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">
+                            {% if data ['waste-amount-2'] == "actual-kg" %}
+                        <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-2'] }} kg</p>
+
+                        {% elseif data ['waste-amount-2'] == "estimate-kg" %}
+                        <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg-2'] }} kg</p>
+
+                        {% elseif data ['waste-amount-2'] == "actual-litre" %}
+                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres-2'] }} litres</p>
+
+                        {% elseif data ['waste-amount-2'] == "estimate-litre" %}
+                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres-2'] }} litres</p>
+
+                        {% elseif data ['waste-amount-2'] == "unknown" %}
+                        <p class="govuk-body">Unknown</p>
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="quantity">
+                            Change<span class="govuk-visually-hidden"> waste quantity</span>
+                        </a>
+                    </dd>
+                </div>
   
                   <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">

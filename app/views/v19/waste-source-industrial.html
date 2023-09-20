@@ -1,0 +1,100 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+    Where was the waste produced? industrial waste
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="win-id govuk-caption-l">Producer and collection details</span>
+            <h1 class="govuk-fieldset__heading">
+              Where was the waste produced?
+            </h1>
+          </legend>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <h2 class="govuk-heading-m">
+            Industrial waste
+          </h2>
+          <hr class="govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-industrial" name="waste-source-industrial" type="radio" value="industrial-1">
+              <label class="govuk-label govuk-radios__label" for="waste-source-industrial">
+                A workshop or similar premises which is not a factory only because either those working there are not employees, or because the work carried on there is not carried on by way of trade or for purposes of gain
+              </label>
+            </div>
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-industrial-2" name="waste-source-industrial" type="radio" value="industrial-2">
+              <label class="govuk-label govuk-radios__label" for="waste-source-industrial-2">
+                Waste from a laboratory
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-industrial-3" name="waste-source-industrial" type="radio" value="industrial-3">
+              <label class="govuk-label govuk-radios__label" for="waste-source-industrial-3">
+                Waste from a scientific research association
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-industrial-4" name="waste-source-industrial" type="radio" value="industrial-4">
+              <label class="govuk-label govuk-radios__label" for="waste-source-industrial-4">
+                Waste from premises used for the breeding, boarding or stabling of animals              
+            </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-industrial-4" name="waste-source-industrial" type="radio" value="industrial-5">
+              <label class="govuk-label govuk-radios__label" for="waste-source-industrial-4">
+                Waste imported into England or Wales             
+            </label>
+            </div>
+
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-industrial-4" name="waste-source-industrial" type="radio" value="industrial-6">
+                <label class="govuk-label govuk-radios__label" for="waste-source-industrial-4">
+                    Directive waste from a place (including any vehicle, vessel or aircraft) not otherwise described in section 75(5) or (7) of the Act(12) (household waste and commercial waste)              
+              </label>
+              </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-industrial-6" name="waste-source-industrial" type="radio" value="industrial-none">
+              <label class="govuk-label govuk-radios__label" for="waste-source-industrial-6">
+                None of the above
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
