@@ -1,82 +1,48 @@
-{% extends "../layout.html" %}
+{% extends "../layout-experimental.html" %}
 
 {% block pageTitle %}
-Do you have a European Waste Catalogue (EWC) code?
+What is the European Waste Catalogue (EWC) code?
 {% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" method="post">
 
-      <div class="govuk-form-group">
+                <div class="govuk-form-group">
+                    <h1 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--l" for="ewc-code">
+                        What is the European Waste Catalogue (EWC) code?
+                      </label>
+                    </h1>
+                    
+                    <div id="ewc-hint" class="govuk-hint">
+                        This can also be called a list of waste (LoW) code. For more help with these codes, read the waste classification technical guidance.
+                    </div>
+                    <label class="govuk-label" for="ewc-code">
+                        Enter code
+                      </label>
+                      <input class="govuk-input govuk-input--width-10" id="ewc-code" name="ewc-code" type="text" value="{{data['ewc-code']}}">
+                  </div>
 
-        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Waste codes and description</span>
-            <h1 class="govuk-fieldset__heading">
-              Do you have a European Waste Catalogue (EWC) code?
-            </h1>
-          </legend>
+            <div class="govuk-!-padding-bottom-6"></div>
 
-          <div id="contact-hint" class="govuk-hint">
-            This can also be called a list of waste (LoW) code. For more help with these codes, <a class="govuk-link"
-              href="https://www.gov.uk/government/publications/waste-classification-technical-guidance">see the waste
-              classification technical guidance</a>.
-          </div>
-
-          <div class="govuk-radios" data-module="govuk-radios">
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ec-code" name="ec-code" type="radio" value="Yes"
-                data-aria-controls="conditional-contact">
-              <label class="govuk-label govuk-radios__label" for="ec-code">
-                Yes
-              </label>
+            <!----- BUTTONS ----->
+            <div class="govuk-button-group">
+                {{ govukButton({
+                  text: "Continue"
+                }) }}
+              
+                {{ govukButton({
+                  text: "Save and return to draft",
+                  classes: "govuk-button--secondary"
+                }) }}
             </div>
 
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact"
-              name="eccode">
-              <div id="contact-hint" class="govuk-hint">
-                Choose from the list or start typing
-              </div>
-              <div class="govuk-form-group">
-                <div id="ewc-wastes-typeahead-container" data-default-value="{{ data['ewc-wastes-typeahead'] }}"></div>
-              </div>
-            </div>
+        </form>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ec-code" name="ec-code" type="radio" value="No"
-                data-aria-controls="conditional-contact-2">
-              <label class="govuk-label govuk-radios__label" for="ec-code">
-                No
-              </label>
-            </div>
-
-          </div>
-
-        </fieldset>
-
-      </div>
-
-      <div class="govuk-!-padding-bottom-6"></div>
-
-      <!----- BUTTONS ----->
-      <div class="govuk-button-group">
-        {{ govukButton({
-        text: "Save and continue"
-        }) }}
-
-        {{ govukButton({
-        text: "Save and return to draft",
-        classes: "govuk-button--secondary"
-        }) }}
-      </div>
-
-    </form>
-
-  </div>
+    </div>
 </div>
 
 {% endblock %}

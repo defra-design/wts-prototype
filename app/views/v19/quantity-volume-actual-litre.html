@@ -9,7 +9,7 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">
-        <span class="win-id govuk-caption-l">EWC code: {{ data['ewc'] }}</span>
+        <span class="win-id govuk-caption-l">EWC code: {{ data['ewc-code'] }}</span>
         What is the actual volume of waste?
       </h1>
       <p class="govuk-body">Only provide the net volume. Do not include the weight of the container or vehicle. If the volume might change, <a class="govuk-link" href="quantity-volume-estimate-litre.html">enter an estimated volume instead</a>.</p>
@@ -23,8 +23,8 @@
             text: "Enter volume, in litres"
           },
           classes: "govuk-input--width-5",
-          id: "volume",
-          name: "volume",
+          id: "volume-actual-litres",
+          name: "volume-actual-litres",
           value: data['volume-actual-litres'],
           suffix: {
             text: "litres"
