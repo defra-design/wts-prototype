@@ -936,8 +936,38 @@ router.post('/container-description', function(req, res) {
 
 //--- WASTE SOURCE
 router.post('/waste-source', function(req, res) {
+  if (req.session.data['source-type'] == 'Household') {
+    res.redirect('waste-source-household');
+
+} else if (req.session.data['source-type'] == 'Commercial') {
+    res.redirect('waste-source-commercial');
+
+}  else if (req.session.data['source-type'] == 'Industrial') {
+    res.redirect('waste-source-industrial');
+
+}  else if (req.session.data['source-type'] == 'Fly-tipped') {
+    res.redirect('producer-transport-select');
+
+} else if (req.session.data['source-type'] == 'Unknown') {
+    res.redirect('producer-transport-select');
+}
+})
+
+//--- WASTE SOURCE - HOUSEHOLD
+router.post('/waste-source-household', function(req, res) {
   res.redirect('producer-transport-select');
 })
+
+//--- WASTE SOURCE - COMMERCIAL
+router.post('/waste-source-commercial', function(req, res) {
+  res.redirect('producer-transport-select');
+})
+
+//--- WASTE SOURCE - INDUSTRIAL
+router.post('/waste-source-industrial', function(req, res) {
+  res.redirect('producer-transport-select');
+})
+
 
 
 //-----------------------------------------------
@@ -1209,7 +1239,7 @@ router.post('/producer-prepopulate', function(req, res) {
 //--- COLLECTION SAME AS PRODUCER
 router.post('/producer-collect-same', function(req, res) {
   if (req.session.data['producer-collect-same'] == 'Yes') {
-      res.redirect('producer-transport-select');
+      res.redirect('waste-source');
   } else if (req.session.data['producer-collect-same'] == 'No') {
           res.redirect('collect-postcode');
   }  

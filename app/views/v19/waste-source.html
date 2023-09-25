@@ -5,52 +5,54 @@ What is the source of the waste?
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        <span class="win-id govuk-caption-l">Producer and collection details</span>
-        What is the source of the waste?
-      </h1>
+        <form class="form" action="" method="post">
 
-      <form method="post">
-        {{ govukRadios({
-          idPrefix: "waste-source",
-          name: "waste-source",
-          fieldset: {
-            legend: { }
-          },
-          items: [
-            {
-              value: "Household waste",
-              text: "Household waste",
-              checked: data['waste-source'] == "household"
-            },
-            {
-              value: "Commercial waste",
-              text: "Commercial waste",
-              checked: data['waste-source'] == "commercial"
-            },
-            {
-              value: "Industrial waste",
-              text: "Industrial waste",
-              checked: data['waste-source'] == "industrial"
-            },
-            {
-              value: "Fly-tipped waste",
-              text: "Fly-tipped waste",
-              checked: data['waste-source'] == "flytipped"
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "Unknown",
-              text: "I do not know",
-              checked: data['waste-source'] == "unknown"
-            }
-          ]
-        }) }}
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-heading-l">
+                    <span class="win-id govuk-caption-l">Producer and collection details</span>
+                    What is the source of the waste?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Household">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Household waste
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Commercial">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Commercial waste
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Industrial">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Industrial waste
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Fly-tipped">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Fly-tipped waste
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Unknown">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    I do not know
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
         <div class="govuk-!-padding-bottom-6"></div>
 

@@ -113,7 +113,13 @@
                       POPs details
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      {{data['pops']}}
+                    <p class="govuk-body">
+                      {% if data ['pop-check'] == "yes" %}
+                        <p class="govuk-body"><br>{{data['pops']}}</p>
+
+                        {% elseif data ['pop-check'] == "no" %}
+                        <p class="govuk-body">None</p>
+                      {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">

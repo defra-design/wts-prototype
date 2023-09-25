@@ -125,7 +125,12 @@ Check your answers - initial information
                       POPs details
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      {{data['pops']}}
+                  {% if data ['pop-check'] == "yes" %}
+                    <p class="govuk-body"><br>{{data['pops']}}</p>
+
+                    {% elseif data ['pop-check'] == "no" %}
+                    <p class="govuk-body">None</p>
+                  {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">
@@ -231,7 +236,12 @@ Check your answers - initial information
                       POPs details
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      {{data['pops-2']}}
+                    {% if data ['pop-check-2'] == "yes" %}
+                    <p class="govuk-body"><br>{{data['pops-2']}}</p>
+
+                    {% elseif data ['pop-check-2'] == "no" %}
+                    <p class="govuk-body">None</p>
+                  {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">
@@ -269,7 +279,12 @@ Check your answers - initial information
             Handling requirements
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">{{ data['handling_needs'] }}</p>
+            {% if data ['handling-require'] == "yes" %}
+              <p class="govuk-body"><br>{{ data['handling_needs'] }}</p>
+
+              {% elseif data ['handling-require'] == "no" %}
+              <p class="govuk-body">None</p>
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="handling-requirements.html">
