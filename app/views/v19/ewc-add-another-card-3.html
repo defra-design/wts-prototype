@@ -114,7 +114,12 @@ You added 3 waste types
                         POPs details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['pops']}}
+                        {% if data ['pop-check'] == "yes" %}
+                        <p class="govuk-body"><br>{{data['pops']}}</p>
+
+                        {% elseif data ['pop-check'] == "no" %}
+                        <p class="govuk-body">None</p>
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -220,7 +225,12 @@ You added 3 waste types
                         POPs details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['pops-2']}}
+                        {% if data ['pop-check-2'] == "yes" %}
+                        <p class="govuk-body"><br>{{data['pops-2']}}</p>
+
+                        {% elseif data ['pop-check-2'] == "no" %}
+                        <p class="govuk-body">None</p>
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -327,7 +337,12 @@ You added 3 waste types
                         POPs details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['pops-3']}}
+                        {% if data ['pop-check-3'] == "yes" %}
+                        <p class="govuk-body"><br>{{data['pops-3']}}</p>
+
+                        {% elseif data ['pop-check-3'] == "no" %}
+                        <p class="govuk-body">None</p>
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
