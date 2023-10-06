@@ -1,0 +1,66 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+          <div class="govuk-form-group">
+            <span class="win-id govuk-caption-l">Waste Producers Ltd</span>
+            <fieldset class="govuk-fieldset" aria-describedby="producer-collect-same-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--l">
+                Is this where the waste will be collected?
+              </legend>
+
+              <!-- INLINE TEXT -->
+              <div class="govuk-inset-text">
+                4 Fortune Close<br>
+                Riverside Business Park<br>
+                Northampton<br>
+                NN3 9HZ<br>
+                England<br>
+              </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="producer-collect-same" name="producer-collect-same" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="producer-collect-same">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="producer-collect-same" name="producer-collect-same" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="producer-collect-same">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

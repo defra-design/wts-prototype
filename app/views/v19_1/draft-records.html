@@ -1,0 +1,102 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Continue a draft movement
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        Prototype
+      </strong>
+      <span class="govuk-phase-banner__text">
+        Version 19 - This is not a live service.
+      </span>
+    </p>
+</div>
+
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="index-homepage.html">Move, export or import waste</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        Continue a draft movement
+      </li>
+    </ol>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+            <form method="post" action="">
+
+    <h1 class="govuk-heading-l">
+      Your draft waste records
+    </h1>
+
+    <p class="govuk-body">These are waste records that are incomplete and have not been submitted yet.</p>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" >Your reference</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Created</th>
+          <th scope="col" class="govuk-table__header" >Waste description</th>
+          <th scope="col" class="govuk-table__header" >Action</th>
+        </tr>
+      </thead>
+
+      <!---------- SUMMARY TABLE #1 ---------->
+
+
+            <tbody class="govuk-table__body">
+
+
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">CollectionM/15102023</td>
+      <td class="govuk-table__cell" data-sort-value="16">15 Sept 2023</td>
+      <td class="govuk-table__cell">Car batteries, WEEE (fridges) and water based paint.
+      <td class="govuk-table__cell"><a href="waste-record-aboutwaste-prepopulated.html">Continue</a>
+
+      </tr>
+
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">CollectionM/04082023</td>
+      <td class="govuk-table__cell" data-sort-value="12">04 Aug 2023</td>
+      <td class="govuk-table__cell">WEEE computer components</td>
+      <td class="govuk-table__cell"><a href="">Continue</a>
+
+      </tr>
+
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">CollectionM/30072023</td>
+      <td class="govuk-table__cell" data-sort-value="29">30 July 2023</td>
+      <td class="govuk-table__cell">Skip for household waste</td>
+      <td class="govuk-table__cell"><a href="">Continue</a>
+
+      </tr>
+
+      </tbody>
+    </table>
+
+    <div class="govuk-button-group">
+      <a href="home-move-waste-uk.html">Return to UK waste homepage</a>
+    </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

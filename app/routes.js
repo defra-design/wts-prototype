@@ -49,17 +49,12 @@ router.use('/v16_a', require('./views/v16_a/_routes'))
 router.use('/v16_b', require('./views/v16_b/_routes'))
 router.use('/v17', require('./views/v17/_routes'))
 router.use('/v18', require('./views/v18/_routes'))
+router.use('/v19', require('./views/v19/_routes'))
 
-/* // V18 routes
-router.use('/v18/', (req, res, next) => {
+// V19.1 routes
+router.use('/v19_1/', (req, res, next) => {
   //req.session.data["entered-criteria"] = undefined;
-  return require(`./views/v18/_routes`)(req, res, next);
-}) */
-
-// V19 routes
-router.use('/v19/', (req, res, next) => {
-  //req.session.data["entered-criteria"] = undefined;
-  return require(`./views/v19/_routes`)(req, res, next);
+  return require(`./views/v19_1/_routes`)(req, res, next);
 })
 
 

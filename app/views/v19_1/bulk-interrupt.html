@@ -1,0 +1,49 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Uploading multiple waste records - guidance prompt
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form method="post">
+
+      <div class="interrupt-container">
+        <h1 class="govuk-heading-l">Use the guidance to create multiple waste records from the template</h1>
+
+        <p class="govuk-body">When you enter your waste record information into the template, you need to save it as a CSV file. This is where data is separated by commas rather than columns. If you change the structure of the template, your upload may fail.</p>
+        <p class="govuk-body">It is important you use the guidance to help you fill in and upload the template correctly.</p>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+      <div class="documents-container">
+        <div class="file-image-container"><img src="/public/images/icon-HTML-doc.png"></div>
+        <div class="file-download-details-container">
+            <p class="govuk-body-l"><a href="/public/csv/csv-template.csv">How to create multiple waste records using the CSV template</a></p>
+            <p class="govuk-body-s">HTML</p>
+        </div>
+      </div><!-- doc container end -->
+
+      <div class="govuk-!-padding-bottom-8"></div>
+
+      <br>
+      <br>
+
+      <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-button--inverse"
+      }) }}
+    </div><!-- button end -->
+
+</div><!-- interrupt container end -->
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
