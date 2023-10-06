@@ -1,0 +1,73 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+What is the source of the waste?
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        <span class="win-id govuk-caption-l">Producer and collection details</span>
+        What is the source of the waste?
+      </h1>
+
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "source-type",
+          name: "source-type",
+          fieldset: {
+            legend: { }
+          },
+          items: [
+            {
+              value: "Household waste",
+              text: "Household waste",
+              checked: data['source-type'] == "household"
+            },
+            {
+              value: "Commercial waste",
+              text: "Commercial waste",
+              checked: data['source-type'] == "commercial"
+            },
+            {
+              value: "Industrial waste",
+              text: "Industrial waste",
+              checked: data['source-type'] == "industrial"
+            },
+            {
+              value: "Fly-tipped waste",
+              text: "Fly-tipped waste",
+              checked: data['source-type'] == "flytipped"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Unknown",
+              text: "I do not know",
+              checked: data['source-type'] == "unknown"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

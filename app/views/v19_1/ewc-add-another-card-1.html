@@ -1,0 +1,186 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  You have added 1 EWC code
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        
+    <form class="form" method="post">
+
+        <span class="govuk-caption-l">Your reference: {{ data['unique-ref'] }}</span>
+
+          <h1 class="govuk-heading-l">
+          You added 1 waste type
+          </h1>
+
+        <!---------- SUMMARY CARD ---------->
+
+        <!---------- CARD 1 ---------->
+
+        <div class="govuk-summary-card" id="ewc-card-1">
+          <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">EWC {{ data['ewc-code'] }}</h2>
+          <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"> 
+                  <a class="govuk-link" href="#">
+                  Remove<span class="govuk-visually-hidden">EWC code</span>
+                  </a>
+              </li>
+          </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste description
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      {{data['describe-waste']}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">waste description</span>
+                      </a>
+                    </dd>
+                  </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Physical form
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      {{data['physical_form']}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">physcial form</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste quantity
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">
+                        {% if data ['waste-amount'] == "actual-kg" %}
+                        <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                        {% elseif data ['waste-amount'] == "estimate-kg" %}
+                        <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                        {% elseif data ['waste-amount'] == "actual-litre" %}
+                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres</p>
+
+                        {% elseif data ['waste-amount'] == "estimate-litre" %}
+                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} litres</p>
+
+                        {% elseif data ['waste-amount'] == "unknown" %}
+                        <p class="govuk-body">Unknown</p>
+                        {% endif %}
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="quantity">
+                            Change<span class="govuk-visually-hidden"> waste quantity</span>
+                        </a>
+                    </dd>
+                </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Hazardous codes
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      {{data['haz_codes']}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">hazard codes</span>
+                      </a>
+                    </dd>
+                  </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      POPs details
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">
+                      {% if data ['pop-check'] == "yes" %}
+                        <p class="govuk-body"><br>{{data['pops']}}</p>
+
+                        {% elseif data ['pop-check'] == "no" %}
+                        <p class="govuk-body">None</p>
+                      {% endif %}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">POPs details</span>
+                      </a>
+                    </dd>
+                  </div>  
+
+          </dl>
+          </div>
+      </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!---------- ADD ANOTHER RADIOS ---------->
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="add-ewc-item-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">
+                    Do you need to add another waste type to this record?
+                </h2>
+            </legend>
+
+            <div class="govuk-radios" data-module="govuk-radios">
+
+                <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-ewc-item" name="add-ewc-item" type="radio" value="Yes" data-aria-controls="conditional-add-ewc-item">
+                <label class="govuk-label govuk-radios__label" for="add-ewc-item">
+                    Yes
+                </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-ewc-item" name="add-ewc-item" type="radio" value="No" data-aria-controls="conditional-add-ewc-item-2">
+                <label class="govuk-label govuk-radios__label" for="add-ewc-item">
+                    No
+                </label>
+                </div>
+
+            </div>
+            </fieldset>
+        </div>
+
+    <div class="govuk-!-padding-bottom-6"></div>
+
+    <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

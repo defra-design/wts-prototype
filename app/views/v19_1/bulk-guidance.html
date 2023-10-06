@@ -1,0 +1,110 @@
+
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Moving waste in the UK: how to create multiple waste records
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Guidance</span>
+    <h1 class="govuk-heading-l">Moving waste in the UK: how to create multiple waste records</h1>
+      <p class="govuk-body-l">Use this guidance with examples to help you complete the CSV template to upload multiple waste records at a time.
+        If there are any sections that do not apply to your shipment, enter ‘NA’ for not applicable. Do not leave the cell blank.</p>
+
+      <div class="govuk-!-padding-bottom-3"></div>
+      <div class="div-line"> </div>
+      <div class="govuk-!-padding-bottom-3"></div>
+
+      <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#unique-ref">
+                Your unique reference
+              </a>
+            </li>
+            <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+              Producer details
+            </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                SIC code
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Waste source
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Broker registration number
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Carrier registration number
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Waste transportation
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Receiver environmental permit number
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Receiver waste exemption number
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Expected waste collection date
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Total number of containers and types
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Special handling requirements
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <h3 id="unique-ref" class="govuk-heading-m">
+        Your unique reference
+      </h3>
+      <p class="govuk-body">Your unique reference can be anything that helps you to identify your record before it is submitted. For example, it could match a reference on a system you already use to identify waste movements.</p>
+
+      <p class="govuk-body">Your unique reference can include numbers and letters. For example, ABC10001. Do not include spaces, dashes or any other special characters.
+        Make sure your unique reference is different for each record. Each row on the CSV template is a unique record. For example, if you put ABC10001 in one row, then you might put ABC10002 in the next to show it is different.</p>
+
+
+      <p class="govuk-body">
+        <a href="bulk-upload.html" class="govuk-link">Upload multiple waste exports</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

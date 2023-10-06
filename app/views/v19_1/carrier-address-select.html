@@ -1,0 +1,81 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+
+            <div class="govuk-form-group">
+            <span class="win-id govuk-caption-l">Waste Carriers Ltd</span>
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    Select the carrier's address
+                </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="carrier-address-select" name="carrier-address-select" type="radio" value="1-hydra">
+                    <label class="govuk-label govuk-radios__label" for="carrier-address-select">
+                        1 Hydra Way, Seaview Business Park, Manchester, M1 1EZ
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="carrier-address-select-2" name="carrier-address-select" type="radio" value="2-hydra">
+                    <label class="govuk-label govuk-radios__label" for="carrier-address-select-2">
+                        2 Hydra Way, Seaview Business Park, Manchester, M1 1EZ
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="carrier-address-select-3" name="carrier-address-select" type="radio" value="3-hydra">
+                    <label class="govuk-label govuk-radios__label" for="carrier-address-select-3">
+                        3 Hydra Way, Seaview Business Park, Manchester, M1 1EZ
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="carrier-address-select-4" name="carrier-address-select" type="radio" value="4-hydra">
+                    <label class="govuk-label govuk-radios__label" for="carrier-address-select-4">
+                        4 Hydra Way, Seaview Business Park, Manchester, M1 1EZ
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="carrier-address-select-5" name="carrier-address-select" type="radio" value="5-hydra">
+                    <label class="govuk-label govuk-radios__label" for="carrier-address-select-5">
+                        5 Hydra Way, Seaview Business Park, Manchester, M1 1EZ
+                    </label>
+                </div>
+                </div>
+            </fieldset>
+            </div>
+
+            <p>
+                <a href="carrier-address-manual">Enter address manually</a>
+              </p>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

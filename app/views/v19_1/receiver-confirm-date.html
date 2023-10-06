@@ -1,0 +1,112 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                When did you receive the waste?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-received" name="date-received" type="radio" value="today">
+                <label class="govuk-label govuk-radios__label" for="date-received">
+                  Today
+                </label>
+                <div id="date-item-hint" class="govuk-hint govuk-radios__hint"><!-- dynamic date that should read the current date from the computer -->
+                  <script>
+                    const event = new Date();
+                    const options = { year: 'numeric', month: 'long'};
+                  </script>
+
+                  <p class="govuk-hint"><script type="text/javascript"> document.write(event.getDate());</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-received-2" name="date-received" type="radio" value="yesterday">
+                <label class="govuk-label govuk-radios__label" for="date-received-2">
+                  Yesterday
+                </label>
+                <div id="date-2-item-hint" class="govuk-hint govuk-radios__hint"><!-- dynamic date that should read the current date then minus 1 to show yesterdays date -->
+                  <p class="govuk-hint"><script type="text/javascript"> document.write(event.getDate()-1);</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+                </div>
+              </div>
+
+              <div class="govuk-radios__divider">or</div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-received-3" name="date-received" type="radio" value="differentDay" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="date-received-3">
+                  A different date
+                </label>
+              </div>
+
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+<!--                   <label class="govuk-label" for="received-date">
+                    Enter the date
+                  </label> -->
+                  
+                  <div class="govuk-date-input" id="received-date">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="received-date-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="received-date-day" name="received-date-day" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="received-date-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="received-date-month" name="received-date-month" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="received-date-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="received-date-year" name="received-date-year" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

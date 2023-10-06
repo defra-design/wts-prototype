@@ -239,8 +239,53 @@ dd {
   padding-right: 20px;
 }
 
+// ------- CSV styles -----------
+
+//.documents-container {
+ // float: inline;
+ // padding-top: 30px;
+//}
+
+.interrupt-container {
+  background-color: #1D70B8;
+  padding: 6%;
+}
+
+.interrupt-container h1 {
+  color: white;
+}
+.interrupt-container p {
+  color: white;
+}
+.interrupt-container a {
+  color: white;
+}
 
 
+.file-image-container {
+  float: left;
+  padding-right: 30px;
+}
+
+.file-download-details-container {
+  float: inline;
+}
+
+.error-table-cell {
+  width: 190px;
+}
+
+.csv-howto-list li {
+  margin-bottom: 0.8em;
+}
+
+.spinner {
+  background-image: url("../images/spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  margin-bottom: 2rem;
+}
 
 
 

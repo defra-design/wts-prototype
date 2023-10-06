@@ -1,0 +1,73 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="win-id govuk-caption-l">Waste Receivers Ltd</span>
+      <h1 class="govuk-heading-l">
+        Do you have a registered waste exemption?
+      </h1>
+
+      <form method="post">
+        {% set exemptHtml %}
+        {{ govukInput({
+        id: "exempt-num",
+        name: "exempt-num",
+        type: "exemptnumber",
+        autocomplete: "exemptnumber",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+            text: "Enter the waste exemption registration number"
+        }
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          idPrefix: "waste-exempt",
+          name: "waste-exempt",
+          fieldset: {
+            legend: { }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: exemptHtml
+              },
+              checked: data['waste-exempt'] == "Yes"
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: data['waste-exempt'] == "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
