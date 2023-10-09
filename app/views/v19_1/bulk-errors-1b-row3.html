@@ -1,9 +1,9 @@
 
 
-{% extends "../layouts/layout-exporter-current.html" %}
+{% extends "../layout.html" %}
 
 {% block pageTitle %}
-Export green list waste - Correct all waste description errors 
+Move waste in the UK - Correct all waste record errors  
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@ Export green list waste - Correct all waste description errors
         Prototype
         </strong>
         <span class="govuk-phase-banner__text">
-        Version 14 - This is not a live service.
+        Version 19.1 - This is not a live service.
         </span>
     </p>
   </div>
@@ -45,15 +45,12 @@ Export green list waste - Correct all waste description errors
     <div class="govuk-error-summary" data-module="govuk-error-summary">
         <div role="alert">
             <h2 class="govuk-error-summary__title">
-              Correct all waste description errors 
+              You have 1 error
             </h2>
             <div class="govuk-error-summary__body">
-                <ul class="govuk-list govuk-error-summary__list">
+                <ul class="govuk-list">
                     <li>
-                        Enter a waste description. Give the usual description of the waste. For example, baled PET bottles, bagged 
-                        HDPE pellets or OCC paper.
-                        <br><br>
-                        The waste description must be 200 characters or less.
+                      Review the guidance on <a href="bulk-guidance.html" target="_blank" class="govuk-link">how to create multiple waste records using the CSV template (opens in new tab)</a>
                     </li>
                 </ul>
             </div>
@@ -63,53 +60,35 @@ Export green list waste - Correct all waste description errors
 <!--------- ERROR DETAILS TABLE ------------------->
 
         <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Error details</caption>
+            <caption class="govuk-table__caption govuk-table__caption--m">Correct all errors for row 3</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Row number</th>
+
                 <th scope="col" class="govuk-table__header">Error</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
 
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">3</td>
-                <td class="govuk-table__cell">No information provided</td>
-              </tr>
-
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">12</td>
                 <td class="govuk-table__cell">Waste description too long</td>
               </tr>
 
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">15</td>
-                <td class="govuk-table__cell">No information provided</td>
-              </tr>
-
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">38</td>
-                <td class="govuk-table__cell">Waste description too long</td>
-              </tr>
-
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">42</td>
-                <td class="govuk-table__cell">No information provided</td>
-              </tr>
-
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">47</td>
-                <td class="govuk-table__cell">Waste description too long</td>
-              </tr>
-    
             </tbody>
           </table>
 
           <div class="govuk-!-padding-bottom-4"></div>
 
-          <p class="govuk-body">
-            <a href="bulk-errors-1.html" class="govuk-link">Back to corrections table</a>
-          </p>
+      <form class="form" method="post">
+  
+      <!----- BUTTONS ----->
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Go back to error summary table",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+      
+      </form>
 
     </div>
 </div>
