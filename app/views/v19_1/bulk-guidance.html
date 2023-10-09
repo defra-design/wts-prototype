@@ -99,11 +99,18 @@
       <p class="govuk-body">Your unique reference can include numbers and letters. For example, ABC10001. Do not include spaces, dashes or any other special characters.
         Make sure your unique reference is different for each record. Each row on the CSV template is a unique record. For example, if you put ABC10001 in one row, then you might put ABC10002 in the next to show it is different.</p>
 
+        <div class="govuk-!-padding-bottom-8"></div>
 
-      <p class="govuk-body">
-        <a href="bulk-upload.html" class="govuk-link">Upload multiple waste exports</a>
-      </p>
-
+        <form class="form" method="post">
+  
+          <!----- BUTTONS ----->
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Upload multiple waste exports"
+            }) }}
+          </div>
+          
+          </form>
     </div>
   </div>
 

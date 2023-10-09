@@ -2013,6 +2013,10 @@ router.post('/bulk-interrupt', function(req, res) {
   res.redirect('bulk-upload');
 })
 
+router.post('/bulk-guidance', function(req, res) {
+  res.redirect('bulk-upload');
+})
+
 // bulk file upload
 router.post('/bulk-upload', function(req, res) {
   res.redirect('bulk-uploading-1');
@@ -2036,6 +2040,31 @@ router.post('/bulk-success', function(req, res) {
 // bulk Confirmation
 router.post('/bulk-confirmation', function(req, res) {
   res.redirect('home-move-waste-uk');
+})
+
+// bulk error 1 - row 3
+router.post('/bulk-errors-1b-row3', function(req, res) {
+  res.redirect('bulk-errors-1');
+})
+
+// bulk error 1 - row 12
+router.post('/bulk-errors-1b-row12', function(req, res) {
+  res.redirect('bulk-errors-1');
+})
+
+// bulk error 1 - row 24
+router.post('/bulk-errors-1b-row24', function(req, res) {
+  res.redirect('bulk-errors-1');
+})
+
+// bulk error 2 - row 3
+router.post('/bulk-errors-2b-row3', function(req, res) {
+  res.redirect('bulk-errors-2');
+})
+
+// bulk error 2 - row 24
+router.post('/bulk-errors-2b-row24', function(req, res) {
+  res.redirect('bulk-errors-2');
 })
 
 
