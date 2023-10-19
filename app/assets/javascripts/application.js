@@ -6,8 +6,6 @@
 //
 
 
-$(document).ready(function () {
-})
 
 //---------------------------------------------------------------------
 
@@ -858,21 +856,23 @@ const ecWastes = [
   '200399: municipal wastes not otherwise specified'
 ]
 
-if ($('#ewc-wastes-typeahead-container').length > 0) { // removed 'lab' from between wastes and typeahead
-  element = document.querySelector('#ewc-wastes-typeahead-container') // removed 'lab' from between wastes and typeahead
-  id = 'ewc-wastes-typeahead' // To match it to the existing <label> - removed 'lab'.
+window.GOVUKPrototypeKit.documentReady(() => {
+    if ($('#ewc-wastes-typeahead-container').length > 0) { // removed 'lab' from between wastes and typeahead
+      element = document.querySelector('#ewc-wastes-typeahead-container') // removed 'lab' from between wastes and typeahead
+      id = 'ewc-wastes-typeahead' // To match it to the existing <label> - removed 'lab'.
 
-  accessibleAutocomplete ({
-    element: element,
-    defaultValue: element.getAttribute('data-default-value'),
-    id: id,
-    name: id,
-    source: ecWastes, // removed 'Lab' from between wastes and typeahead
-    minLength: 1,
-    showAllValues: true,
-    dropdownArrow: () => ''
-  })
-}
+      accessibleAutocomplete ({
+        element: element,
+        defaultValue: element.getAttribute('data-default-value'),
+        id: id,
+        name: id,
+        source: ecWastes, // removed 'Lab' from between wastes and typeahead
+        minLength: 1,
+        showAllValues: true,
+        dropdownArrow: () => ''
+      })
+    }
+})
 
 //------ EWC wastes autocomplete - non-haz codes only (for GLW)
 /* 
@@ -1363,21 +1363,25 @@ const PopsList = [
   'Perfluorooctanoic acid (PFOA), its salts and PFOA-related compounds'
 ]
 
-if ($('#pops-typeahead-container').length > 0) {
-  element = document.querySelector('#pops-typeahead-container')
-  id = 'pops-typeahead' // To match it to the existing <label>.
+window.GOVUKPrototypeKit.documentReady(() => {
+  if ($('#pops-typeahead-container').length > 0) {
+    element = document.querySelector('#pops-typeahead-container')
+    id = 'pops-typeahead' // To match it to the existing <label>.
+  
+    accessibleAutocomplete ({
+      element: element,
+      defaultValue: element.getAttribute('data-default-value'),
+      id: id,
+      name: id,
+      source: PopsList,
+      minLength: 1,
+      showAllValues: true,
+      dropdownArrow: () => ''
+    })
+  }
+})
 
-  accessibleAutocomplete ({
-    element: element,
-    defaultValue: element.getAttribute('data-default-value'),
-    id: id,
-    name: id,
-    source: PopsList,
-    minLength: 1,
-    showAllValues: true,
-    dropdownArrow: () => ''
-  })
-}
+
 
 //---------------------------------------------------------------------
 
@@ -1396,6 +1400,8 @@ const recoveryOperationFinal = [
   'R9: Oil refining or other re-uses of oil',
   'R10: Land treatment resulting in benefit to agriculture or ecological improvement',
   'R11: Use of wastes obtained from any of the operations numbered R01 to R11',
+  'R12: Exchange of wastes for submission to any of the operations numbered R1 to R11',
+  'R13: Storage of wastes pending any of the operations numbered R1 to R12 (excluding temporary storage, pending collection, on the site where it is produced)',
   'D1: Deposit into or onto land',
   'D2: Land Treatment',
   'D3: Deep injection',
@@ -1413,34 +1419,93 @@ const recoveryOperationFinal = [
   'D15: Storage pending any of the operations numbered D01 to D14 (excluding temporary storage, pending collection, on the site where it is produced).'
   ]
 
-if ($('#recovery-operation-final-typeahead-container').length > 0) {
-  element = document.querySelector('#recovery-operation-final-typeahead-container')
-  id = 'recovery-operation-final-typeahead' // To match it to the existing <label>.
 
-  accessibleAutocomplete ({
-    element: element,
-    defaultValue: element.getAttribute('data-default-value'),
-    id: id,
-    name: id,
-    source: recoveryOperationFinal,
-    minLength: 1,
-    showAllValues: true,
-    dropdownArrow: () => ''
+  window.GOVUKPrototypeKit.documentReady(() => {
+    if ($('#recovery-operation-final-typeahead-container').length > 0) {
+      element = document.querySelector('#recovery-operation-final-typeahead-container')
+      id = 'recovery-operation-final-typeahead' // To match it to the existing <label>.
+    
+      accessibleAutocomplete ({
+        element: element,
+        defaultValue: element.getAttribute('data-default-value'),
+        id: id,
+        name: id,
+        source: recoveryOperationFinal,
+        minLength: 1,
+        showAllValues: true,
+        dropdownArrow: () => ''
+      })
+    }
+
+    if ($('#recovery-operation-final2-typeahead-container').length > 0) {
+      element = document.querySelector('#recovery-operation-final2-typeahead-container')
+      id = 'recovery-operation-final2-typeahead' // To match it to the existing <label>.
+    
+      accessibleAutocomplete ({
+        element: element,
+        defaultValue: element.getAttribute('data-default-value'),
+        id: id,
+        name: id,
+        source: recoveryOperationFinal,
+        minLength: 1,
+        showAllValues: true,
+        dropdownArrow: () => ''
+      })
+    }
+
+    // MULTIPLE R&D ON MULTIPLE EWCs
+
+      if ($('#recovery-operation-typeahead-container-1').length > 0) {
+        element = document.querySelector('#recovery-operation-typeahead-container-1')
+        id = 'recovery-operation-typeahead-1' // To match it to the existing <label>.
+      
+        accessibleAutocomplete ({
+          element: element,
+          defaultValue: element.getAttribute('data-default-value'),
+          id: id,
+          name: id,
+          source: recoveryOperationFinal,
+          minLength: 1,
+          showAllValues: true,
+          dropdownArrow: () => ''
+        })
+      }
+
+      if ($('#recovery-operation-typeahead-container-2').length > 0) {
+        element = document.querySelector('#recovery-operation-typeahead-container-2')
+        id = 'recovery-operation-typeahead-2' // To match it to the existing <label>.
+      
+        accessibleAutocomplete ({
+          element: element,
+          defaultValue: element.getAttribute('data-default-value'),
+          id: id,
+          name: id,
+          source: recoveryOperationFinal,
+          minLength: 1,
+          showAllValues: true,
+          dropdownArrow: () => ''
+        })
+      }
+
+      if ($('#recovery-operation-typeahead-container-3').length > 0) {
+        element = document.querySelector('#recovery-operation-typeahead-container-3')
+        id = 'recovery-operation-typeahead-3' // To match it to the existing <label>.
+      
+        accessibleAutocomplete ({
+          element: element,
+          defaultValue: element.getAttribute('data-default-value'),
+          id: id,
+          name: id,
+          source: recoveryOperationFinal,
+          minLength: 1,
+          showAllValues: true,
+          dropdownArrow: () => ''
+        })
+      }
+
   })
-}
+  
 
-if ($('#recovery-operation-final2-typeahead-container').length > 0) {
-  element = document.querySelector('#recovery-operation-final2-typeahead-container')
-  id = 'recovery-operation-final2-typeahead' // To match it to the existing <label>.
 
-  accessibleAutocomplete ({
-    element: element,
-    defaultValue: element.getAttribute('data-default-value'),
-    id: id,
-    name: id,
-    source: recoveryOperationFinal,
-    minLength: 1,
-    showAllValues: true,
-    dropdownArrow: () => ''
-  })
-}
+
+

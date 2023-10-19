@@ -1,7 +1,7 @@
 {% extends "../layout-experimental.html" %}
 
 {% block pageTitle %}
-  Confirm waste received
+  Amend the waste details
 {% endblock %}
 
 {% block content %}
@@ -12,9 +12,9 @@
     <form class="form" method="post">
 
         <span class="win-id govuk-caption-l">Waste record: AAAA-4712</span>
-      <h1 class="govuk-heading-l">Confirm waste received</h1>
+      <h1 class="govuk-heading-l">Amend the waste record</h1>
 
-      <p class="govuk-body">These are the waste details associated with this waste record.</p>
+      <p class="govuk-body">Amend the waste details to accurately reflect what was received.</p>
 
       <div class="govuk-!-padding-bottom-5"></div>
 
@@ -47,11 +47,11 @@
                     Car batteries
                       <!-- {{data['describe-waste']}} -->
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                  <dd class="govuk-summary-list__actions">
+                      <!-- <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">waste description</span>
-                      </a>
-                    </dd> -->
+                      </a> -->
+                    </dd>
                   </div>
   
                   <div class="govuk-summary-list__row">
@@ -62,11 +62,11 @@
                       Solid
                       <!-- {{data['physical_form']}} -->
                   </dd>
-                 <!--  <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                 <dd class="govuk-summary-list__actions">
+                      <!-- <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">physcial form</span>
-                      </a>
-                    </dd> -->
+                      </a> -->
+                    </dd>
                   </div>
 
                   <div class="govuk-summary-list__row">
@@ -93,11 +93,11 @@
                         <p class="govuk-body">Unknown</p>
                         {% endif %} -->
                     </dd>
-                    <!-- <dd class="govuk-summary-list__actions">
+                    <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="quantity">
                             Change<span class="govuk-visually-hidden"> waste quantity</span>
                         </a>
-                    </dd> -->
+                    </dd>
                 </div>
   
                   <div class="govuk-summary-list__row">
@@ -110,11 +110,11 @@
                       HP15: POPs<br>  
                     <!-- {{data['haz_codes']}} -->
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                  <dd class="govuk-summary-list__actions">
+                      <!-- <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">hazard codes</span>
-                      </a>
-                    </dd> -->
+                      </a> -->
+                    </dd>
                   </div>
   
                   <div class="govuk-summary-list__row">
@@ -129,11 +129,11 @@
                     <p class="govuk-body">None</p>
                   {% endif %}
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                  <dd class="govuk-summary-list__actions">
+                      <!-- <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">POPs details</span>
-                      </a>
-                    </dd>-->
+                      </a> -->
+                    </dd>
                   </div>   
 
           </dl>
@@ -166,11 +166,11 @@
                     WEEE (fridges)  
                     <!-- {{data['describe-waste-2']}} -->
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                  <dd class="govuk-summary-list__actions">
+                     <!--  <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">waste description</span>
-                      </a>
-                    </dd> -->
+                      </a> -->
+                    </dd>
                   </div>
   
                   <div class="govuk-summary-list__row">
@@ -181,11 +181,11 @@
                     Solid  
                     <!-- {{data['physical_form-2']}} -->
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                  <dd class="govuk-summary-list__actions">
+                      <!-- <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">physcial form</span>
-                      </a>
-                    </dd> -->
+                      </a> -->
+                    </dd>
                   </div>
 
                   <div class="govuk-summary-list__row">
@@ -210,11 +210,11 @@
                         <p class="govuk-body">Unknown</p>
                         {% endif %} -->
                     </dd>
-                    <!-- <dd class="govuk-summary-list__actions">
+                    <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="quantity">
                             Change<span class="govuk-visually-hidden"> waste quantity</span>
                         </a>
-                    </dd> -->
+                    </dd>
                 </div>
   
                   <div class="govuk-summary-list__row">
@@ -227,11 +227,11 @@
                       HP15: POPs<br>  
                     <!-- {{data['haz_codes-2']}} -->
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                  <dd class="govuk-summary-list__actions">
+                      <!-- <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">hazard codes</span>
-                      </a>
-                    </dd> -->
+                      </a> -->
+                    </dd>
                   </div>
   
                   <div class="govuk-summary-list__row">
@@ -246,11 +246,11 @@
                     <p class="govuk-body">None</p>
                   {% endif %}
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
+                  <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">
                         Change<span class="govuk-visually-hidden">POPs details</span>
                       </a>
-                    </dd> -->
+                    </dd>
                   </div>  
 
           </dl>
@@ -283,11 +283,11 @@
                   Paint  
                   <!-- {{data['describe-waste-2']}} -->
                 </dd>
-                <!-- <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                <dd class="govuk-summary-list__actions">
+                    <!-- <a class="govuk-link" href="#">
                       Change<span class="govuk-visually-hidden">waste description</span>
-                    </a>
-                  </dd> -->
+                    </a> -->
+                  </dd>
                 </div>
 
                 <div class="govuk-summary-list__row">
@@ -298,11 +298,11 @@
                   Liquid  
                   <!-- {{data['physical_form-2']}} -->
                 </dd>
-                <!-- <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                <dd class="govuk-summary-list__actions">
+                    <!-- <a class="govuk-link" href="#">
                       Change<span class="govuk-visually-hidden">physcial form</span>
-                    </a>
-                  </dd> -->
+                    </a> -->
+                  </dd>
                 </div>
 
                 <div class="govuk-summary-list__row">
@@ -310,7 +310,7 @@
                       Waste quantity
                   </dt>
                   <dd class="govuk-summary-list__value">
-                      <p class="govuk-body">500kg</p>
+                      <p class="govuk-body">{{data['weight-received-kg']}}kg</p>
                       <!-- {% if data ['waste-amount-2'] == "actual-kg" %}
                       <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-2'] }} kg</p>
 
@@ -327,11 +327,11 @@
                       <p class="govuk-body">Unknown</p>
                       {% endif %} -->
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="quantity">
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="quantity-weight-actual-kg.html">
                           Change<span class="govuk-visually-hidden"> waste quantity</span>
                       </a>
-                  </dd> -->
+                  </dd>
               </div>
 
                 <div class="govuk-summary-list__row">
@@ -342,11 +342,11 @@
                     None
                   <!-- {{data['haz_codes-2']}} -->
                 </dd>
-                <!-- <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                <dd class="govuk-summary-list__actions">
+                    <!-- <a class="govuk-link" href="#">
                       Change<span class="govuk-visually-hidden">hazard codes</span>
-                    </a>
-                  </dd> -->
+                    </a> -->
+                  </dd>
                 </div>
 
                 <div class="govuk-summary-list__row">
@@ -356,11 +356,11 @@
                 <dd class="govuk-summary-list__value">
                   None
                 </dd>
-                <!-- <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                <dd class="govuk-summary-list__actions">
+                    <!-- <a class="govuk-link" href="#">
                       Change<span class="govuk-visually-hidden">POPs details</span>
-                    </a>
-                  </dd> -->
+                    </a> -->
+                  </dd>
                 </div>  
 
         </dl>
@@ -381,11 +381,11 @@
               5 sealed IBC containers for batteries, 10 cages for WEEE fridges, 1 ordinary IBC for paint.
               <!-- {{ data['describe-container'] }} --></p>
           </dd>
-          <!-- <dd class="govuk-summary-list__actions">
+          <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="container-description.html">
               Change<span class="govuk-visually-hidden">waste containers</span>
             </a>
-          </dd> -->
+          </dd>
         </div>
 
         <!------ Handling requirements  ------>
@@ -441,45 +441,14 @@
               NN3 9HZ<br>
               England
             </dd>
-            <!-- <dd class="govuk-summary-list__actions">
+            <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="">
                 Change<span class="govuk-visually-hidden">Collection address</span>
               </a>
-            </dd> -->
+            </dd>
           </div>
 
       </dl>
-
-      <div class="govuk-!-padding-bottom-6"></div>
-
-      <!---------- SECTION COMPLETED RADIOS ---------->
-
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="confirm-record-correct-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
-            Is this waste record correct?
-          </legend>
-
-          <div class="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="confirm-record-correct" name="confirm-record-correct" type="radio"
-                value="Yes">
-              <label class="govuk-label govuk-radios__label" for="confirm-record-correct">
-                Yes
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="confirm-record-correct" name="confirm-record-correct" type="radio"
-                value="No">
-              <label class="govuk-label govuk-radios__label" for="confirm-record-correct">
-                No
-              </label>
-            </div>
-
-          </div>
-        </fieldset>
-      </div>
 
       <div class="govuk-!-padding-bottom-6"></div>
 
