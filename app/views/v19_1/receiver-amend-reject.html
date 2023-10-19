@@ -1,0 +1,60 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Do you want to amend this waste record or reject the waste?
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="amend-reject-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    Do you want to amend this waste record or reject the waste?
+                </h1>
+              </legend>
+        
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="amend-reject" name="amend-reject" type="radio" value="amend-waste" aria-describedby="amend-reject-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="amend-reject">
+                    I’d like to amend the waste record
+                  </label>
+                  <div id="amend-reject-item-hint" class="govuk-hint govuk-radios__hint">
+                    Choose this if some of the details are incorrect but you can amend them to accept the waste.
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="amend-reject-2" name="amend-reject" type="radio" value="reject-waste" aria-describedby="amend-reject-2-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="amend-reject-2">
+                    I’d like to reject the waste
+                  </label>
+                  <div id="amend-reject-2-item-hint" class="govuk-hint govuk-radios__hint">
+                    Choose this if you cannot accept part or all of the waste and need to reject it.
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

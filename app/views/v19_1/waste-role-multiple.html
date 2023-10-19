@@ -1,0 +1,78 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+What is your role in this waste movement?
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-role-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    What is your role in this waste movement?
+                </h1>
+              </legend>
+              <div id="waste-role-hint" class="govuk-hint">
+                Select all that apply
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-role" name="waste-role" type="checkbox" value="producer" aria-describedby="waste-role-item-hint">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-role">
+                    Producer
+                  </label>
+                  <div id="waste-role-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    I created the waste
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-role-2" name="waste-role" type="checkbox" value="carrier">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-role-2">
+                    Carrier
+                  </label>
+                  <div id="waste-role-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    I am moving the waste
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-role-3" name="waste-role" type="checkbox" value="receiver">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-role-3">
+                    Receiver
+                  </label>
+                  <div id="waste-role-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    I am in charge of receiving the waste
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste-role-3" name="waste-role" type="checkbox" value="broker">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste-role-4">
+                      Broker
+                    </label>
+                    <div id="waste-role-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                        I am organising it on behalf of someone else
+                    </div>
+                  </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+            
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

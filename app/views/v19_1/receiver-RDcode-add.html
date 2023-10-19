@@ -1,0 +1,105 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Add a disposal or recovery code
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+        <form method="post" action="">
+
+        <span class="win-id govuk-caption-l">All EWC codes</span>
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l">
+                Enter a disposal or recovery code
+            </label>
+          </h1>
+
+          <p class="govuk-body">Enter the disposal codes (D codes) and recovery codes (R codes) most relevant to your waste management activity. You’re likely to have more than one code for each waste type. </p>
+
+          <!---------- TYPEAHEAD DROPDOWN LIST ---------->
+
+            <div id="contact-hint" class="govuk-hint">Choose from the list or start typing</div>
+            <div id="recovery-operation-final-typeahead-container" data-default-value="{{ data['recovery-operation-final-typeahead'] }}"></div>
+
+            <div class="govuk-!-padding-bottom-4"></div>
+
+
+        <!----- ADD ANOTHER BUTTON ----->
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+          text: "Add a D or R code",
+          classes: "govuk-button--secondary"
+          }) }}
+        </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+
+        <h2 class="govuk-heading-s">Disposal or recovery code</h2>
+        <div class="div-line"></div>
+
+        <!---------- SUMMARY LIST ---------->
+
+        <div class="govuk-form-group">
+
+        <!-- <div>Count: {{ RDcode-count }}<br>
+            {{ RDcodes }}
+            </div> -->
+        
+            <dl class="govuk-summary-list govuk-!-margin-bottom-1">
+            {% for item in RDcodes %}
+            
+                <div class="govuk-summary-list__row">
+            
+                <dt class="govuk-summary-list__key govuk-!-width-full">
+                    {{item}} 
+                </dt>
+                <dd class="govuk-summary-list__value">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="">
+                    Remove<span class="govuk-visually-hidden">delete</span>
+                    </a>
+                </dd>
+            
+                </div>
+            
+                {%endfor%}
+            
+            </dl>
+        </div>
+
+
+        <!----- DETAILS (help with) ----->
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Help with D codes and R codes
+            </span>
+            </summary>
+            <div class="govuk-details__text">
+                Lorem ipsum dolor sit amet ipsum sit amet dolor sit amet.
+            </div>
+        </details>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+
+        <!----- BUTTONS ----->
+
+        <a href="check-answers-receiverconfirm.html" class="govuk-button">
+            Save and continue
+        </a>
+
+        </form>
+
+  </div>
+</div>
+
+{% endblock %}

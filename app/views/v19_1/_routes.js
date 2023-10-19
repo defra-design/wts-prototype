@@ -524,11 +524,11 @@ router.get('/setup-win', function (req, res) {
 
  // ------- UNIQUE REFERENCE NUMBER
   router.post('/unique-reference', function(req, res) {
-    res.redirect('waste-role');
+    res.redirect('waste-role-multiple');
   });
   
 // ------- WASTE ROLE SELECT
-  router.post('/waste-role', function(req, res) {
+  router.post('/waste-role-multiple', function(req, res) {
     res.redirect('start-waste-record');
   });
   
@@ -1912,12 +1912,37 @@ router.post('/receiver-confirmation', function(req, res) {
 
 //--- RECEIVER WASTE CONFIRMATION
 router.post('/receiver-confirm', function(req, res) {
-  if (req.session.data['receiver-confirm'] == 'Yes') {
-      res.redirect('receiver-confirm-quantity');
-  } else if (req.session.data['receiver-confirm'] == 'No') {
-          res.redirect('receiver-reject');
+  if (req.session.data['confirm-record-correct'] == 'Yes') {
+      res.redirect('receiver-confirm-date');
+  } else if (req.session.data['confirm-record-correct'] == 'No') {
+          res.redirect('receiver-amend-reject');
   }
 })  
+
+//--- RECEIVER AMEND/REJECT
+router.post('/receiver-amend-reject', function(req, res) {
+  if (req.session.data['amend-reject'] == 'amend-waste') {
+      res.redirect('receiver-amend-record');
+  } else if (req.session.data['amend-reject'] == 'reject-waste') {
+          res.redirect('receiver-reject-waste');
+  }
+})  
+
+//--- RECEIVER AMEND RECORD
+router.post('/receiver-amend-record', function(req, res) {
+  res.redirect('receiver-confirm-date');
+})
+
+//--- RECEIVER AMEND WEIGHT
+router.post('/receiver-weight-change', function(req, res) {
+  res.redirect('receiver-amend-record-2');
+})
+
+//--- RECEIVER AMEND RECORD 2
+router.post('/receiver-amend-record-2', function(req, res) {
+  res.redirect('receiver-confirm-date');
+})
+
 
 //--- RECEIVER CONFIRM QUANTITY
 router.post('/receiver-confirm-quantity', function(req, res) {
@@ -1926,20 +1951,20 @@ router.post('/receiver-confirm-quantity', function(req, res) {
 
 //--- RECEIVER CONFIRM DATE
 router.post('/receiver-confirm-date', function(req, res) {
-  res.redirect('receiver-treatment-select');
+  res.redirect('receiver-treatment-same');
 })
 
-//--- RECEIVER TREATMENT SELECT
-router.post('/receiver-treatment-select', function(req, res) {
-  res.redirect('receiver-RDcode-select');
+//--- RECEIVER TREATMENT SELECT (Same D&R codes or not)
+router.post('/receiver-treatment-same', function(req, res) {
+  if (req.session.data['receiver-treatwaste-same'] == 'yes') {
+    res.redirect('receiver-RDcode-add');
+} else if (req.session.data['receiver-treatwaste-same'] == 'no') {
+        res.redirect('receiver-RDcode-add-multiple');
+}
+  
 })
 
 ////-------- WASTE TREATMENT RECOVERY & DISPOSAL CODES ------------
-
-//--- ENTER R&D CODE 
-/* router.post('/receiver-RDcode-select', function(req, res) {
-  res.redirect('receiver-RDcode-add-another');
-}) */
 
     //------ R&D CODE SELECT
     router.post('/receiver-RDcode-select', function(req, res) {
@@ -1968,6 +1993,8 @@ router.post('/receiver-treatment-select', function(req, res) {
       res.render(version+'/receiver-RDcode-add-another', {
       'RDcodes' : carrierArray });
       });
+
+      
       
       router.post('/receiver-RDcode-2', function(req, res) {
         if(typeof req.session.data['RDcode-count'] == "undefined"){
@@ -1981,7 +2008,7 @@ router.post('/receiver-treatment-select', function(req, res) {
         res.redirect('receiver-RDcode-add-another');
       });
 
-
+/* 
      //-------- R&D ADD ANOTHER
     router.post('/receiver-RDcode-add-another', function(req, res) {
       if (req.session.data['add-RDcode'] == 'Yes') {
@@ -1990,19 +2017,83 @@ router.post('/receiver-treatment-select', function(req, res) {
               res.redirect('check-answers-section7');
       }
       }); 
+ */
 
+  ////-------- WASTE TREATMENT RECOVERY & DISPOSAL CODES v2 ------------
 
+    //------ R&D CODE SELECT (ALL WASTE)
+    router.post('/receiver-RDcode-add', function(req, res) {
 
-//--- R&D CODE ADD ANOTHER
-/* router.post('/receiver-RDcode-add-another', function(req, res) {
-  res.redirect('check-answers-section7');
-}) */
+      if(typeof req.session.data['RDcode-count'] == "undefined"){
+        req.session.data['RDcode-count'] = 0;
+      }
+      else {
+        req.session.data['RDcode-count']++;
+      }
+
+      req.session.data['RDcode-'+req.session.data['RDcode-count']] = req.session.data['recovery-operation-final-typeahead'];
+    
+ 
+  //------ R&D CODE PLAYBACK AND ADD ANOTHER
+
+    var carrierArray = [];
+
+    for (var i = 0; i <= req.session.data['RDcode-count']; i++) {
+    carrierArray[i] = req.session.data['RDcode-'+i];
+    }
+    
+    res.render(version+'/receiver-RDcode-add', {
+    'RDcodes' : carrierArray });
+    });
+
+    //----------------------------------------------------------------
+
+    //------ R&D CODE SELECT (MULTIPLE)
+    router.post('/receiver-RDcode-add-multiple', function(req, res) {
+
+      if(typeof req.session.data['RDcode1-count'] == "undefined"){
+        req.session.data['RDcode1-count'] = 0;
+      }
+      else {
+        req.session.data['RDcode1-count']++;
+      }
+
+      req.session.data['RDcode1-'+req.session.data['RDcode1-count']] = req.session.data['recovery-operation-typeahead-1'];
+      req.session.data['RDcode2-'+req.session.data['RDcode2-count']] = req.session.data['recovery-operation-typeahead-2'];
+      req.session.data['RDcode3-'+req.session.data['RDcode3-count']] = req.session.data['recovery-operation-typeahead-3'];
+    
+ 
+  //------ R&D CODE PLAYBACK AND ADD ANOTHER
+
+    var RDcode1Array = [];
+    var RDcode2Array = [];
+    var RDcode3Array = [];
+
+    for (var i = 0; i <= req.session.data['RDcode1-count']; i++) {
+    RDcode1Array[i] = req.session.data['RDcode1-'+i];
+    }
+
+    for (var i = 0; i <= req.session.data['RDcode2-count']; i++) {
+    RDcode2Array[i] = req.session.data['RDcode2-'+i];
+    }
+
+    for (var i = 0; i <= req.session.data['RDcode3-count']; i++) {
+    RDcode3Array[i] = req.session.data['RDcode3-'+i];
+    }
+    
+    res.render(version+'/receiver-RDcode-add-multiple', {
+    'RDcodes1' : RDcode1Array });
+    });
+
+    
+  
+
 
 ////-------- RECEIVER CHECK ANSWERS ------------
 
 //--- WASTE CONFIRM CHECK ANSWERS
-router.post('/check-answers-section7', function(req, res) {
-  res.redirect('waste-record-section7-complete');
+router.post('/check-answers-receiverconfirm', function(req, res) {
+  res.redirect('waste-record-receiverconfirm-complete');
 })
 
 
