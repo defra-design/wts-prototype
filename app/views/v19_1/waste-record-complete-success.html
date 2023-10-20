@@ -1,0 +1,33 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Waste record completed
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        {{ govukPanel({
+          titleText: "Waste record completed",
+          html: "Waste record ID <strong>WTS191023-00001/1</strong>"
+        }) }}
+
+        <p class="govuk-body govuk-!-padding-top-2">You have confirmed the waste details for this movement and acknowledged receipt of it.</p>
+  
+        <h3 class="govuk-heading-s govuk-!-padding-top-2">
+          What happens next
+        </h3>
+  
+          <p class="govuk-body">You can access the waste record at a later date, using the waste record ID to find it. </p>
+
+  
+        <p class="govuk-body">
+          <a href="index-homepage.html" class="govuk-link">Return to your account home screen</a>
+        </p>
+
+    </div>
+  </div>
+
+{% endblock %}
