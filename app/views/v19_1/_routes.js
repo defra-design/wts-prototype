@@ -2202,6 +2202,12 @@ router.post('/check-answers-receiverconfirm', function(req, res) {
   res.redirect('waste-record-receiverconfirm-complete');
 })
 
+//--- WASTE RECORD COMPLETE CONFIRMATION
+router.post('/waste-record-receiverconfirm-complete', function(req, res) {
+  res.redirect('waste-record-complete-success');
+})
+
+
 
 
 ////-------- MULTIPLE WASTE RECORDS (BULK UPLOADS) ------------
