@@ -2046,99 +2046,12 @@ router.post('/receiver-treatment-same', function(req, res) {
     'RDcodes' : carrierArray });
     });
 
-
     //----------------------------------------------------------------
 
-
     //------ R&D CODE SELECT (MULTIPLE)
-    //router.post('/receiver-RDcode-add-multiple', function(req, res) {
+    router.post('/receiver-RDcode-add-multiple', function(req, res) {
 
-    //---- FIRST WASTE ITEM
-
-      router.post('/RDcode1', function(req, res) {
-
-        if(typeof req.session.data['RDcode1-count'] == "undefined"){
-          req.session.data['RDcode1-count'] = 0;
-        }
-        else {
-          req.session.data['RDcode1-count']++;
-        }
-  
-        req.session.data['RDcode1-'+req.session.data['RDcode1-count']] = req.session.data['recovery-operation-typeahead-1'];
-
-        var RDcode1Array = [];
-
-        for (var i = 0; i <= req.session.data['RDcode1-count']; i++) { 
-          RDcode1Array[i] = req.session.data['RDcode1-'+i]; 
-          }
-  
-       req.session.data.RDcodes1 = RDcode1Array
-          res.redirect('receiver-RDcode-add-multiple')
-
-      });
-      
-  
-    //---- SECOND WASTE ITEM
-   
-      router.post('/RDcode2', function(req, res) {
-  
-        if(typeof req.session.data['RDcode2-count'] == "undefined"){
-          req.session.data['RDcode2-count'] = 0; 
-        }
-        else {
-          req.session.data['RDcode2-count']++;  
-        }
-
-        req.session.data['RDcode2-'+req.session.data['RDcode2-count']] = req.session.data['recovery-operation-typeahead-2'];
-
-        var RDcode2Array = [];
- 
-        for (var i = 0; i <= req.session.data['RDcode2-count']; i++) { 
-          RDcode2Array[i] = req.session.data['RDcode2-'+i];
-        }      
-  
-        req.session.data.RDcodes2 = RDcode2Array
-          res.redirect('receiver-RDcode-add-multiple')
-  
-      });
-
-
-    //---- THIRD WASTE ITEM
-   
-      router.post('/RDcode3', function(req, res) {
-  
-        if(typeof req.session.data['RDcode3-count'] == "undefined"){
-          req.session.data['RDcode3-count'] = 0; 
-        }
-        else {
-          req.session.data['RDcode3-count']++;  
-        }
-
-        req.session.data['RDcode3-'+req.session.data['RDcode3-count']] = req.session.data['recovery-operation-typeahead-3'];
-
-        var RDcode3Array = [];
- 
-        for (var i = 0; i <= req.session.data['RDcode3-count']; i++) { 
-          RDcode3Array[i] = req.session.data['RDcode3-'+i];
-        }      
-  
-        req.session.data.RDcodes3 = RDcode3Array
-          res.redirect('receiver-RDcode-add-multiple')
-  
-      });
-  
-  
-      //GET PAGE
-  
-      router.get('/receiver-RDcode-add-multiple', function(req, res) {
-  
-            res.render(version + '/receiver-RDcode-add-multiple')
-  
-      });
-
-      //----
-
-     /*  if(typeof req.session.data['RDcode1-count'] == "undefined"){
+      if(typeof req.session.data['RDcode1-count'] == "undefined"){
         req.session.data['RDcode1-count'] = 0;
       }
       else {
@@ -2187,13 +2100,12 @@ router.post('/receiver-treatment-same', function(req, res) {
     'RDcodes1' : RDcode1Array, 
     'RDcodes2' : RDcode2Array,
     'RDcodes3' : RDcode3Array  });
- */
 
-
-
-  //});
+    });
 
     
+  
+
 
 ////-------- RECEIVER CHECK ANSWERS ------------
 
