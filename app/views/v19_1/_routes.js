@@ -2051,7 +2051,7 @@ router.post('/receiver-treatment-same', function(req, res) {
 
 
     //------ R&D CODE SELECT (MULTIPLE)
-    //router.post('/receiver-RDcode-add-multiple', function(req, res) {
+    router.post('/receiver-RDcode-add-multiple', function(req, res) {
 
     //---- FIRST WASTE ITEM
 
@@ -2191,7 +2191,7 @@ router.post('/receiver-treatment-same', function(req, res) {
 
 
 
-  //});
+  });
 
     
 
