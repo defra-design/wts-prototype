@@ -1137,10 +1137,10 @@ router.post('/check-answers-carrier', function(req, res) {
 })
 
 //--- CHECK ANSWERS (RECIEVER DETAILS)
-router.post('/check-answers-reciever', function(req, res) {
-  if (req.session.data['section-reciever-complete'] == 'Yes') {
-      res.redirect('waste-record-reciever-complete');
-  } else if (req.session.data['section-reciever-complete'] == 'No') {
+router.post('/check-answers-receiver', function(req, res) {
+  if (req.session.data['section-receiver-complete'] == 'Yes') {
+      res.redirect('waste-record-receiver-complete');
+  } else if (req.session.data['section-receiver-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
 })
@@ -1368,7 +1368,7 @@ router.post('/receiver-prepopulate', function(req, res) {
 //--- FINAL DESTINATION SAME AS RECEIVER
 router.post('/receiver-final-same', function(req, res) {
   if (req.session.data['receiver-final-same'] == 'Yes') {
-      res.redirect('check-answers-reciever');
+      res.redirect('check-answers-receiver');
   } else if (req.session.data['receiver-final-same'] == 'No') {
           res.redirect('receiver-final-postcode');
   }  
@@ -1965,7 +1965,7 @@ router.post('/receiver-treatment-same', function(req, res) {
 })
 
 ////-------- WASTE TREATMENT RECOVERY & DISPOSAL CODES ------------
-
+/* 
     //------ R&D CODE SELECT
     router.post('/receiver-RDcode-select', function(req, res) {
 
@@ -2007,7 +2007,7 @@ router.post('/receiver-treatment-same', function(req, res) {
         req.session.data['RDcode-'+req.session.data['RDcode-count']] = req.session.data['recovery-operation-final-typeahead'];
         res.redirect('receiver-RDcode-add-another');
       });
-
+ */
 /* 
      //-------- R&D ADD ANOTHER
     router.post('/receiver-RDcode-add-another', function(req, res) {
@@ -2034,7 +2034,7 @@ router.post('/receiver-treatment-same', function(req, res) {
       req.session.data['RDcode-'+req.session.data['RDcode-count']] = req.session.data['recovery-operation-final-typeahead'];
     
  
-  //------ R&D CODE PLAYBACK AND ADD ANOTHER
+  //------ R&D CODE PLAYBACK 
 
     var carrierArray = [];
 
