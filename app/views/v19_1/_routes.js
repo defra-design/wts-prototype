@@ -2051,7 +2051,7 @@ router.post('/receiver-treatment-same', function(req, res) {
 
 
     //------ R&D CODE SELECT (MULTIPLE)
-    router.post('/receiver-RDcode-add-multiple', function(req, res) {
+    //router.post('/receiver-RDcode-add-multiple', function(req, res) {
 
     //---- FIRST WASTE ITEM
 
@@ -2065,6 +2065,7 @@ router.post('/receiver-treatment-same', function(req, res) {
         }
   
         req.session.data['RDcode1-'+req.session.data['RDcode1-count']] = req.session.data['recovery-operation-typeahead-1'];
+        req.session.data['recovery-operation-typeahead-1'] = "" //---- refreshes the typeahead after a selection has been made
 
         var RDcode1Array = [];
 
@@ -2090,6 +2091,7 @@ router.post('/receiver-treatment-same', function(req, res) {
         }
 
         req.session.data['RDcode2-'+req.session.data['RDcode2-count']] = req.session.data['recovery-operation-typeahead-2'];
+        req.session.data['recovery-operation-typeahead-2'] = "" //---- refreshes the typeahead after a selection has been made
 
         var RDcode2Array = [];
  
@@ -2115,6 +2117,7 @@ router.post('/receiver-treatment-same', function(req, res) {
         }
 
         req.session.data['RDcode3-'+req.session.data['RDcode3-count']] = req.session.data['recovery-operation-typeahead-3'];
+        req.session.data['recovery-operation-typeahead-3'] = "" //---- refreshes the typeahead after a selection has been made
 
         var RDcode3Array = [];
  
@@ -2137,6 +2140,8 @@ router.post('/receiver-treatment-same', function(req, res) {
       });
 
       //----
+
+      
 
      /*  if(typeof req.session.data['RDcode1-count'] == "undefined"){
         req.session.data['RDcode1-count'] = 0;
@@ -2191,7 +2196,7 @@ router.post('/receiver-treatment-same', function(req, res) {
 
 
 
-  });
+  //});
 
     
 
