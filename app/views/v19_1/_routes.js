@@ -523,12 +523,12 @@ router.get('/setup-win', function (req, res) {
 
 
  // ------- UNIQUE REFERENCE NUMBER
-  router.post('/unique-reference', function(req, res) {
-    res.redirect('waste-role-multiple');
+  router.post('/waste-role-multiple', function(req, res) {
+    res.redirect('unique-reference');
   });
   
 // ------- WASTE ROLE SELECT
-  router.post('/waste-role-multiple', function(req, res) {
+  router.post('/unique-reference', function(req, res) {
     res.redirect('start-waste-record');
   });
   

@@ -44,6 +44,8 @@
 </div>
 {% endblock %}
 
+<!---------- BREADCRUMBS END ---------->
+
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -60,27 +62,27 @@
   Currently only set up for the first section (about the waste), as that was being tested.
   Need to set up variables/status' so certain info is shown at certain times.
   A switch statement would be good, although may need to set up in routes.js
--->
+
 
     {% if (data['section_1_complete'] == 'no') %}
-    <!-- <p class="govuk-body">
+     <p class="govuk-body">
         This is a new waste note.
-      </p> -->
-      <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-7">
+      </p> 
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-7">
         The first step is to enter the initial information.
       </p>
 
     {% else %}
 
       {% if (data['section_2_complete'] == 'no') %}
-        <!-- <p class="govuk-body">
+        <p class="govuk-body">
           This waste note has been saved from when it was last updated.
-        </p> -->
+        </p> 
         <p class="govuk-body govuk-!-margin-bottom-7">
           The next step is to confirm that all information has been entered correctly.
         </p>
       {% endif %}
-    {% endif %}
+    {% endif %} -->
   </div>
 </div>
 
@@ -103,7 +105,7 @@
         <ul class="govuk-list">
           <li class="govuk-list">
 
-            <!-- WASTE CODE & DESCRIPTION -->
+            <!---- WASTE CODE & DESCRIPTION ---->
 
             {% if ((data['waste_details_status'] == 'Completed') or (data['waste_details_status'] == 'Review')) %}
               <a href="ewc-code.html" aria-describedby="waste_details_status">
@@ -121,6 +123,9 @@
             <div class="govuk-!-padding-bottom-2"></div>
             <p class="govuk-body">
               Enter details for the EWC code and a description of each waste type, as well as the physical form, quantity, hazardous properties, and persistent organic pollutants (POPs) information.
+            </p>
+            <p class="govuk-body">
+              You’ll then be asked to enter details of how all of the waste is contained and any handling requirements needed to move the waste.
             </p>
 
             <div class="govuk-!-padding-bottom-2"></div>

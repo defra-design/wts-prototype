@@ -893,8 +893,8 @@ Waste record - Reciever section complete
                   {% if data ['confirm-record-correct'] == "Yes" %} 
                   <p class="govuk-body">Yes</p>
   
-                  {% elseif data ['confirm-record-correct'] == "No" %}
-                  <p class="govuk-body">No</p>
+                  {% elseif data ['amend-reject'] == "amend-waste"%}
+                  <p class="govuk-body">Amended</p>
                   {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
