@@ -598,6 +598,11 @@ router.post('/index', function(req, res) {
   }
   })
 
+// GOV GATEWAY SIGNIN
+router.post('/gov-gateway-signin', function(req, res) {
+  res.redirect('index-homepage')
+})
+
 
 // --------------------------------------------------------------------------------------------------------
 
@@ -1145,6 +1150,18 @@ router.post('/check-answers-receiver', function(req, res) {
   }  
 })
 
+
+// WASTE RECORD TASKLIST - COMPELTED SECTIONS
+
+//--- RECEIVER SECTION COMPLETE
+router.post('/waste-record-receiver-complete', function(req, res) {
+  res.redirect('waste-record-submitted');
+})
+
+//--- CARRIER SECTION COMPLETE
+router.post('/waste-record-carrier-complete', function(req, res) {
+  res.redirect('waste-record-submitted');
+})
 
 
   

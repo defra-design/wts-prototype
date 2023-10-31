@@ -38,6 +38,8 @@ Waste record - Reciever section complete
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        <form method="post">
+
         <span class="govuk-caption-l">Your reference: {{ data['unique-ref'] }}</span>
         <h1 class="govuk-heading-l">
             Waste record details
@@ -783,12 +785,40 @@ Waste record - Reciever section complete
 
         <a class="govuk-body govuk-link" href="receiver-confirm.html">Confirm or reject the waste you received and enter the relevant waste treatment codes</a>
 
-        <div class="govuk-!-padding-bottom-6"></div>
-
       <!-- end of section -->
 
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        <div class="govuk-!-padding-bottom-8"></div>
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <!-------- ASSISTED DIGITAL DETAILS -------->
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                If you need help completing this record
+            </span>
+            </summary>
+            <div class="govuk-details__text">
+            <ul class="govuk-list">
+                <li>Telephone: 020 7946 0101</li>
+                <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+                <li>Saturday and Sunday, 10am to 4pm</li>
+            </ul>
+            <p class="govuk-body">
+                <a class="govuk-link" href="#">Find out about call charges</a>
+            </p>
+            <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">name@example.com</a></li>
+                <li>We aim to respond within 2 working days</li>
+            </ul>
+            </div>
+        </details>
+    
+        <!-------- ASSISTED DIGITAL END -------->
+
+
+        <div class="govuk-!-padding-bottom-6"></div>
 
         <!----- BUTTONS ----->
         <div class="govuk-button-group">
@@ -805,6 +835,8 @@ Waste record - Reciever section complete
     </div>
 
     <div class="govuk-grid-column-one-third">
+
+    </form>
 
     </div>
 </div>
