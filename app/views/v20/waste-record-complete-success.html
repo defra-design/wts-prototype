@@ -1,0 +1,43 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Waste record completed
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- PANEL -->
+      
+        {{ govukPanel({
+          titleText: "Waste record completed",
+          html: "Waste record number<br> <strong>AAAA-4712</strong>"
+        }) }}
+
+        <!-- DETAILS -->
+
+        <p class="govuk-body govuk-!-padding-top-4">We’ve sent a confirmation email to <b>email@emailaddress.com</b>.</p>
+
+  
+          <p class="govuk-body">We’ve also sent these details to the relevant UK regulatory authority, You do not need to send them anything else.</p>
+
+        <!-- LINKS -->
+  
+        <p class="govuk-body govuk-!-padding-top-6">
+          <a href="in-progress-add-details.html" class="govuk-link">Confirm and complete another waste record</a>
+        </p>
+
+        <p class="govuk-body">
+          <a href="completed-waste-movements.html" class="govuk-link">View all completed records</a>
+        </p>
+
+        <p class="govuk-body govuk-!-padding-top-3">
+          <a href="index-homepage.html" class="govuk-link">Return to your account home screen</a>
+        </p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post">
+
+          <div class="govuk-form-group">
+            <span class="win-id govuk-caption-l">EWC code: 20 01 28</span>
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="ewc-code">
+                    What is the quantity you received for this waste type?
+                </label>
+              </h1>
+              
+              <p class="govuk-body">Do not include the weight of the container or vehicle.</p>
+              
+              <div class="govuk-inset-text">
+                The recorded waste quantity was <b>500kg</b>
+              </div>
+
+              <label class="govuk-label" for="event-name">
+                Enter weight received for EWC 20 01 28
+              </label>
+              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight-received-kg" name="weight-received-kg" type="text" spellcheck="false" value="{{data['weight-received-kg']}}">
+                <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+              </div>
+            </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+           {{ govukButton({
+           text: "Save and continue"
+           }) }}
+            
+           {{ govukButton({
+           text: "Save and return to draft",
+           classes: "govuk-button--secondary"
+           }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

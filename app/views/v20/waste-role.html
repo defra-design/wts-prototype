@@ -1,0 +1,73 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+What is your role in this waste movement?
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What is your role in this waste movement?
+      </h1>
+
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "waste-role",
+          name: "waste-role",
+          fieldset: {
+            legend: { }
+          },
+        
+          items: [
+            {
+              value: "Producer",
+              text: "Producer",
+              hint: {
+                text: "I created the waste."
+              },
+              checked: data['waste-role'] == "Producer"
+            },
+            {
+              value: "Carrier",
+              text: "Carrier",
+              hint: {
+                text: "I am moving the waste."
+              },
+              checked: data['waste-role'] == "Carrier"
+            },
+            {
+              value: "Receiver",
+              text: "Receiver",
+              hint: {
+                text: "I will be the final destination of the waste."
+              },
+              checked: data['waste-role'] == "Receiver"
+            },
+            {
+              value: "Broker",
+              text: "Broker",
+              hint: {
+                text: "I am organising it on behalf of someone else."
+              },
+              checked: data['waste-role'] == "Broker"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+            
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

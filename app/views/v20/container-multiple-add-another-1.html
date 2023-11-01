@@ -1,0 +1,96 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+You have added 1 container type
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" action="">
+
+      <h1 class="govuk-heading-l">
+        You have added one type of container
+      </h1>
+
+      <!---------- SUMMARY LIST ---------->
+
+      <div class="govuk-form-group">
+
+        <!-- check whats in the array -->
+        <!-- <div>{{ codes }}</div> -->
+
+        <table class="govuk-table">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Amount</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">{{ data['multi-container-quantity'] }}</th>
+              <td class="govuk-table__cell">{{ data['multi-container-type'] }}</td>
+              <td class="govuk-table__cell"><a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> delete</span></a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">{{ data['multi-container-quantity1'] }}</th>
+              <td class="govuk-table__cell">{{ data['multi-container-type1'] }}</td>
+              <td class="govuk-table__cell"><a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> delete</span></a></td>
+            </tr>
+          </tbody>
+        </table>
+      <div> 
+      </div>
+  </div>
+  
+  <br>
+  <br>
+
+  <!---------- ADD ANOTHER RADIOS ---------->
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="add-container-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+        Do you need to add another type of container?
+      </legend>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-container-1" name="add-container-1" type="radio" value="Yes">
+          <label class="govuk-label govuk-radios__label" for="add-container-1">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-container-1" name="add-container-1" type="radio" value="No">
+          <label class="govuk-label govuk-radios__label" for="add-container-1">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-!-padding-bottom-6"></div>
+
+  <!----- BUTTONS ----->
+  <div class="govuk-button-group">
+    {{ govukButton({
+    text: "Save and continue"
+    }) }}
+
+    {{ govukButton({
+    text: "Save and return to draft",
+    classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+  </form>
+
+</div>
+</div>
+
+{% endblock %}

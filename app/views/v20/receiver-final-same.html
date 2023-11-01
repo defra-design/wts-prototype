@@ -1,0 +1,65 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+          <div class="govuk-form-group">
+            <span class="win-id govuk-caption-l">Waste Receivers Ltd</span>
+            <fieldset class="govuk-fieldset" aria-describedby="receiver">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--l">
+                Is this the address where the waste will be sent?
+              </legend>
+
+              <!-- INLINE TEXT -->
+              <div class="govuk-inset-text">
+                3 Tameside Road<br>
+                Birmingham<br>
+                B36 6AR<br>
+                England<br>
+              </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-final-same" name="receiver-final-same" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="receiver-final-same">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-final-same" name="receiver-final-same" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="receiver-final-same">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

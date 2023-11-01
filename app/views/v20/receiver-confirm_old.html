@@ -1,0 +1,197 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+        <span class="win-id govuk-caption-l">ID: AAAA-4712</span>
+        <h1 class="govuk-heading-l">
+          Confirm waste received
+        </h1>
+        <p class="govuk-body">These are the waste details associated with this waste record.</p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <!------------- SUMMARY LIST ------------->
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                EWC code
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body"><b>010101</b><br> wastes from mineral metalliferous excavation</p>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste description
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Lorem ipsum dolor sit amet ipsum sit amet dolor sit amet
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Waste form
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Solid
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Waste container
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">
+                    {% if data ['container'] == "container-one" %}
+                  <p class="govuk-body">{{ data['one-container_quantity'] }}</p>
+                  <p class="govuk-body">{{ data['one-container_type'] }}</p>
+      
+                  {% elseif data ['container'] == "container-multiple" %}
+                  <p class="govuk-body">{{ data['multi-container-quantity'] }}</p>
+                  <p class="govuk-body">{{ data['multi-container-type'] }}</p>
+                  <p class="govuk-body">{{ data['multi-container-quantity1'] }}</p>
+                  <p class="govuk-body">{{ data['multi-container-type1'] }}</p>
+      
+                  {% elseif data ['container'] == "loose" %}
+                  <p class="govuk-body">Loose (not in a container)</p>
+                  {% endif %}
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Waste quantity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">
+                    {% if data ['waste-amount'] == "actual-kg" %}
+                  <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} 123 kg</p>
+      
+                  {% elseif data ['waste-amount'] == "estimate-kg" %}
+                  <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} 123 kg</p>
+      
+                  {% elseif data ['waste-amount'] == "actual-litre" %}
+                  <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} 123 litres</p>
+      
+                  {% elseif data ['waste-amount'] == "estimate-litre" %}
+                  <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }} 123 litres</p>
+      
+                  {% elseif data ['waste-amount'] == "unknown" %}
+                  <p class="govuk-body">Unknown</p>
+                  {% endif %}
+                </dd>
+              </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hazardous codes
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">HP1: Explosive</p>
+                    <p class="govuk-body">HP3: Flammable</p>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Handling requirement details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Lorem ipsum dolor sit amet ipsum sit amet dolor sit amet
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  POPs details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">{{ data['pops-typeahead'] }}</p>
+                  <p class="govuk-body">Perfluorooctane sulfonic acid (PFOS) and PFOS derivatives</p>
+                  <p class="govuk-body">Bis(pentabromophenyl) ether (decabromodiphenyl ether, decaBDE)</p>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Waste producer
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">Waste Producers Ltd</p>
+                  <p class="govuk-body">{{ data['producer_orgname'] }}</p>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste collection address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Unit B<br>
+                    Anchor House<br>
+                    Northampton<br>
+                    NN3 8HU<br>
+                    England<br>
+                </dd>
+            </div>
+
+          </dl><!-- Summary list end-->
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+
+          <!------------ RADIOS CHECK ------------>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="receiver-confirm-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Is this the waste you received?
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-confirm" name="receiver-confirm" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="receiver-confirm">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="receiver-confirm" name="receiver-confirm" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="receiver-confirm">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

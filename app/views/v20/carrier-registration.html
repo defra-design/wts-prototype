@@ -1,0 +1,43 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+        <div class="govuk-form-group">
+          <span class="win-id govuk-caption-l">Waste Carriers Ltd</span>
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="carrier-regnum">
+                What is the carrier's registration number?
+              </label>
+            </h1>
+        
+            <input class="govuk-input govuk-input--width-10" id="carrier-regnum" name="carrier-regnum" type="text" spellcheck="false" aria-describedby="carrier-regnum-hint" inputmode="numeric">
+          </div>
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

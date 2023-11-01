@@ -50,11 +50,12 @@ router.use('/v16_b', require('./views/v16_b/_routes'))
 router.use('/v17', require('./views/v17/_routes'))
 router.use('/v18', require('./views/v18/_routes'))
 router.use('/v19', require('./views/v19/_routes'))
+router.use('/v19_1', require('./views/v19/_routes'))
 
-// V19.1 routes
-router.use('/v19_1/', (req, res, next) => {
+// V20 routes
+router.use('/v20/', (req, res, next) => {
   //req.session.data["entered-criteria"] = undefined;
-  return require(`./views/v19_1/_routes`)(req, res, next);
+  return require(`./views/v20/_routes`)(req, res, next);
 })
 
 

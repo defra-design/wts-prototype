@@ -1,0 +1,75 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <h1 class="govuk-heading-l">What are the waste receiver's contact details?</h1>
+
+        {{ govukInput({
+          label: {
+            text: 'Organisation name'
+          },
+          id: "receiver_orgname",
+          name: "receiver_orgname",
+          value: data['receiver_orgname']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Organisation contact person'
+          },
+          hint: {
+            text: "Full name"
+          },
+          id: "receiver-contact-person",
+          name: "receiver-contact-person",
+          value: data['receiver-contact-person']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Email address'
+          },
+          id: "receiver-email",
+          name: "receiver-email",
+          value: data['receiver-email']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Phone number'
+          },
+          id: "receiver-phone",
+          name: "receiver-phone",
+          value: data['receiver-phone'],
+          classes: "govuk-input--width-20"
+        }) }}
+
+        {{ govukInput({
+            label: {
+              text: "Fax number (optional)"
+            },
+            id: "receiver-fax",
+            name: "receiver-fax",
+            value: data['receiver-fax'],
+            classes: "govuk-input--width-20"
+          }) }}
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

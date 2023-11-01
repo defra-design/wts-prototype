@@ -1,0 +1,81 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+
+            <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    Select the waste destination address
+                </h1>
+                <div class="govuk-!-padding-bottom-3"></div>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="receiver-final-address-select" name="receiver-final-address-select" type="radio" value="A-Anchor">
+                    <label class="govuk-label govuk-radios__label" for="receiver-final-address-select">
+                        Unit A, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="receiver-final-address-select-2" name="receiver-final-address-select" type="radio" value="B-Anchor">
+                    <label class="govuk-label govuk-radios__label" for="receiver-final-address-select-2">
+                        Unit B, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="receiver-final-address-select-3" name="receiver-final-address-select" type="radio" value="C-Anchor">
+                    <label class="govuk-label govuk-radios__label" for="receiver-final-address-select-3">
+                        Unit C, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="receiver-final-address-select-4" name="receiver-final-address-select" type="radio" value="D-Anchor">
+                    <label class="govuk-label govuk-radios__label" for="receiver-final-address-select-4">
+                        Unit D, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="receiver-final-address-select-5" name="receiver-final-address-select" type="radio" value="E-Anchor">
+                    <label class="govuk-label govuk-radios__label" for="receiver-final-address-select-5">
+                        Unit E, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                </div>
+            </fieldset>
+            </div>
+
+            <p>
+                <a href="receiver-final-address-manual">Enter address manually</a>
+              </p>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

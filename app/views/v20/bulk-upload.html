@@ -1,0 +1,114 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Upload a CSV of multiple waste records
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">
+        Prototype
+        </strong>
+        <span class="govuk-phase-banner__text">
+        Version 19.1 - This is not a live service.
+        </span>
+    </p>
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="index-homepage.html">Move, export or import waste</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        Upload multiple exports
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Creating multiple waste records
+      </h1>
+      
+      <h2 class="govuk-heading-m">
+        How to create and upload your file
+      </h2>
+      
+      <ol class="govuk-body csv-howto-list">
+        <li>Use the guidance on<a href="bulk-guidance.html"> how to create multiple waste records using the CSV template</a> to help you create your file.</li>
+        <li>Download the <a href="/public/csv/wts-csv-UR-092023.csv">multiple waste records CSV template</a>  and open it using spreadsheet software. For example, Excel, Numbers, OpenOffice Calc or Google Sheets.</li>
+        <li>Enter all the required information into the template. </li>
+        <li>Save the file in CSV format.</li>
+        <li>Upload your completed CSV file.</li>
+      </ol>
+
+      <div class="govuk-!-padding-bottom-6"></div>
+
+      <div class="div-line"> </div>
+
+      <!--------- DOWNLOAD DOCUMENTS ------------------->
+
+      <h2 class="govuk-heading-m">
+        Documents
+      </h2>
+
+      <div class="documents-container">
+        <div class="file-image-container"><img src="/public/images/icon-HTML-doc.png"></div>
+        <div class="file-download-details-container">
+            <p class="govuk-body-l"><a href="bulk-guidance.html" class="govuk-link">How to create multiple waste records using the CSV template</a></p>
+            <p class="govuk-body-s">HTML</p>
+        </div>
+      </div>
+
+      <br>
+      <div class="govuk-!-padding-bottom-3"></div>
+      <br>
+
+      <div class="documents-container">
+      <div class="file-image-container"><img src="/public/images/icon-CSV-doc.png"></div>
+        <div class="file-download-details-container">
+            <p class="govuk-body-l"><a href="/public/csv/wts-csv-UR-092023.csv" class="govuk-link">Multiple waste records CSV template</a></p>
+            <p class="govuk-body-s">This file may not be useful for users of assistive technology.</p>
+            <p class="govuk-body-s">CSV file</p>
+            
+        </div>
+      </div>
+
+      <div class="govuk-!-padding-bottom-8"></div>
+      <br>
+
+      <div class="div-line"> </div>
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <!--------- UPLOAD FILE SELECT ------------------->
+      <form class="form" method="post">
+
+        <h2 class="govuk-heading-m">
+          Upload your completed CSV file
+        </h2>
+      
+        <div class="govuk-form-group">
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+        {{ govukButton({
+          text: 'Upload'
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

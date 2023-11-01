@@ -1,0 +1,80 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Government Gateway | Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set html %}
+        <p>Do not share your Government Gateway user ID and password with anyone else.</p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+        titleText: 'Keep your information secure',
+        html: html
+    }) }}
+
+    <h1 class="govuk-heading-xl">
+      Sign in using Government Gateway
+    </h1>
+
+    <form method="post" novalidate>
+
+      <!---- USER ID ---->
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="govgateway-user">
+          Government Gateway user ID
+        </label>
+        <div class="govuk-hint">This could be up to 12 characters.</div>
+        <input class="govuk-input govuk-!-width-one-half" id="govgateway-user" name="govgateway-user" type="text">
+      </div>
+
+      <!---- PASSWORD ---->
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="govgateway-user">
+            Password
+          </label>
+          <input class="govuk-input govuk-!-width-three-quarters" id="govgateway-user" name="govgateway-user" type="password">
+        </div>
+
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
+
+    </form>
+
+    <h2 class="govuk-heading-m">New users of Government Gateway</h2>
+
+    <p><a href="#">Create sign in details</a></p>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+
+    <ul class="govuk-list">
+        <li><a href="#">I have forgotten my password</a></li>
+        <li><a href="#">I have forgotten my Government Gateway user ID</a></li>
+        <li><a href="#">I have forgotten my Government Gateway user ID and password</a></li>
+        <br>
+    </ul>
+
+
+</div>
+</div>
+
+{% endblock %}

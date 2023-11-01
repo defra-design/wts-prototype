@@ -1,0 +1,71 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Add your own reference to this waste record
+{% endblock %}
+
+<!---------- PHASE BANNER & BREADCRUMBS ---------->
+<!-- Putting breadcrumbs here seems to override the layout file-->
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        Prototype
+      </strong>
+      <span class="govuk-phase-banner__text">
+        Version 20 - This is not a live service.
+      </span>
+    </p>
+</div>
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="index-homepage.html">Move, export or import waste</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK </a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Your reference
+    </li>
+  </ol>
+</div>
+
+{% endblock %}
+
+<!---------- PHASE BANNER & BREADCRUMBS END ---------->
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="unique-ref">
+            Enter your own unique reference for this waste record
+          </label>
+        </h1>
+        <div id="reference-hint" class="govuk-hint">
+          Enter a reference that will help you to match this record to your own system in the future. You will get a waste record number after you submit the waste record details.
+        </div>
+
+          <input class="govuk-input" id="unique-ref" name="unique-ref" type="text" value="{{data['unique-ref']}}">
+      </div>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

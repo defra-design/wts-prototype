@@ -1,0 +1,56 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        <span class="win-id govuk-caption-l">EWC code: {{ data['ewc-code'] }}</span>
+        What is the estimated weight of waste?
+      </h1>
+      <p class="govuk-body">Do not include the weight of the container or vehicle.</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You'll need to update this with actual details as soon as possible after submitting this export.
+        </strong>
+      </div>
+
+      <form method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Enter estimated weight, in kilograms
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight-estimate-kg" name="weight-estimate-kg" type="text" spellcheck="false" value="{{data['weight-estimate-kg']}}">
+            <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+          </div>
+        </div>
+
+        <a class="govuk-link" href="quantity-weight-actual-kg.html">Enter an actual weight instead</a>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+           {{ govukButton({
+           text: "Save and continue"
+           }) }}
+            
+           {{ govukButton({
+           text: "Save and return to draft",
+           classes: "govuk-button--secondary"
+           }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

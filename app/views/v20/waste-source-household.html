@@ -1,0 +1,130 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+    Where was the waste produced? Household waste
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form class="form" action="" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="win-id govuk-caption-l">Producer and collection details</span>
+            <h1 class="govuk-fieldset__heading">
+              Where was the waste produced?
+            </h1>
+          </legend>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <h2 class="govuk-heading-m">
+            Household waste
+          </h2>
+          <hr class="govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-household" name="waste-source-household" type="radio" value="household-1">
+              <label class="govuk-label govuk-radios__label" for="waste-source-household">
+                Private storage premises used wholly or mainly for the storage of articles of domestic use
+              </label>
+            </div>
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-household-2" name="waste-source-household" type="radio" value="household-2">
+              <label class="govuk-label govuk-radios__label" for="waste-source-household-2">
+                Land belonging to or used wholly or mainly in connection with domestic property or a caravan where waste from that property or caravan is to be treated as household waste
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-household-3" name="waste-source-household" type="radio" value="household-3">
+              <label class="govuk-label govuk-radios__label" for="waste-source-household-3">
+                A private garage
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-4">
+              <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                A vehicle or vessel used wholly for the purposes of accommodation              
+            </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-5">
+              <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                A place of worship              
+            </label>
+            </div>
+
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-6">
+                <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                    A residential hostel which provides accommodation only to persons with no other permanent address or who are unable to live at their permanent address              
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-7">
+                <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                    A penal institution              
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-8">
+                <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                    A charity shop selling donated good originating from domestic property              
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-9">
+                <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                    A caravan or mobile home site for gypsies and travellers              
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-household-4" name="waste-source-household" type="radio" value="household-10">
+                <label class="govuk-label govuk-radios__label" for="waste-source-household-4">
+                    Premises used wholly or mainly for public meeting              
+              </label>
+              </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-household-6" name="waste-source-household" type="radio" value="household-none">
+              <label class="govuk-label govuk-radios__label" for="waste-source-household-6">
+                None of the above
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
