@@ -1,0 +1,151 @@
+
+
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  105 Errors found in your waste record submission
+{% endblock %}
+
+{% block beforeContent %}
+<!--   <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">
+        Prototype
+        </strong>
+        <span class="govuk-phase-banner__text">
+        Version 19.1 - This is not a live service.
+        </span>
+    </p>
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="index-homepage.html">Move, export or import waste</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="bulk-upload.html">Upload multiple exports</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        Check and correct errors
+      </li>
+    </ol>
+  </div> -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<!--------- ERROR NOTIFICATION ------------------->
+
+<div class="govuk-notification-banner" role="error-notification"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">You need to correct 105 errors before you can submit all your waste records.</p>
+    </div>
+</div>
+
+<!--------- ERROR ADVICE ------------------->
+
+    <h1 class="govuk-heading-l">Correct errors and upload the amended file</h1>
+
+    <p class="govuk-body">You need to correct all errors in your file and upload it again. This will replace your previous upload.</p>
+    <p class="govuk-body">Review the guidance on <a href="bulk-guidance.html" target="_blank">how to create multiple waste records using the CSV template (opens in new tab)</a> to understand how to fill it in.</p>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+<!--------- ERROR LIST TABLE ------------------->
+<h2 class="govuk-heading-m">Error Summary</h2>
+<p class="govuk-body">These are formatting errors that the system has identified. It cannot check for factual errors you might make when entering any details.</p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Row number</th>
+                <th scope="col" class="govuk-table__header">Error amount</th>
+                <th scope="col" class="govuk-table__header">Action</th>
+              </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>3</b></td>
+                <td class="govuk-table__cell">1 errors</td>
+                <td class="govuk-table__cell"><a href="bulk-errors-1b-row3.html">View errors</a></td>
+              
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>12</b></td>
+                <td class="govuk-table__cell">1 errors</td>
+                <td class="govuk-table__cell"><a href="bulk-errors-1b-row12.html">View errors</a></td>
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>24</b></td>
+                <td class="govuk-table__cell">4 errors</td>
+                <td class="govuk-table__cell"><a href="bulk-errors-1b-row24.html">View errors</a></td>
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>27</b></td>
+                <td class="govuk-table__cell">6 errors</td>
+                <td class="govuk-table__cell"><a href="#">View errors</a></td>
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>32</b></td>
+                <td class="govuk-table__cell">17 errors</td>
+                <td class="govuk-table__cell"><a href="#">View errors</a></td>
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>41</b></td>
+                <td class="govuk-table__cell">13 errors</td>
+                <td class="govuk-table__cell"><a href="#">View errors</a></td>
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>56</b></td>
+                <td class="govuk-table__cell">52 error</td>
+                <td class="govuk-table__cell"><a href="#">View errors</a></td>
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><b>64</b></td>
+                <td class="govuk-table__cell">11 error</td>
+                <td class="govuk-table__cell"><a href="#">View errors</a></td>
+
+            </tbody>
+          </table>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <p class="govuk-body govuk-!-margin-bottom-7">You can upload your amended file after correcting any errors a row at a time, or you can correct all errors in the whole file and upload it at the end.</p>
+
+<!--------- UPLOAD FILE SELECT ------------------->
+
+      <form class="form" method="post">
+
+        <h2 class="govuk-heading-m">
+          Upload your corrected CSV file
+        </h2>
+      
+        <div class="govuk-form-group">
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+        {{ govukButton({
+          text: 'Upload'
+        }) }}
+
+      </form>
+
+    </div>
+</div>
+
+{% endblock %}

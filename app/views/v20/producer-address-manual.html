@@ -1,0 +1,109 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <span class="win-id govuk-caption-l">{{ data['producer_orgname'] }}</span>
+        <h1 class="govuk-heading-l">Enter the producer's address</h1>
+
+        {{ govukInput({
+          label: {
+            text: 'Address line 1'
+          },
+          id: "producer-address-line-1",
+          name: "producer_address_line_1",
+          value: data['producer_address_line_1'],
+          autocomplete: "address-line1"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Address line 2 (optional)'
+          },
+          id: "producer-address-line-2",
+          name: "producer_address_line_2",
+          value: data['producer_address_line_2'],
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          id: "producer-address-town",
+          name: "producer_address_town",
+          value: data['producer_address_town'],
+          autocomplete: "address-level2",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          id: "producer-postcode",
+          name: "producer_postcode",
+          value: data['producer_postcode'],
+          autocomplete: "postal-code",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        <!-- COUNTRY RADIOS -->
+
+        {{ govukRadios({
+          classes: "govuk-radios--small",
+          name: "producer_country",
+          fieldset: {
+            legend: {
+              text: "Country",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "england",
+              text: "England"
+            },
+            {
+              value: "scotland",
+              text: "Scotland"
+            },
+            {
+              value: "wales",
+              text: "Wales"
+            },
+            {
+              value: "ni",
+              text: "Northern Ireland"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+          {{ govukButton({
+          text: "Save and continue"
+          }) }}
+          
+          {{ govukButton({
+          text: "Save and return to draft",
+          classes: "govuk-button--secondary"
+          }) }}
+      </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

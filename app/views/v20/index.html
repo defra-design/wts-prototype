@@ -1,0 +1,53 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Choose a user journey
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+          <div class="govuk-form-group">
+            <span class="win-id govuk-caption-l">User journey selection</span>
+            <fieldset class="govuk-fieldset" aria-describedby="prototype-route-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--l">
+                Choose which journey to follow
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="prototype-route" name="prototype-route" type="radio" value="include">
+                  <label class="govuk-label govuk-radios__label" for="prototype-route">
+                    Include Defra account sign up
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="prototype-route" name="prototype-route" type="radio" value="skip">
+                  <label class="govuk-label govuk-radios__label" for="prototype-route">
+                    Skip Defra account sign up
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+          
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

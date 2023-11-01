@@ -1,0 +1,48 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+What is the European Waste Catalogue (EWC) code?
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" method="post">
+
+                <div class="govuk-form-group">
+                    <h1 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--l" for="ewc-code-3">
+                        What is the European Waste Catalogue (EWC) code?
+                      </label>
+                    </h1>
+                    
+                    <div id="ewc-hint" class="govuk-body">
+                        This can also be called a list of waste (LoW) code. For more help with these codes, read the waste classification technical guidance.
+                    </div>
+                    <label class="govuk-label" for="event-name">
+                        Enter code
+                      </label>
+                      <input class="govuk-input govuk-input--width-10" id="ewc-code-3" name="ewc-code-3" type="text" value="{{data['ewc-code-3']}}">
+                  </div>
+
+            <div class="govuk-!-padding-bottom-6"></div>
+
+            <!----- BUTTONS ----->
+            <div class="govuk-button-group">
+                {{ govukButton({
+                  text: "Continue"
+                }) }}
+              
+                {{ govukButton({
+                  text: "Save and return to draft",
+                  classes: "govuk-button--secondary"
+                }) }}
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

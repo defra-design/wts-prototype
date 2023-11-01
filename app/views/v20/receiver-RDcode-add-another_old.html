@@ -1,0 +1,114 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  You have added 1 disposal or recovery code
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+        <form method="post" action="">
+
+            <span class="win-id govuk-caption-l">{{ data['receiver_treatment'] }}</span>
+
+          {% if RDcodes.length == 0 %}
+          <h1 class="govuk-heading-l">
+            You have added 1 disposal or recovery code
+          </h1>
+          {% elseif RDcodes.length > 0 %}
+          <h1 class="govuk-heading-l">
+          You have added {{ RDcodes.length }} disposal or recovery codes
+          </h1>
+          {% endif %}
+
+
+<!---------- SUMMARY LIST ---------->
+
+<div class="govuk-form-group">
+
+   <!-- Count: {{ RDcode-count }}
+    <div>{{ RDcodes }}</div> -->
+  
+  <dl class="govuk-summary-list govuk-!-margin-bottom-1">
+  {% for item in RDcodes %}
+  
+    <div class="govuk-summary-list__row">
+  
+      <dt class="govuk-summary-list__key govuk-!-width-full">
+        {{item}} 
+      </dt>
+      <dd class="govuk-summary-list__value">
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="">
+          Remove<span class="govuk-visually-hidden">delete</span>
+        </a>
+      </dd>
+  
+    </div>
+  
+    {%endfor%}
+  
+  </dl>
+  </div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<!---------- ADD ANOTHER RADIOS ---------->
+
+<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="add-RDcode-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+            Do you need to add another disposal or recovery code?
+        </h2>
+      </legend>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-RDcode" name="add-RDcode" type="radio" value="Yes" data-aria-controls="conditional-add-RDcode">
+          <label class="govuk-label govuk-radios__label" for="add-RDcode">
+            Yes
+          </label>
+        </div>
+
+         <!-- Reveal 
+        <div class="govuk-radios__conditional" id="conditional-add-RDcode">
+            <div id="contact-hint" class="govuk-hint">Choose from the list or start typing</div>
+            <div id="recovery-operation-final-typeahead-container" data-default-value=""></div>
+        </div> -->
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="add-RDcode-2" name="add-RDcode" type="radio" value="No" data-aria-controls="conditional-add-RDcode-2">
+          <label class="govuk-label govuk-radios__label" for="add-RDcode-2">
+            No
+          </label>
+        </div>
+
+      </div>
+    </fieldset>
+  </div>
+
+    <div class="govuk-!-padding-bottom-6"></div>
+
+    <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

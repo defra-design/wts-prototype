@@ -1,0 +1,1579 @@
+{% extends "../layout.html" %}
+
+<!-- <meta http-equiv="refresh" content="5"/> -->
+
+{% block pageTitle %}
+Waste record - Reciever section complete
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/step-by-step-nav.js"></script>
+<script type="text/javascript">
+    var $element = $('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
+    stepByStepNavigation.start($element)
+</script>
+{% endblock %}
+
+<!---------- BREADCRUMBS ---------->
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="index-homepage.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Move waste in the UK</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="home-move-waste-uk.html">Completed waste records</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            Waste record AAAA-4712
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Waste record number AAAA-4712</span>
+        <h1 class="govuk-heading-l">
+            Waste record details
+        </h1>
+        <p class="govuk-body">This is a completed waste record that has been confirmed by the receiver.</p>
+
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+            <div class="govuk-!-padding-bottom-4"></div>
+
+            <!------------------------------- ABOUT WASTE SECTION PLAYBACK - ( accordian ) ------------------------------------------->
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                            <div class="govuk-!-padding-top-2"></div>
+                            <strong class="govuk-tag app-task-list__tag" id="waste_details_status">
+                                Completed
+                            </strong>
+                            About the waste
+                        </span>
+
+                    </h2>
+                </div>
+
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+                    aria-labelledby="accordion-default-heading-1">
+
+                    <!-- ACCORDIAN OPEN SECTION-->
+
+                    <!---------------------  ABOUT THE WASTE --------------------->
+
+                    <!---------- SUMMARY CARD ---------->
+
+                    <!---------- CARD 1 ---------->
+
+        <div class="govuk-summary-card" id="ewc-card-1">
+            <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">EWC 20 01 33<!-- {{ data['ewc-code'] }} --></h2>
+            <ul class="govuk-summary-card__actions">
+                <!-- <li class="govuk-summary-card__action"> 
+                    <a class="govuk-link" href="#">
+                    Remove<span class="govuk-visually-hidden">EWC code</span>
+                    </a>
+                </li> -->
+            </ul>
+            </div>
+  
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste description
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Car batteries
+                        <!-- {{data['describe-waste']}} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">waste description</span>
+                        </a>
+                      </dd> -->
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Physical form
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Solid
+                        <!-- {{data['physical_form']}} -->
+                    </dd>
+                   <!--  <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">physcial form</span>
+                        </a>
+                      </dd> -->
+                    </div>
+  
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Waste quantity
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          <p class="govuk-body">5 tonnes</p>
+                          <!-- {% if data ['waste-amount'] == "actual-kg" %}
+                          <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+  
+                          {% elseif data ['waste-amount'] == "estimate-kg" %}
+                          <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+  
+                          {% elseif data ['waste-amount'] == "actual-litre" %}
+                          <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
+                          </p>
+  
+                          {% elseif data ['waste-amount'] == "estimate-litre" %}
+                          <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
+                              litres</p>
+  
+                          {% elseif data ['waste-amount'] == "unknown" %}
+                          <p class="govuk-body">Unknown</p>
+                          {% endif %} -->
+                      </dd>
+                      <!-- <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="quantity">
+                              Change<span class="govuk-visually-hidden"> waste quantity</span>
+                          </a>
+                      </dd> -->
+                  </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hazardous codes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        HP8: Corrosive<br>
+                        HP14: Ecotoxic<br>
+                        HP15: POPs<br>  
+                      <!-- {{data['haz_codes']}} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">hazard codes</span>
+                        </a>
+                      </dd> -->
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        POPs details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {% if data ['pop-check'] == "yes" %}
+                      <p class="govuk-body"><br>{{data['pops']}}</p>
+  
+                      {% elseif data ['pop-check'] == "no" %}
+                      <p class="govuk-body">None</p>
+                    {% endif %}
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">POPs details</span>
+                        </a>
+                      </dd>-->
+                    </div>   
+  
+            </dl>
+            </div>
+        </div>
+        <!---------- CARD 1 END ---------->
+  
+        <!---------- CARD 2 ---------->
+  
+        <div class="govuk-summary-card" id="ewc-card-1">
+            <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">EWC 20 01 35<!-- {{ data['ewc-code-2'] }} --></h2>
+            <ul class="govuk-summary-card__actions">
+                <!-- <li class="govuk-summary-card__action"> 
+                    <a class="govuk-link" href="#">
+                    Remove<span class="govuk-visually-hidden">EWC code</span>
+                    </a>
+                </li> -->
+            </ul>
+            </div>
+  
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste description
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      WEEE (fridges)  
+                      <!-- {{data['describe-waste-2']}} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">waste description</span>
+                        </a>
+                      </dd> -->
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Physical form
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Solid  
+                      <!-- {{data['physical_form-2']}} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">physcial form</span>
+                        </a>
+                      </dd> -->
+                    </div>
+  
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Waste quantity
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          <p class="govuk-body">750kg</p>
+                          <!-- {% if data ['waste-amount-2'] == "actual-kg" %}
+                          <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-2'] }} kg</p>
+  
+                          {% elseif data ['waste-amount-2'] == "estimate-kg" %}
+                          <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg-2'] }} kg</p>
+  
+                          {% elseif data ['waste-amount-2'] == "actual-litre" %}
+                          <p class="govuk-body">Actual<br>{{ data['volume-actual-litres-2'] }} litres</p>
+  
+                          {% elseif data ['waste-amount-2'] == "estimate-litre" %}
+                          <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres-2'] }} litres</p>
+  
+                          {% elseif data ['waste-amount-2'] == "unknown" %}
+                          <p class="govuk-body">Unknown</p>
+                          {% endif %} -->
+                      </dd>
+                      <!-- <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="quantity">
+                              Change<span class="govuk-visually-hidden"> waste quantity</span>
+                          </a>
+                      </dd> -->
+                  </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hazardous codes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        HP8: Corrosive<br>
+                        HP14: Ecotoxic<br>
+                        HP15: POPs<br>  
+                      <!-- {{data['haz_codes-2']}} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">hazard codes</span>
+                        </a>
+                      </dd> -->
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        POPs details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {% if data ['pop-check-2'] == "yes" %}
+                      <p class="govuk-body"><br>{{data['pops-2']}}</p>
+  
+                      {% elseif data ['pop-check-2'] == "no" %}
+                      <p class="govuk-body">None</p>
+                    {% endif %}
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">POPs details</span>
+                        </a>
+                      </dd> -->
+                    </div>  
+  
+            </dl>
+            </div>
+        </div>
+        <!---------- CARD 2 END ---------->
+  
+        <!---------- CARD 3 ---------->
+  
+        <div class="govuk-summary-card" id="ewc-card-1">
+          <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">EWC 20 01 28<!-- {{ data['ewc-code-2'] }} --></h2>
+          <ul class="govuk-summary-card__actions">
+              <!-- <li class="govuk-summary-card__action"> 
+                  <a class="govuk-link" href="#">
+                  Remove<span class="govuk-visually-hidden">EWC code</span>
+                  </a>
+              </li> -->
+          </ul>
+          </div>
+  
+          <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste description
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Paint  
+                    <!-- {{data['describe-waste-2']}} -->
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">waste description</span>
+                      </a>
+                    </dd> -->
+                  </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Physical form
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Liquid  
+                    <!-- {{data['physical_form-2']}} -->
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">physcial form</span>
+                      </a>
+                    </dd> -->
+                  </div>
+  
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste quantity
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">100kg</p>
+                        <!-- {% if data ['waste-amount-2'] == "actual-kg" %}
+                        <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-2'] }} kg</p>
+  
+                        {% elseif data ['waste-amount-2'] == "estimate-kg" %}
+                        <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg-2'] }} kg</p>
+  
+                        {% elseif data ['waste-amount-2'] == "actual-litre" %}
+                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres-2'] }} litres</p>
+  
+                        {% elseif data ['waste-amount-2'] == "estimate-litre" %}
+                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres-2'] }} litres</p>
+  
+                        {% elseif data ['waste-amount-2'] == "unknown" %}
+                        <p class="govuk-body">Unknown</p>
+                        {% endif %} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="quantity">
+                            Change<span class="govuk-visually-hidden"> waste quantity</span>
+                        </a>
+                    </dd> -->
+                </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Hazardous codes
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      None
+                    <!-- {{data['haz_codes-2']}} -->
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">hazard codes</span>
+                      </a>
+                    </dd> -->
+                  </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      POPs details
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    None
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">POPs details</span>
+                      </a>
+                    </dd> -->
+                  </div>  
+  
+          </dl>
+          </div>
+      </div>
+      <!---------- CARD 3 END ---------->
+  
+          <!------ Waste containers  ------>
+  
+          <dl class="govuk-summary-list">
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Waste containers
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">
+                5 sealed IBC containers for batteries, 10 cages for WEEE fridges, 1 ordinary IBC for paint.
+                <!-- {{ data['describe-container'] }} --></p>
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="container-description.html">
+                Change<span class="govuk-visually-hidden">waste containers</span>
+              </a>
+            </dd> -->
+          </div>
+  
+          <!------ Handling requirements  ------>
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Handling requirements
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sealed IBC container to be handled with care. Stacked in layers with non-conductive material between each layer of batteries box.
+              <!-- {% if data ['handling-require'] == "yes" %}
+                <p class="govuk-body"><br>{{ data['handling_needs'] }}</p>
+  
+                {% elseif data ['handling-require'] == "no" %}
+                <p class="govuk-body">None</p>
+              {% endif %} -->
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="handling-requirements.html">
+                Change<span class="govuk-visually-hidden">handling requirements
+                </dt></span>
+              </a>
+            </dd> -->
+          </div>
+
+                    </dl>
+
+                    <!------------------------------- ABOUT WASTE SECTION - PLAYBACK END ------------------------------------------->
+
+                </div><!-- ACCORDIAN OPEN SECTION END -->
+
+                <!------------------------------- PRODUCER SECTION - PLAYBACK ( accordian ) ------------------------------------------->
+
+                <div class="govuk-accordion__section">
+
+                    <div class="govuk-accordion__section-header">
+                        <h2 class="govuk-accordion__section-heading">
+
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                                <div class="govuk-!-padding-top-2"></div>
+                                <strong class="govuk-tag app-task-list__tag" id="waste_details_status">
+                                    Completed
+                                </strong>
+                                Producer and collection details
+                            </span>
+
+                        </h2>
+                    </div>
+                    <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                        aria-labelledby="accordion-default-heading-3">
+
+                        <!---------------------  PRODUCER / COLLECTION DETAILS ----------------------------------------------------->
+
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                            <!------ Org name  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Organisation name
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">Waste Producers Ltd</p>
+                                    <p class="govuk-body">{{ data['producer_orgname'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Organisation name</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Producer address  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Producer address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    4 Fortune Close<br>
+                                    Riverside Business Park<br>
+                                    Northampton<br>
+                                    NN3 9HZ<br>
+                                    England<br>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Producer address</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Contact person  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Contact person
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">John Smith</p>
+                                    <p class="govuk-body">{{ data['producer-contact-person'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Contact person</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Contact email  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Email address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">john.smith@wasteproducers.co.uk</p>
+                                    <p class="govuk-body">{{ data['producer-email'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Contact email</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Contact phone  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Phone number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">07123 456789</p>
+                                    <p class="govuk-body">{{ data['producer-phone'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Contact phone</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ SIC code  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    SIC code
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p class="govuk-body">39000<br>
+                                        Remediation activities and other waste management services</p>
+                                    <p class="govuk-body">{{ data['producer-sic'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Producer sic</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Collection address  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Waste collection address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Same as producer address
+                                </dd>
+                               <!--  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Collection address</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Waste source  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Waste source
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Household</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Waste source</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Producer transport  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Waste transportation
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Road<br>
+                                    AB12 CDE
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="">
+                                        Change<span class="govuk-visually-hidden">Collection address</span>
+                                    </a>
+                                </dd> -->
+                            </div>
+
+                        </dl>
+                       
+                        </div><!-- accordion module end -->
+
+
+                        <!------------------------------- RECIEVER SECTION PLAYBACK - ( accordian ) ------------------------------------------->
+
+                            <div class="govuk-accordion__section">
+    
+                                <div class="govuk-accordion__section-header">
+                                    <h2 class="govuk-accordion__section-heading">
+    
+                                        <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+                                            <div class="govuk-!-padding-top-2"></div>
+                                            <strong class="govuk-tag app-task-list__tag" id="waste_receiver_status">
+                                                Completed
+                                            </strong>
+                                            Receiver details
+                                        </span>
+    
+                                    </h2>
+                                </div>
+                                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                                    aria-labelledby="accordion-default-heading-5">
+
+                        <!---------------------  RECEIVER DETAILS ----------------------------------------------------->
+
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                            <!------ Org name  ------>
+
+                            <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Organisation name
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Waste Receivers Ltd</p>
+                                <p class="govuk-body">{{ data['receiver_orgname'] }}</p>
+                            </dd>
+                            <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                Change<span class="govuk-visually-hidden">Organisation name</span>
+                                </a>
+                            </dd> -->
+                            </div>
+
+                            <!------ receiver address  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Receiver address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    3 Tameside Road<br>
+                                    Birmingham<br>
+                                    B36 6AR<br>
+                                    England<br>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">receiver address</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Contact person  ------>
+
+                            <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Contact person
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Maria Fontaine</p>
+                                <p class="govuk-body">{{ data['receiver-contact-person'] }}</p>
+                            </dd>
+                            <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                Change<span class="govuk-visually-hidden">Contact person</span>
+                                </a>
+                            </dd> -->
+                            </div>
+
+                            <!------ Contact email  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Email address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">mfontaine@wastereceivers.com</p>
+                                <p class="govuk-body">{{ data['receiver-email'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Contact email</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Contact phone  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Phone number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">07123 456789</p>
+                                <p class="govuk-body">{{ data['receiver-phone'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Environmental permit number  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Environmental permit number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">XXXXXXXXXXXXX<br>
+                                <p class="govuk-body">{{ data['receiver-permitnum'] }}</p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                <!-- <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">receiver permit</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Registered waste exemption number  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Registered waste exemption number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">XXXXXXXXXXXXX<br>
+                                <p class="govuk-body">{{ data['receiver-exemptnum'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">receiver exemption</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                            <!------ Final address  ------>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Waste destination address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Same as receiver address
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">final destination</span>
+                                </a>
+                                </dd> -->
+                            </div>
+
+                        </dl>  
+                        
+                        </div><!-- accordion module end -->
+
+                        <!------------------------------- SECTION CARRIER DETAILS - ( accordian ) ------------------------------------------->
+
+                            <div class="govuk-accordion__section">
+    
+                                <div class="govuk-accordion__section-header">
+                                    <h2 class="govuk-accordion__section-heading">
+    
+                                        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                                            <div class="govuk-!-padding-top-2"></div>
+                                            <strong class="govuk-tag app-task-list__tag" id="waste_carrier_status">
+                                                Completed
+                                            </strong>
+                                            Carrier details
+                                        </span>
+    
+                                    </h2>
+                                </div>
+                                <div id="accordion-default-content-4" class="govuk-accordion__section-content"
+                                    aria-labelledby="accordion-default-heading-4">
+
+                        <!---------------------  CARRIER DETAILS ----------------------------------------------------->
+
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+
+                            <!------ Org name  ------>
+                
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Organisation name
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Waste Carriers Ltd</p>
+                                <p class="govuk-body">{{ data['carrier_orgname'] }}</p>
+                              </dd>
+                              <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                  Change<span class="govuk-visually-hidden">Organisation name</span>
+                                </a>
+                              </dd> -->
+                            </div>
+                
+                            <!------ carrier address  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Carrier address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    1 Hydra Way<br>
+                                    Seaview Business Park<br>
+                                    Manchester<br>
+                                    M1 1EZ<br>
+                                    England<br>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Carrier address</span>
+                                  </a>
+                                </dd> -->
+                              </div>
+                
+                            <!------ Contact person  ------>
+                
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Contact person
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body">Ellie Davies</p>
+                                <p class="govuk-body">{{ data['carrier-contact-person'] }}</p>
+                              </dd>
+                              <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="">
+                                  Change<span class="govuk-visually-hidden">Contact person</span>
+                                </a>
+                              </dd> -->
+                            </div>
+                
+                            <!------ Contact email  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Email address
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  <p class="govuk-body">e.davies@wastecarriers.co.uk</p>
+                                  <p class="govuk-body">{{ data['carrier-email'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Contact email</span>
+                                  </a>
+                                </dd> -->
+                              </div>
+                
+                            <!------ Contact phone  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Phone number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  <p class="govuk-body">07123 456789</p>
+                                  <p class="govuk-body">{{ data['carrier-phone'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                                  </a>
+                                </dd> -->
+                              </div>
+                
+                            <!------ Carrier registration number  ------>
+                
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Carrier registration number
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  <p class="govuk-body">CBXX12345<br>
+                                  <p class="govuk-body">{{ data['carrier-regnum'] }}</p>
+                                </dd>
+                                <!-- <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="">
+                                    Change<span class="govuk-visually-hidden">carrier registration</span>
+                                  </a>
+                                </dd> -->
+                              </div>
+         
+                        </dl>
+                        
+                        </div><!-- accordion module end -->
+
+                        <!------------------------------- SECTION CARRIER DETAILS - ( accordian ) ------------------------------------------->
+
+                        <div class="govuk-accordion__section">
+    
+                            <div class="govuk-accordion__section-header">
+                                <h2 class="govuk-accordion__section-heading">
+
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                                        <div class="govuk-!-padding-top-2"></div>
+                                        <strong class="govuk-tag app-task-list__tag" id="waste_carrier_status">
+                                            Completed
+                                        </strong>
+                                        Receiver confirmation
+                                    </span>
+
+                                </h2>
+                            </div>
+                            <div id="accordion-default-content-4" class="govuk-accordion__section-content"
+                                aria-labelledby="accordion-default-heading-4">
+
+                    <!---------------------  CARRIER DETAILS ----------------------------------------------------->
+
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+
+                        <!------ Waste confirm check  ------>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste details correct
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Yes
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="receiver-confirm.html">
+                    Change<span class="govuk-visually-hidden">waste correct check</span>
+                  </a>
+                </dd> -->
+              </div>
+
+
+            <!------ Date waste received  ------>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date waste received
+              </dt>
+              <dd class="govuk-summary-list__value">
+                01 October 2023
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="receiver-confirm-date.html">
+                  Change<span class="govuk-visually-hidden">waste received date</span>
+                </a>
+              </dd> -->
+            </div>
+
+            </dl>
+
+
+      {% if data ['receiver-treatwaste-same'] == "yes" %}
+
+      <!---------------------  WASTE CONFIRMATION - ALL SAME TREATMENT ----------------------------------------------------->
+
+        <!---------- SUMMARY CARD ---------->
+
+        <!---------- CARD 1 (BATTERIES) ---------->
+
+        <div class="govuk-summary-card" id="ewc-card-1">
+          <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">EWC 20 01 33 <!-- {{ data['ewc-code'] }} --></h2>
+          <ul class="govuk-summary-card__actions">
+              <!-- <li class="govuk-summary-card__action"> 
+                  <a class="govuk-link" href="#">
+                  Remove<span class="govuk-visually-hidden">EWC code</span>
+                  </a>
+              </li> -->
+          </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste description
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      <!-- {{data['describe-waste']}} -->
+                      Car batteries
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">waste description</span>
+                      </a>
+                    </dd> -->
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste quantity
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">5000kg</p>
+                        <!-- {% if data ['waste-amount'] == "actual-kg" %}
+                        <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                        {% elseif data ['waste-amount'] == "estimate-kg" %}
+                        <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                        {% elseif data ['waste-amount'] == "actual-litre" %}
+                        <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
+                        </p>
+
+                        {% elseif data ['waste-amount'] == "estimate-litre" %}
+                        <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
+                            litres</p>
+
+                        {% elseif data ['waste-amount'] == "unknown" %}
+                        <p class="govuk-body">Unknown</p>
+                        {% endif %} -->
+                    </dd>
+                    <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="quantity">
+                            Change<span class="govuk-visually-hidden"> waste quantity</span>
+                        </a>
+                    </dd> -->
+                </div>
+  
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Recovery and disposal codes
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <b>R12</b> Exchange of wastes for submission to any other recovery operation numbered R1 to R10 (Sorting at recovery operations other than for R3 to R5)
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden">hazard codes</span>
+                      </a>
+                    </dd> -->
+                  </div>
+
+          </dl>
+          </div>
+      </div>
+
+      <!-- CARD 1 END -->
+
+      <!---------- CARD 2 (WEEE) ---------->
+
+      <div class="govuk-summary-card" id="ewc-card-1">
+        <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">EWC 20 01 35<!-- {{ data['ewc-code'] }} --></h2>
+        <ul class="govuk-summary-card__actions">
+            <!-- <li class="govuk-summary-card__action"> 
+                <a class="govuk-link" href="#">
+                Remove<span class="govuk-visually-hidden">EWC code</span>
+                </a>
+            </li> -->
+        </ul>
+        </div>
+
+        <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste description
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <!-- {{data['describe-waste-2']}} -->
+                    WEEE (fridges)
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">waste description</span>
+                    </a>
+                  </dd> -->
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste quantity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      <p class="govuk-body">750kg</p>
+                      <!-- {% if data ['waste-amount'] == "weight-actual-kg-2" %}
+                      <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-2'] }} kg</p>
+
+                      {% elseif data ['waste-amount'] == "estimate-kg" %}
+                      <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg-2'] }} kg</p>
+
+                      {% elseif data ['waste-amount'] == "actual-litre" %}
+                      <p class="govuk-body">Actual<br>{{ data['volume-actual-litres-2'] }} litres
+                      </p>
+
+                      {% elseif data ['waste-amount'] == "estimate-litre" %}
+                      <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres-2'] }}
+                          litres</p>
+
+                      {% elseif data ['waste-amount-2'] == "unknown" %}
+                      <p class="govuk-body">Unknown</p>
+                      {% endif %} -->
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="quantity">
+                          Change<span class="govuk-visually-hidden"> waste quantity</span>
+                      </a>
+                  </dd> -->
+              </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Recovery and disposal codes
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <b>R12</b> Exchange of wastes for submission to any other recovery operation numbered R1 to R10 (Sorting at recovery operations other than for R3 to R5)
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">hazard codes</span>
+                    </a>
+                  </dd> -->
+                </div>
+
+        </dl>
+        </div>
+    </div>
+    <!-- CARD 2 END -->
+
+    <!---------- CARD 3 (PAINT) ---------->
+
+    <div class="govuk-summary-card" id="ewc-card-1">
+      <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">EWC 20 01 28<!-- {{ data['ewc-code'] }} --></h2>
+      <ul class="govuk-summary-card__actions">
+          <!-- <li class="govuk-summary-card__action"> 
+              <a class="govuk-link" href="#">
+              Remove<span class="govuk-visually-hidden">EWC code</span>
+              </a>
+          </li> -->
+      </ul>
+      </div>
+
+      <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+
+              <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Waste description
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <!-- {{data['describe-waste']}} -->
+                  Paint
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden">waste description</span>
+                  </a>
+                </dd> -->
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste quantity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">100kg</p>
+                    <!-- {% if data ['waste-amount'] == "actual-kg" %}
+                    <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                    {% elseif data ['waste-amount'] == "estimate-kg" %}
+                    <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                    {% elseif data ['waste-amount'] == "actual-litre" %}
+                    <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
+                    </p>
+
+                    {% elseif data ['waste-amount'] == "estimate-litre" %}
+                    <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
+                        litres</p>
+
+                    {% elseif data ['waste-amount'] == "unknown" %}
+                    <p class="govuk-body">Unknown</p>
+                    {% endif %} -->
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="quantity">
+                        Change<span class="govuk-visually-hidden"> waste quantity</span>
+                    </a>
+                </dd> -->
+            </div>
+
+              <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Recovery and disposal codes
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <b>R12</b> Exchange of wastes for submission to any other recovery operation numbered R1 to R10 (Sorting at recovery operations other than for R3 to R5)
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden">hazard codes</span>
+                  </a>
+                </dd> -->
+              </div>
+
+      </dl>
+      </div>
+  </div>
+  <!-- CARD 3 END -->
+
+    <!---------------------  WASTE CONFIRMATION - ALL SAME END ----------------------------------------------------->
+
+    {% else %}
+
+    <!---------------------  WASTE CONFIRMATION - DIFFERENT ----------------------------------------------------->
+
+      <!---------- SUMMARY CARD ---------->
+
+      <!---------- CARD 1 (BATTERIES) ---------->
+
+      <div class="govuk-summary-card" id="ewc-card-1">
+        <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">EWC 20 01 33 <!-- {{ data['ewc-code'] }} --></h2>
+        <ul class="govuk-summary-card__actions">
+            <!-- <li class="govuk-summary-card__action"> 
+                <a class="govuk-link" href="#">
+                Remove<span class="govuk-visually-hidden">EWC code</span>
+                </a>
+            </li> -->
+        </ul>
+        </div>
+
+        <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste description
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <!-- {{data['describe-waste']}} -->
+                    Car batteries
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">waste description</span>
+                    </a>
+                  </dd> -->
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste quantity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      <p class="govuk-body">5000kg</p>
+                      <!-- {% if data ['waste-amount'] == "actual-kg" %}
+                      <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                      {% elseif data ['waste-amount'] == "estimate-kg" %}
+                      <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                      {% elseif data ['waste-amount'] == "actual-litre" %}
+                      <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
+                      </p>
+
+                      {% elseif data ['waste-amount'] == "estimate-litre" %}
+                      <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
+                          litres</p>
+
+                      {% elseif data ['waste-amount'] == "unknown" %}
+                      <p class="govuk-body">Unknown</p>
+                      {% endif %} -->
+                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="quantity">
+                          Change<span class="govuk-visually-hidden"> waste quantity</span>
+                      </a>
+                  </dd> -->
+              </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Recovery and disposal codes
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <!-- {{ data['RDcodes1'] }} -->
+                  <b>R03</b> Transfer activities for specific waste streams that are recovered but are NOT mixed waste streams.<br>
+                  <b>R04</b> Transfer activities for specific metallic waste streams that are recovered NOT mixed waste streams
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">hazard codes</span>
+                    </a>
+                  </dd> -->
+                </div>
+
+        </dl>
+        </div>
+    </div>
+
+    <!-- CARD 1 END -->
+
+    <!---------- CARD 2 (WEEE) ---------->
+
+    <div class="govuk-summary-card" id="ewc-card-1">
+      <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">EWC 20 01 35<!-- {{ data['ewc-code'] }} --></h2>
+      <ul class="govuk-summary-card__actions">
+          <!-- <li class="govuk-summary-card__action"> 
+              <a class="govuk-link" href="#">
+              Remove<span class="govuk-visually-hidden">EWC code</span>
+              </a>
+          </li> -->
+      </ul>
+      </div>
+
+      <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+
+              <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Waste description
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <!-- {{data['describe-waste-2']}} -->
+                  WEEE (fridges)
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden">waste description</span>
+                  </a>
+                </dd> -->
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste quantity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">750kg</p>
+                    <!-- {% if data ['waste-amount'] == "weight-actual-kg-2" %}
+                    <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-2'] }} kg</p>
+
+                    {% elseif data ['waste-amount'] == "estimate-kg" %}
+                    <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg-2'] }} kg</p>
+
+                    {% elseif data ['waste-amount'] == "actual-litre" %}
+                    <p class="govuk-body">Actual<br>{{ data['volume-actual-litres-2'] }} litres
+                    </p>
+
+                    {% elseif data ['waste-amount'] == "estimate-litre" %}
+                    <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres-2'] }}
+                        litres</p>
+
+                    {% elseif data ['waste-amount-2'] == "unknown" %}
+                    <p class="govuk-body">Unknown</p>
+                    {% endif %} -->
+                </dd>
+                <!--<dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="quantity">
+                        Change<span class="govuk-visually-hidden"> waste quantity</span>
+                    </a> 
+                </dd>-->
+            </div>
+
+              <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Recovery and disposal codes
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!-- {{ data['RDcodes2'] }} -->
+                <b>R03</b> Transfer activities for specific waste streams that are recovered but are NOT mixed waste streams.<br>
+                <b>R04</b> Transfer activities for specific metallic waste streams that are recovered NOT mixed waste streams
+              </dd>
+               <!--<dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden">hazard codes</span>
+                  </a> 
+                </dd>-->
+              </div>
+
+      </dl>
+      </div>
+  </div>
+  <!-- CARD 2 END -->
+
+  <!---------- CARD 3 (PAINT) ---------->
+
+  <div class="govuk-summary-card" id="ewc-card-1">
+    <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">EWC 20 01 28<!-- {{ data['ewc-code'] }} --></h2>
+    <ul class="govuk-summary-card__actions">
+        <!-- <li class="govuk-summary-card__action"> 
+            <a class="govuk-link" href="#">
+            Remove<span class="govuk-visually-hidden">EWC code</span>
+            </a>
+        </li> -->
+    </ul>
+    </div>
+
+    <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Waste description
+            </dt>
+            <dd class="govuk-summary-list__value">
+                <!-- {{data['describe-waste']}} -->
+                Paint
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden">waste description</span>
+                </a>
+              </dd> -->
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Waste quantity
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">100kg</p>
+                  <!-- {% if data ['waste-amount'] == "actual-kg" %}
+                  <p class="govuk-body">Actual<br>{{ data['weight-actual-kg'] }} kg</p>
+
+                  {% elseif data ['waste-amount'] == "estimate-kg" %}
+                  <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg'] }} kg</p>
+
+                  {% elseif data ['waste-amount'] == "actual-litre" %}
+                  <p class="govuk-body">Actual<br>{{ data['volume-actual-litres'] }} litres
+                  </p>
+
+                  {% elseif data ['waste-amount'] == "estimate-litre" %}
+                  <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres'] }}
+                      litres</p>
+
+                  {% elseif data ['waste-amount'] == "unknown" %}
+                  <p class="govuk-body">Unknown</p>
+                  {% endif %} -->
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="quantity">
+                      Change<span class="govuk-visually-hidden"> waste quantity</span>
+                  </a>
+              </dd> -->
+          </div>
+
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Recovery and disposal codes
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- {{ data['RDcodes3'] }} -->
+              <b>R02</b> Solvent reclamation/ regeneration by distillation (regeneration of spent solvents, reclamation from paint and varnishes etc)
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden">hazard codes</span>
+                </a>
+              </dd> -->
+            </div>
+
+    </dl>
+    </div>
+</div>
+<!-- CARD 3 END -->
+
+  <!---------------------  WASTE CONFIRMATION - DIFFERENT END ----------------------------------------------------->
+  {% endif %}
+     
+                    </dl>
+                    
+                    </div><!-- accordion module end -->
+
+                        <div class="govuk-!-padding-bottom-6"></div>
+      
+
+      <!------------ PAYMENT SECTION ------------> <!-- Removed for the time being until we know more (August 2023)-->
+<!-- 
+      <li class="govuk-!-font-weight-bold govuk-!-font-size-24">
+        <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="waste_details_status">
+            Not started
+        </strong>
+        <h2 class="govuk-heading-m">
+          Pay for a waste movement
+        </h2>
+        <p>
+          Enter payment details
+        </p>
+        <a class="govuk-body govuk-link" href="">Enter payment details for this waste movement</a>
+        <!-- tag 
+        <strong class="govuk-tag govuk-tag--grey">
+          cannot start yet
+        </strong>
+      </li> <!-- end of section
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
+
+
+        <div class="govuk-!-padding-bottom-8"></div>
+
+        <!----- LINK ----->
+        <p class="govuk-body">
+            <a href="completed-waste-movements.html" class="govuk-link">Return to completed waste records</a>
+          </p>
+
+    </div>
+
+    </div>
+</div>
+
+{% endblock %}

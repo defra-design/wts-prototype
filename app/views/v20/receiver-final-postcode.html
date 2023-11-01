@@ -1,0 +1,52 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <form method="post">
+
+          <h1 class="govuk-heading-l">Where will the waste be sent?</h1>
+
+          {{ govukInput ({
+            label: {
+              text: "Postcode"
+            },
+            id: "receiver-final-postcode",
+            name: "receiver-final_postcode",
+            value: data['receiver-final_postcode'],
+            classes: "govuk-input--width-10"
+          }) }}
+
+          {{ govukInput ({
+            label: {
+              text: "Building name or number (optional)"
+            },
+            id: "receiver-final-building",
+            name: "receiver-final-building",
+            value: data['receiver-final-building'],
+            classes: "govuk-input--width-10"
+          }) }}
+
+          
+
+          {{ govukButton({
+            text: 'Find address'
+          }) }}
+
+          <p>
+            <a href="receiver-final-address-manual">Enter address manually</a>
+          </p>
+
+          <p class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+            &#160;
+          </p>
+        </form>
+
+    </div>
+  </div>
+{% endblock %}

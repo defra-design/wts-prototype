@@ -1,0 +1,75 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+What is the source of the waste?
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="" method="post">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-heading-l">
+                    <span class="win-id govuk-caption-l">Producer and collection details</span>
+                    What is the source of the waste?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Household">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Household waste
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Commercial">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Commercial waste
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Industrial">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Industrial waste
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Fly-tipped">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    Fly-tipped waste
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="source-type" name="source-type" type="radio" value="Unknown">
+                  <label class="govuk-label govuk-radios__label" for="source-type">
+                    I do not know
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

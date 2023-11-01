@@ -1,0 +1,75 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+        <h1 class="govuk-heading-l">What are the waste carrier's contact details?</h1>
+
+        {{ govukInput({
+          label: {
+            text: 'Organisation name'
+          },
+          id: "carrier_orgname",
+          name: "carrier_orgname",
+          value: data['carrier_orgname']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Organisation contact person'
+          },
+          hint: {
+            text: "Full name"
+          },
+          id: "carrier-contact-person",
+          name: "carrier-contact-person",
+          value: data['carrier-contact-person']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Email address'
+          },
+          id: "carrier-email",
+          name: "carrier-email",
+          value: data['carrier-email']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Phone number'
+          },
+          id: "carrier-phone",
+          name: "carrier-phone",
+          value: data['carrier-phone'],
+          classes: "govuk-input--width-20"
+        }) }}
+
+        {{ govukInput({
+            label: {
+              text: "Fax number (optional)"
+            },
+            id: "carrier-fax",
+            name: "carrier-fax",
+            value: data['carrier-fax'],
+            classes: "govuk-input--width-20"
+          }) }}
+
+          <div class="govuk-!-padding-bottom-6"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

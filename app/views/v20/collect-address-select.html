@@ -1,0 +1,81 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form method="post">
+
+          <!-- RADIOS -->
+
+            <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    Select the waste collection address
+                </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="collect-address-select" name="collect-address-select" type="radio" value="a-nhampton">
+                    <label class="govuk-label govuk-radios__label" for="collect-address-select">
+                        Unit A, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="collect-address-select-2" name="collect-address-select" type="radio" value="b-nhampton">
+                    <label class="govuk-label govuk-radios__label" for="collect-address-select-2">
+                        Unit B, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="collect-address-select-3" name="collect-address-select" type="radio" value="c-nhampton">
+                    <label class="govuk-label govuk-radios__label" for="collect-address-select-3">
+                        Unit C, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="collect-address-select-4" name="collect-address-select" type="radio" value="d-nhampton">
+                    <label class="govuk-label govuk-radios__label" for="collect-address-select-4">
+                        Unit D, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="collect-address-select-5" name="collect-address-select" type="radio" value="e-nhampton">
+                    <label class="govuk-label govuk-radios__label" for="collect-address-select-5">
+                        Unit E, Anchor House, Northampton, NN3 8HU, England
+                    </label>
+                </div>
+                </div>
+            </fieldset>
+            </div>
+
+            <p>
+                <a href="collect-address-manual">Enter address manually</a>
+              </p>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

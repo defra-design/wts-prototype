@@ -1,0 +1,137 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+    Where was the waste produced? commercial waste
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form class="form" action="" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="win-id govuk-caption-l">Producer and collection details</span>
+            <h1 class="govuk-fieldset__heading">
+              Where was the waste produced?
+            </h1>
+          </legend>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <h2 class="govuk-heading-m">
+            Commercial waste
+          </h2>
+          <hr class="govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-commercial" name="waste-source-commercial" type="radio" value="commercial-1">
+              <label class="govuk-label govuk-radios__label" for="waste-source-commercial">
+                Domestic property used in the course of a business for the provision of self-catering accommodation
+              </label>
+            </div>
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-commercial-2" name="waste-source-commercial" type="radio" value="commercial-2">
+              <label class="govuk-label govuk-radios__label" for="waste-source-commercial-2">
+                A caravan that is either used in the course of a business for the provision of self-catering accommodation, or which is not allowed to be used for human habitation throughout the year
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-commercial-3" name="waste-source-commercial" type="radio" value="commercial-3">
+              <label class="govuk-label govuk-radios__label" for="waste-source-commercial-3">
+                Premises occupied by a charity and wholly or mainly used for charitable purposes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-4">
+              <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                A camp site or a tent pitched on land other than a camp site              
+            </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-5">
+              <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                A royal palace              
+            </label>
+            </div>
+
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-6">
+                <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                Premises occupied by a club, society or any association of persons in which activities are conducted for the benefit of the members              
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-7">
+                <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                    Premises occupied by a court, government department, local authority, a person appointed by or under any enactment to discharge public functions, or a body incorporated by Royal Charter              
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-8">
+                <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                    A hotel              
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-9">
+                <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                    Any part of a composite hereditament used for the purposes of a trade or business             
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-10">
+                <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                    A market or fair             
+              </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="waste-source-commercial-4" name="waste-source-commercial" type="radio" value="commercial-11">
+                <label class="govuk-label govuk-radios__label" for="waste-source-commercial-4">
+                    The practice of a general medical practitioner          
+              </label>
+              </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="waste-source-commercial-6" name="waste-source-commercial" type="radio" value="commercial-none">
+              <label class="govuk-label govuk-radios__label" for="waste-source-commercial-6">
+                None of the above
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        <!----- BUTTONS ----->
+        <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+            
+            {{ govukButton({
+            text: "Save and return to draft",
+            classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
