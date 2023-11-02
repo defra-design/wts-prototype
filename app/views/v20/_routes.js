@@ -522,12 +522,33 @@ router.get('/setup-win', function (req, res) {
 })
 
 
- // ------- UNIQUE REFERENCE NUMBER
+//------------------------------------------------------//
+
+// CHOOSE PROTOTYPE ROUTE
+  router.post('/journey-select', function(req, res) {
+    if (req.session.data['prototype-route'] == 'producer') {
+        res.redirect('index-start');
+    } else if (req.session.data['prototype-route'] == 'carrier') {
+        res.redirect('index-start');
+    } else if (req.session.data['prototype-route'] == 'receiver') {
+        res.redirect('index-start');
+    }
+  })
+
+
+// ------- GOV GATEWAY SIGNIN
+  router.post('/gov-gateway-signin', function(req, res) {
+    res.redirect('index-homepage')
+  })
+
+
+ // ------- WASTE ROLE SELECT 
   router.post('/waste-role-multiple', function(req, res) {
     res.redirect('unique-reference');
   });
   
-// ------- WASTE ROLE SELECT
+
+// ------- UNIQUE REFERENCE NUMBER
   router.post('/unique-reference', function(req, res) {
     res.redirect('start-waste-record');
   });
@@ -587,21 +608,6 @@ router.post('/waste-info-note', function(req, res) {
     }
   })
  */
-
-
-// CHOOSE PROTOTYPE ROUTE
-router.post('/index', function(req, res) {
-  if (req.session.data['prototype-route'] == 'include') {
-      res.redirect('index-start-dcid');
-  } else if (req.session.data['prototype-route'] == 'skip') {
-          res.redirect('index-start');
-  }
-  })
-
-// GOV GATEWAY SIGNIN
-router.post('/gov-gateway-signin', function(req, res) {
-  res.redirect('index-homepage')
-})
 
 
 // --------------------------------------------------------------------------------------------------------
@@ -1329,7 +1335,7 @@ router.post('/producer-transport-select', function(req, res) {
 //--- CONFIRM CARRIER
 router.post('/carrier-prepopulate', function(req, res) {
   if (req.session.data['carrier-details-preprop'] == 'Yes') {
-      res.redirect('check-answers-carrier');
+      res.redirect('carrier-confirm-date');
   } else if (req.session.data['carrier-details-preprop'] == 'No') {
           res.redirect('carrier-contact');
   }  
@@ -1358,11 +1364,17 @@ router.post('/carrier-address-select', function(req, res) {
 
 //--- CARRIER ADDRESS CHECK
 router.post('/carrier-address-check', function(req, res) {
-  res.redirect('check-answers-carrier');
+  res.redirect('carrier-confirm-date');
 })
 
 //--- CARRIER ADDRESS ENTER MANUALLY
 router.post('/carrier-address-manual', function(req, res) {
+  res.redirect('check-answers-carrier');
+})
+
+
+//--- CARRIER COLLECTION DATE
+router.post('/carrier-confirm-date', function(req, res) {
   res.redirect('check-answers-carrier');
 })
 
