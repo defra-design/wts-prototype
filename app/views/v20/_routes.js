@@ -1161,12 +1161,17 @@ router.post('/check-answers-receiver', function(req, res) {
 
 //--- RECEIVER SECTION COMPLETE
 router.post('/waste-record-receiver-complete', function(req, res) {
-  res.redirect('waste-record-submitted');
+  res.redirect('waste-record-submitted-success');
+})
+
+//--- RECEIVER SECTION COMPLETE 2 *** hard coded entries to jump sections ***
+router.post('/waste-record-receiver-prepopulated', function(req, res) {
+  res.redirect('waste-record-submitted-success');
 })
 
 //--- CARRIER SECTION COMPLETE
 router.post('/waste-record-carrier-complete', function(req, res) {
-  res.redirect('waste-record-submitted');
+  res.redirect('waste-record-updated-success');
 })
 
 

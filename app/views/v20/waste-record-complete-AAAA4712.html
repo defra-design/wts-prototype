@@ -167,7 +167,6 @@ Waste record - Reciever section complete
                     <dd class="govuk-summary-list__value">
                         HP8: Corrosive<br>
                         HP14: Ecotoxic<br>
-                        HP15: POPs<br>  
                       <!-- {{data['haz_codes']}} -->
                     </dd>
                     <!-- <dd class="govuk-summary-list__actions">
@@ -182,12 +181,9 @@ Waste record - Reciever section complete
                         POPs details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                    {% if data ['pop-check'] == "yes" %}
-                      <p class="govuk-body"><br>{{data['pops']}}</p>
-  
-                      {% elseif data ['pop-check'] == "no" %}
+
                       <p class="govuk-body">None</p>
-                    {% endif %}
+
                     </dd>
                     <!-- <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -284,7 +280,6 @@ Waste record - Reciever section complete
                     <dd class="govuk-summary-list__value">
                         HP8: Corrosive<br>
                         HP14: Ecotoxic<br>
-                        HP15: POPs<br>  
                       <!-- {{data['haz_codes-2']}} -->
                     </dd>
                     <!-- <dd class="govuk-summary-list__actions">
@@ -299,12 +294,9 @@ Waste record - Reciever section complete
                         POPs details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {% if data ['pop-check-2'] == "yes" %}
-                      <p class="govuk-body"><br>{{data['pops-2']}}</p>
-  
-                      {% elseif data ['pop-check-2'] == "no" %}
+
                       <p class="govuk-body">None</p>
-                    {% endif %}
+
                     </dd>
                     <!-- <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">

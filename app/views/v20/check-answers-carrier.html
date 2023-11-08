@@ -34,7 +34,7 @@ Check your answers - Carrier details
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden">Organisation name</span>
+                  Change<span class="govuk-visually-hidden"> organisation name</span>
                 </a>
               </dd>
             </div>
@@ -54,7 +54,7 @@ Check your answers - Carrier details
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Carrier address</span>
+                    Change<span class="govuk-visually-hidden"> carrier address</span>
                   </a>
                 </dd>
               </div>
@@ -71,7 +71,7 @@ Check your answers - Carrier details
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden">Contact person</span>
+                  Change<span class="govuk-visually-hidden"> contact person</span>
                 </a>
               </dd>
             </div>
@@ -88,7 +88,7 @@ Check your answers - Carrier details
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Contact email</span>
+                    Change<span class="govuk-visually-hidden"> contact email</span>
                   </a>
                 </dd>
               </div>
@@ -105,7 +105,7 @@ Check your answers - Carrier details
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">Contact phone</span>
+                    Change<span class="govuk-visually-hidden"> contact phone</span>
                   </a>
                 </dd>
               </div>
@@ -121,24 +121,39 @@ Check your answers - Carrier details
                   <p class="govuk-body">{{ data['carrier-regnum'] }}</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden">carrier registration</span>
+                  <a class="govuk-link" href=""> 
+                    Change<span class="govuk-visually-hidden"> carrier registration</span>
                   </a>
                 </dd>
               </div>
 
-              <!------ Collection date  ------>
+            <!------ Collection date  ------>
 
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Waste collection date
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">{{ data['date-collected'] }}</p>
+                {% if data ['date-collected'] == "today" %} 
+                <script>
+                  const event = new Date();
+                  const options = { year: 'numeric', month: 'long'};
+                </script>
+                <p class="govuk-body"><script type="text/javascript"> document.write(event.getDate());</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+
+                {% elseif data ['date-collected'] == "yesterday" %}
+                <p class="govuk-body"><script type="text/javascript"> document.write(event.getDate()-1);</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+
+                {% elseif data ['date-collected'] == "differentDay" %}
+                <p class="govuk-body">{{ data['collected-date-day'] }} {{ data['collected-date-month'] }} {{ data['collected-date-year'] }}</p>
+
+                {% elseif data ['date-collected'] == "notCollected" %}
+                <p class="govuk-body">Not yet collected</p>
+                {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden">Collection date</span>
+                <a class="govuk-link" href="receiver-confirm-date.html">
+                  Change<span class="govuk-visually-hidden"> waste collected date</span>
                 </a>
               </dd>
             </div>
