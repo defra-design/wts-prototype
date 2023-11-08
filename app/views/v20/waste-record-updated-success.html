@@ -1,0 +1,37 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+Waste record updated
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- PANEL -->
+      
+        {{ govukPanel({
+          titleText: "Waste record updated",
+          html: "Waste record number<br> <strong>AAAA-4712</strong>"
+        }) }}
+
+        <!-- DETAILS -->
+        <div class="govuk-!-padding-bottom-4"></div>
+  
+          <p class="govuk-body">You have updated the waste record with your carrier details and confirmed collection of the waste.</p>
+
+        <!-- LINKS -->
+  
+        <p class="govuk-body govuk-!-padding-top-6">
+          <a href="update-confirm-collection.html" class="govuk-link">Update another waste record</a>
+        </p>
+
+        <p class="govuk-body govuk-!-padding-top-3">
+          <a href="index-homepage.html" class="govuk-link">Return to your account home screen</a>
+        </p>
+
+    </div>
+  </div>
+
+{% endblock %}
