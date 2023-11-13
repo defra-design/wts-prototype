@@ -1141,7 +1141,7 @@ router.post('/check-answers-producer', function(req, res) {
 //--- CHECK ANSWERS (CARRIER DETAILS)
 router.post('/check-answers-carrier', function(req, res) {
   if (req.session.data['section-carrier-complete'] == 'Yes') {
-      res.redirect('waste-record-carrier-complete');
+      res.redirect('waste-record-carrier-prepopulated');
   } else if (req.session.data['section-carrier-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
@@ -2238,11 +2238,11 @@ router.post('/receiver-treatment-same', function(req, res) {
 
 //--- WASTE CONFIRM CHECK ANSWERS
 router.post('/check-answers-receiverconfirm', function(req, res) {
-  res.redirect('waste-record-receiverconfirm-complete');
+  res.redirect('waste-record-receiverconfirm-prepopulated');
 })
 
 //--- WASTE RECORD COMPLETE CONFIRMATION
-router.post('/waste-record-receiverconfirm-complete', function(req, res) {
+router.post('/waste-record-receiverconfirm-prepopulated', function(req, res) {
   res.redirect('waste-record-complete-success');
 })
 

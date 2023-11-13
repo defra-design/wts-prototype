@@ -136,13 +136,13 @@ Check your answers - Carrier details
               <dd class="govuk-summary-list__value">
                 {% if data ['date-collected'] == "today" %} 
                 <script>
-                  const event = new Date();
-                  const options = { year: 'numeric', month: 'long'};
+                  const CollectEvent = new Date();
+                  const CollectOptions = { year: 'numeric', month: 'long'};
                 </script>
-                <p class="govuk-body"><script type="text/javascript"> document.write(event.getDate());</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+                <p class="govuk-body"><script type="text/javascript"> document.write(CollectEvent.getDate());</script> <script type="text/javascript"> document.write(CollectEvent.toLocaleDateString(undefined, CollectOptions));</script></p>
 
                 {% elseif data ['date-collected'] == "yesterday" %}
-                <p class="govuk-body"><script type="text/javascript"> document.write(event.getDate()-1);</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+                <p class="govuk-body"><script type="text/javascript"> document.write(CollectEvent.getDate()-1);</script> <script type="text/javascript"> document.write(CollectEvent.toLocaleDateString(undefined, CollectOptions));</script></p>
 
                 {% elseif data ['date-collected'] == "differentDay" %}
                 <p class="govuk-body">{{ data['collected-date-day'] }} {{ data['collected-date-month'] }} {{ data['collected-date-year'] }}</p>
@@ -152,7 +152,7 @@ Check your answers - Carrier details
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="receiver-confirm-date.html">
+                <a class="govuk-link" href="carrier-confirm-date.html">
                   Change<span class="govuk-visually-hidden"> waste collected date</span>
                 </a>
               </dd>

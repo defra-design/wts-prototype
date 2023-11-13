@@ -42,6 +42,9 @@ View in progress waste records
         Completed waste records
     </h1>
 
+  {% if data ['prototype-route'] == "receiver"%}
+  <!---------- SUMMARY TABLE #1 ---------->
+
     <table class="govuk-table" data-module="moj-sortable-table">
 
       <thead class="govuk-table__head">
@@ -53,11 +56,7 @@ View in progress waste records
         </tr>
       </thead>
 
-      <!---------- SUMMARY TABLE #1 ---------->
-
-
             <tbody class="govuk-table__body">
-
 
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">AAAA-4712</td>
@@ -85,6 +84,48 @@ View in progress waste records
 
       </tbody>
     </table>
+
+    <!---------- SUMMARY TABLE #1 END ---------->
+
+    {% else %}
+
+    <!---------- SUMMARY TABLE #2 ---------->
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" >Waste record number</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Created</th>
+          <th scope="col" class="govuk-table__header" >Waste description</th>
+          <th scope="col" class="govuk-table__header" >Action</th>
+        </tr>
+      </thead>
+
+            <tbody class="govuk-table__body">
+
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">AAAA-4625</td>
+      <td class="govuk-table__cell" data-sort-value="12">04 Aug 2023</td>
+      <td class="govuk-table__cell">WEEE computer components</td>
+      <td class="govuk-table__cell"><a href="">View details</a>
+
+      </tr>
+
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">AAAA-4545</td>
+      <td class="govuk-table__cell" data-sort-value="29">30 July 2023</td>
+      <td class="govuk-table__cell">Skip for household waste</td>
+      <td class="govuk-table__cell"><a href="">View details</a>
+
+      </tr>
+
+      </tbody>
+    </table>
+
+    <!---------- SUMMARY TABLE #1 END ---------->
+
+    {% endif %}
 
     <div class="govuk-button-group">
       <a href="home-move-waste-uk.html">Return to UK waste homepage</a>
