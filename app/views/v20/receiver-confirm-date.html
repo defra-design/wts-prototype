@@ -26,21 +26,21 @@
                 </label>
                 <div id="date-item-hint" class="govuk-hint govuk-radios__hint"><!-- dynamic date that should read the current date from the computer -->
                   <script>
-                    const event = new Date();
-                    const options = { year: 'numeric', month: 'long'};
+                    const ReceiveEvent = new Date();
+                    const ReceiveOptions = { year: 'numeric', month: 'long'};
                   </script>
 
-                  <p class="govuk-hint"><script type="text/javascript"> document.write(event.getDate());</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+                  <p class="govuk-hint"><script type="text/javascript"> document.write(ReceiveEvent.getDate());</script> <script type="text/javascript"> document.write(ReceiveEvent.toLocaleDateString(undefined, ReceiveOptions));</script></p>
                 </div>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="date-received-2" name="date-received" type="radio" value="yesterday">
+                <input class="govuk-radios__input" id="date-received-2" name="date-received" type="radio" value="today-1">
                 <label class="govuk-label govuk-radios__label" for="date-received-2">
                   Yesterday
                 </label>
                 <div id="date-2-item-hint" class="govuk-hint govuk-radios__hint"><!-- dynamic date that should read the current date then minus 1 to show yesterdays date -->
-                  <p class="govuk-hint"><script type="text/javascript"> document.write(event.getDate()-1);</script> <script type="text/javascript"> document.write(event.toLocaleDateString(undefined, options));</script></p>
+                  <p class="govuk-hint"><script type="text/javascript"> document.write(ReceiveEvent.getDate()-1);</script> <script type="text/javascript"> document.write(ReceiveEvent.toLocaleDateString(undefined, ReceiveOptions));</script></p>
                 </div>
               </div>
 
