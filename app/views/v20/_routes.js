@@ -1114,7 +1114,7 @@ router.post('/quantity-volume-estimate-litre-3', function(req, res) {
 //--- CHECK ANSWERS (ABOUT WASTE)
 router.post('/check-answers-aboutwaste', function(req, res) {
   if (req.session.data['section-aboutwaste-complete'] == 'Yes') {
-      res.redirect('waste-record-aboutwaste-complete');
+      res.redirect('waste-record-aboutwaste-prepopulated');
   } else if (req.session.data['section-aboutwaste-complete'] == 'No') {
           res.redirect('start-waste-record');
   }  
@@ -1170,7 +1170,7 @@ router.post('/waste-record-receiver-prepopulated', function(req, res) {
 })
 
 //--- CARRIER SECTION COMPLETE
-router.post('/waste-record-carrier-complete', function(req, res) {
+router.post('/waste-record-carrier-prepopulated', function(req, res) {
   res.redirect('waste-record-updated-success');
 })
 
@@ -1425,12 +1425,12 @@ router.post('/receiver-exemption', function(req, res) {
 
 //--- RECEIVER POSTCODE LOOKUP
 router.post('/receiver-postcode', function(req, res) {
-  res.redirect('receiver-address-select');
+  res.redirect('receiver-address-select-2'); //----- added '-2' to the url for alpha
 })
 
 //--- RECEIVER ADDRESS SELECT
-router.post('/receiver-address-select', function(req, res) {
-  res.redirect('receiver-address-check');
+router.post('/receiver-address-select-2', function(req, res) { //----- added '-2' to the url for alpha
+  res.redirect('receiver-address-check-2'); //----- added '-2' to the url for alpha
 })
 
 //--- RECEIVER ADDRESS ENTER MANUALLY
@@ -1440,9 +1440,9 @@ router.post('/receiver-address-manual', function(req, res) {
 
 
 //--- FINAL DESTINATION SAME AS RECEIVER - MANUAL
-router.post('/receiver-address-check', function(req, res) {
+router.post('/receiver-address-check-2', function(req, res) {
   if (req.session.data['receiver-final-same2'] == 'Yes') {
-      res.redirect('check-answers-reciever');
+      res.redirect('check-answers-receiver');
   } else if (req.session.data['receiver-final-same2'] == 'No') {
           res.redirect('receiver-final-postcode');
   }  

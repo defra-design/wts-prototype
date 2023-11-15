@@ -143,6 +143,8 @@ Check your answers - initial information
           </div>
       </div>
 
+      <!---------- CARD 1 END ---------->
+
       <!---------- CARD 2 ---------->
 
       <div class="govuk-summary-card" id="ewc-card-1">
@@ -253,6 +255,123 @@ Check your answers - initial information
           </dl>
           </div>
       </div>
+
+      <!---------- CARD 2 END ---------->
+
+      <!---------- CARD 3 ---------->
+
+      <div class="govuk-summary-card" id="ewc-card-1">
+        <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">EWC {{ data['ewc-code-3'] }}</h2>
+        <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action"> 
+                <a class="govuk-link" href="#">
+                Remove<span class="govuk-visually-hidden">EWC code</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+
+        <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Waste description
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['describe-waste-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">waste description</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Physical form
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['physical_form-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">physcial form</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Waste quantity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                      <p class="govuk-body">
+                      {% if data ['waste-amount-3'] == "actual-kg" %}
+                      <p class="govuk-body">Actual<br>{{ data['weight-actual-kg-3'] }} kg</p>
+
+                      {% elseif data ['waste-amount-3'] == "estimate-kg" %}
+                      <p class="govuk-body">Estimate<br>{{ data['weight-estimate-kg-3'] }} kg</p>
+
+                      {% elseif data ['waste-amount-3'] == "actual-litre" %}
+                      <p class="govuk-body">Actual<br>{{ data['volume-actual-litres-3'] }} litres
+                      </p>
+
+                      {% elseif data ['waste-amount-3'] == "estimate-litre" %}
+                      <p class="govuk-body">Estimate<br>{{ data['volume-estimate-litres-3'] }}
+                          litres</p>
+
+                      {% elseif data ['waste-amount-3'] == "unknown" %}
+                      <p class="govuk-body">Unknown</p>
+                      {% endif %}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="quantity">
+                          Change<span class="govuk-visually-hidden"> waste quantity</span>
+                      </a>
+                  </dd>
+              </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hazardous codes
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['haz_codes-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">hazard codes</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    POPs details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if data ['pop-check-3'] == "yes" %}
+                  <p class="govuk-body"><br>{{data['pops']}}</p>
+
+                  {% elseif data ['pop-check-3'] == "no" %}
+                  <p class="govuk-body">None</p>
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden">POPs details</span>
+                    </a>
+                  </dd>
+                </div>  
+
+        </dl>
+        </div>
+    </div>
+
+    <!---------- CARD 3 END ---------->
 
         <!------ Waste containers  ------>
 
