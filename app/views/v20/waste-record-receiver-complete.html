@@ -331,6 +331,98 @@ Waste record - Reciever section complete
             </div>
         </div>
 
+        <!---------- CARD 3 ---------->
+
+        <div class="govuk-summary-card" id="ewc-card-1">
+            <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">EWC 20 01 28</h2>
+            <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action"> 
+                    <a class="govuk-link" href="#">
+                    Remove<span class="govuk-visually-hidden">EWC 20 01 28</span>
+                    </a>
+                </li>
+            </ul>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Waste description
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Paint
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">waste description</span>
+                        </a>
+                      </dd>
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Physical form
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Liquid
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">physcial form</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Waste quantity
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          <p class="govuk-body">Estimate<br>100 kg</p>
+
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="quantity">
+                              Change<span class="govuk-visually-hidden"> waste quantity</span>
+                          </a>
+                      </dd>
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hazardous codes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        None
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">hazard codes</span>
+                        </a>
+                      </dd>
+                    </div>
+    
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        POPs details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        None
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden">POPs details</span>
+                        </a>
+                      </dd>
+                    </div>  
+
+            </dl>
+            </div>
+        </div>
+
                     <!------ Waste containers  ------>
 
                     <dl class="govuk-summary-list">
@@ -595,7 +687,7 @@ Waste record - Reciever section complete
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <p class="govuk-body">Waste Receivers Ltd</p>
-                                <p class="govuk-body">{{ data['receiver_orgname'] }}</p>
+                                <!-- <p class="govuk-body">{{ data['receiver_orgname'] }}</p> -->
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="">
@@ -631,7 +723,7 @@ Waste record - Reciever section complete
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <p class="govuk-body">Maria Fontaine</p>
-                                <p class="govuk-body">{{ data['receiver-contact-person'] }}</p>
+                                <!-- <p class="govuk-body">{{ data['receiver-contact-person'] }}</p> -->
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="">
@@ -648,7 +740,7 @@ Waste record - Reciever section complete
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                 <p class="govuk-body">mfontaine@wastereceivers.com</p>
-                                <p class="govuk-body">{{ data['receiver-email'] }}</p>
+                                <!-- <p class="govuk-body">{{ data['receiver-email'] }}</p> -->
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="">
@@ -665,7 +757,7 @@ Waste record - Reciever section complete
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                 <p class="govuk-body">07123 456789</p>
-                                <p class="govuk-body">{{ data['receiver-phone'] }}</p>
+                                <!-- <p class="govuk-body">{{ data['receiver-phone'] }}</p> -->
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="">
@@ -682,7 +774,7 @@ Waste record - Reciever section complete
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                 <p class="govuk-body">XXXXXXXXXXXXX<br>
-                                <p class="govuk-body">{{ data['receiver-permitnum'] }}</p>
+                                <!-- <p class="govuk-body">{{ data['receiver-permitnum'] }}</p> -->
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="">
@@ -699,7 +791,7 @@ Waste record - Reciever section complete
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                 <p class="govuk-body">XXXXXXXXXXXXX<br>
-                                <p class="govuk-body">{{ data['receiver-exemptnum'] }}</p>
+                                <!-- <p class="govuk-body">{{ data['receiver-exemptnum'] }}</p> -->
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="">
@@ -735,6 +827,9 @@ Waste record - Reciever section complete
                         <h2 class="govuk-heading-m">
                             Next steps
                         </h2>
+
+                        <p class="govuk-body">You can now submit this waste record.</p>
+
                         <hr class="govuk-section-break--l govuk-section-break--visible">
 
                          <!------------ CARRIER SECTION ------------>
